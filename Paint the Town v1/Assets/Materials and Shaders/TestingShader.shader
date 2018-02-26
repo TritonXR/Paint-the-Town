@@ -3,9 +3,6 @@
 	Properties
 	{
 		_MainTex ("Texture", 2D) = "white" {}
-		//_Red ("Red", Range(0,1)) = 0.0
-		//_Green ("Green", Range(0,1)) = 0.0
-		//_Blue ("Blue", Range(0,1)) = 0.0
 
 		_Red("Red", 2D) = "black" {}
 		_Green("Green", 2D) = "black2" {}
@@ -57,15 +54,10 @@
 				o.ambient = ShadeSH9(half4(worldNormal, 1));
 				TRANSFER_SHADOW(o);
 
-				//TRANSFER_VERTEX_TO_FRAGMENT(o);
 				return o;
 			}
 			
 			sampler2D _MainTex;
-
-			//float _Red;
-			//float _Green;
-			//float _Blue;
 
 			sampler2D _Red;
 			sampler2D _Green;
@@ -78,10 +70,6 @@
 				fixed4 daRed = tex2D(_Red, i.uv);
 				fixed4 daBlue = tex2D(_Blue, i.uv);
 				fixed4 daGreen = tex2D(_Green, i.uv);
-
-				//float sumrgb = (_Red + _Green + _Blue) / 3.0;
-				//float4 white = float4(1.0, 1.0, 1.0, 1.0);
-				//col = (1 - sumrgb) * white + (sumrgb * float4(_Red * col.r, _Green * col.g, _Blue * col.b, col.a));
 
 				float sumrgb = (daRed.r + daGreen.g + daBlue.b) / 3.0;
 				float4 white = float4(1.0, 1.0, 1.0, 1.0);
