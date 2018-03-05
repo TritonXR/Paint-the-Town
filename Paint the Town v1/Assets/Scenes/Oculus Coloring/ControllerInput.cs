@@ -5,6 +5,7 @@ using UnityEngine;
 //TODO: upon creating rooms/characters, have each InputManager object have this script attached, but each object has a different tag
 //troubleshooting tips: make sure whatever is being colored has the Colorable script attached to it; make sure InputManager is tagged as PlayerRed, PlayerBlue, or PlayerGreen
 //make sure InputManager has ControllerInput.cs attached to it; make sure colored object's material is using the shader Custom/TestingShader
+//to get hand models, just add the LocalAvatar Prefab from Assets/OvrAvatar/Content/Prefabs
 
 public class ControllerInput : MonoBehaviour
 {
