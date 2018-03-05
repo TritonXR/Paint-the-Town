@@ -1,0 +1,241 @@
+fileFormatVersion: 2
+guid: 3d369300939814051853ac0c2a635413
+timeCreated: 1520277226
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: BathroomDoor
+    100002: BathroomMoulding
+    100004: BathroomWindow
+    100006: BedroomMoulding
+    100008: BedroomWindow
+    100010: Ceilings
+    100012: DiningRoomMoulding
+    100014: DiningWindowsFrame
+    100016: DiningWindowsGlass
+    100018: DoorFrame
+    100020: Fireplace
+    100022: FireplaceMantle
+    100024: Floor
+    100026: Fridge
+    100028: FrontDoor
+    100030: KitchenBar
+    100032: KitchenCabinet
+    100034: KitchenCounterFace
+    100036: KitchenCounterTop
+    100038: KitchenFaucet
+    100040: KitchenSink
+    100042: LivingRoomMoulding
+    100044: LivingRoomWindowsFrames
+    100046: LivingRoomWindowsGlass
+    100048: Plane
+    100050: //RootNode
+    100052: StorageDoor
+    100054: StorageDoor_001
+    100056: Stove
+    100058: StoveHood
+    100060: Walls
+    100062: WindowSeatCushion
+    100064: WindowSeatWood
+    400000: BathroomDoor
+    400002: BathroomMoulding
+    400004: BathroomWindow
+    400006: BedroomMoulding
+    400008: BedroomWindow
+    400010: Ceilings
+    400012: DiningRoomMoulding
+    400014: DiningWindowsFrame
+    400016: DiningWindowsGlass
+    400018: DoorFrame
+    400020: Fireplace
+    400022: FireplaceMantle
+    400024: Floor
+    400026: Fridge
+    400028: FrontDoor
+    400030: KitchenBar
+    400032: KitchenCabinet
+    400034: KitchenCounterFace
+    400036: KitchenCounterTop
+    400038: KitchenFaucet
+    400040: KitchenSink
+    400042: LivingRoomMoulding
+    400044: LivingRoomWindowsFrames
+    400046: LivingRoomWindowsGlass
+    400048: Plane
+    400050: //RootNode
+    400052: StorageDoor
+    400054: StorageDoor_001
+    400056: Stove
+    400058: StoveHood
+    400060: Walls
+    400062: WindowSeatCushion
+    400064: WindowSeatWood
+    2300000: BathroomDoor
+    2300002: BathroomMoulding
+    2300004: BathroomWindow
+    2300006: BedroomMoulding
+    2300008: BedroomWindow
+    2300010: Ceilings
+    2300012: DiningRoomMoulding
+    2300014: DiningWindowsFrame
+    2300016: DiningWindowsGlass
+    2300018: DoorFrame
+    2300020: Fireplace
+    2300022: FireplaceMantle
+    2300024: Floor
+    2300026: Fridge
+    2300028: FrontDoor
+    2300030: KitchenBar
+    2300032: KitchenCabinet
+    2300034: KitchenCounterFace
+    2300036: KitchenCounterTop
+    2300038: KitchenFaucet
+    2300040: KitchenSink
+    2300042: LivingRoomMoulding
+    2300044: LivingRoomWindowsFrames
+    2300046: LivingRoomWindowsGlass
+    2300048: Plane
+    2300050: StorageDoor
+    2300052: StorageDoor_001
+    2300054: Stove
+    2300056: StoveHood
+    2300058: Walls
+    2300060: WindowSeatCushion
+    2300062: WindowSeatWood
+    3300000: BathroomDoor
+    3300002: BathroomMoulding
+    3300004: BathroomWindow
+    3300006: BedroomMoulding
+    3300008: BedroomWindow
+    3300010: Ceilings
+    3300012: DiningRoomMoulding
+    3300014: DiningWindowsFrame
+    3300016: DiningWindowsGlass
+    3300018: DoorFrame
+    3300020: Fireplace
+    3300022: FireplaceMantle
+    3300024: Floor
+    3300026: Fridge
+    3300028: FrontDoor
+    3300030: KitchenBar
+    3300032: KitchenCabinet
+    3300034: KitchenCounterFace
+    3300036: KitchenCounterTop
+    3300038: KitchenFaucet
+    3300040: KitchenSink
+    3300042: LivingRoomMoulding
+    3300044: LivingRoomWindowsFrames
+    3300046: LivingRoomWindowsGlass
+    3300048: Plane
+    3300050: StorageDoor
+    3300052: StorageDoor_001
+    3300054: Stove
+    3300056: StoveHood
+    3300058: Walls
+    3300060: WindowSeatCushion
+    3300062: WindowSeatWood
+    4300000: DiningWindowsGlass
+    4300002: LivingRoomWindowsGlass
+    4300004: FireplaceMantle
+    4300006: WindowSeatWood
+    4300008: KitchenCounterTop
+    4300010: KitchenFaucet
+    4300012: KitchenSink
+    4300014: StoveHood
+    4300016: Stove
+    4300018: KitchenCabinet
+    4300020: Fridge
+    4300022: KitchenCounterFace
+    4300024: StorageDoor_001
+    4300026: BedroomWindow
+    4300028: Fireplace
+    4300030: Plane
+    4300032: KitchenBar
+    4300034: WindowSeatCushion
+    4300036: DiningRoomMoulding
+    4300038: LivingRoomMoulding
+    4300040: DoorFrame
+    4300042: BathroomWindow
+    4300044: LivingRoomWindowsFrames
+    4300046: DiningWindowsFrame
+    4300048: Ceilings
+    4300050: Walls
+    4300052: Floor
+    4300054: FrontDoor
+    4300056: BathroomDoor
+    4300058: StorageDoor
+    4300060: BedroomMoulding
+    4300062: BathroomMoulding
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
