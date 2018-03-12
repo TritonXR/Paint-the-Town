@@ -22,8 +22,10 @@ public class PlayerScript : NetworkBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-        if (!isLocalPlayer) {
+    void Update()
+    {
+        if (!isLocalPlayer)
+        {
             OVRInput.Update();
             test = OVRInput.IsControllerConnected(OVRInput.Controller.RTrackedRemote).ToString();
             Vector2 moveInput = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick);
@@ -41,18 +43,7 @@ public class PlayerScript : NetworkBehaviour {
                 Physics.Raycast()
             } */
         }
-        
-	}
 
-    Vector3 SampleCurve(Vector3 start, Vector3 end, Vector3 control, float t)
-    {
-        // Interpolate along line S0: control - start;
-        Vector3 Q0 = Vector3.Lerp(start, control, t);
-        // Interpolate along line S1: S1 = end - control;
-        Vector3 Q1 = Vector3.Lerp(control, end, t);
-        // Interpolate along line S2: Q1 - Q0
-        Vector3 Q2 = Vector3.Lerp(Q0, Q1, t);
-
-      return Q2; // Q2 is a point on the curve at time t
     }
+
 }

@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Oculus Coloring v2/Play.unity
+- path: Assets/Scenes/Prototype Scene - PreMaster.unity
   isLoaded: 1
   isActive: 1
