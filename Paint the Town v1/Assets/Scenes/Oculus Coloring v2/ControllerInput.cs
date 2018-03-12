@@ -20,6 +20,8 @@ public class ControllerInput : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
+        //TODO add a line to visualize the raycast
+
         //if (OVRInput.Touch.(OVRInput.Button.PrimaryHandTrigger))
         if(!OVRInput.Get(OVRInput.Touch.PrimaryIndexTrigger) && !OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && OVRInput.Get(OVRInput.Button.PrimaryHandTrigger))
         {
