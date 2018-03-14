@@ -10,6 +10,7 @@ using UnityEngine;
 public class ControllerInput : MonoBehaviour
 {
     public Transform controllerTransform;
+    public GameObject lefthand;
 
 	// Use this for initialization
 	void Start ()
@@ -23,14 +24,16 @@ public class ControllerInput : MonoBehaviour
         //TODO add a line to visualize the raycast
 
         //if (OVRInput.Touch.(OVRInput.Button.PrimaryHandTrigger))
-        if(!OVRInput.Get(OVRInput.Touch.PrimaryIndexTrigger) && !OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && OVRInput.Get(OVRInput.Button.PrimaryHandTrigger))
+        if((!OVRInput.Get(OVRInput.Touch.PrimaryIndexTrigger) && !OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && OVRInput.Get(OVRInput.Button.PrimaryHandTrigger)) ||
+            (!OVRInput.Get(OVRInput.Touch.SecondaryIndexTrigger) && !OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger) && OVRInput.Get(OVRInput.Button.SecondaryHandTrigger)))
         {
             Debug.Log("touched");
 
             RaycastHit hit;
             Material mat;
 
-            if(Physics.Raycast(controllerTransform.position, controllerTransform.forward, out hit))
+            if(Physics.Raycast(controllerTransform.position, controllerTransform.forward, out hit) || 
+                Physics.Raycast(lefthand.transform.position, lefthand.transform.forward, out hit))
             {
                 // red player
                 if (this.tag == "PlayerRed")

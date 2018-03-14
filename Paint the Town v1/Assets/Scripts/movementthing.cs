@@ -7,13 +7,22 @@ public class movementthing : MonoBehaviour {
     public string test;
 
     GameObject player;
+    public float speed;
     public Camera headsetCamera;
     public GameObject lefthand;
     public GameObject righthand;
+    private LineRenderer lineR;
+    private LineRenderer lineL;
     // Use this for initialization
     void Start()
     {
         player = this.gameObject;
+        speed = 0.5f;
+        lineL = lefthand.GetComponent<LineRenderer>();
+        lineL.SetVertexCount(2);
+
+        lineR = righthand.GetComponent<LineRenderer>();
+        lineR.SetVertexCount(2);
     }
 
 
@@ -52,7 +61,16 @@ public class movementthing : MonoBehaviour {
 
         newMove.y = 0;
 
-        player.transform.Translate(newMove * Time.deltaTime * 1f);
+        player.transform.Translate(newMove * Time.deltaTime * speed);
+
+        Debug.DrawLine(righthand.transform.forward, righthand.transform.forward * 3, Color.blue);
+        Debug.DrawLine(lefthand.transform.forward, lefthand.transform.forward * 3, Color.blue);
+
+        lineL.SetPosition(0, lefthand.transform.position);
+        lineL.SetPosition(1, lefthand.transform.forward * 5 + lefthand.transform.position);
+
+        lineR.SetPosition(0, righthand.transform.position);
+        lineR.SetPosition(1, righthand.transform.forward * 5 + righthand.transform.position);
 
 
         /*if (OVRInput.Get(OVRInput.Touch.PrimaryIndexTrigger))
