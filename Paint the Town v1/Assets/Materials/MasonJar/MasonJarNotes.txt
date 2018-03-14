@@ -1,0 +1,1 @@
+Use included normal to emboss face of mason jar. Recommended normal map settings: check box create from greyscale and set bumpiness to 0.01.

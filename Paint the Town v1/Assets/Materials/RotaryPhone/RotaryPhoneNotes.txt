@@ -1,0 +1,1 @@
+Included texture is just for dial. For rest of phone create black material in unity and add to rest of phone.

@@ -1,0 +1,2 @@
+Gramophone body, mouth, disk, arm, and needle can all be textured separately. Apply included body, disk, and mouth textures/normals to model in Unity.
+GramophoneMouthTexture can be applied to arm, and solid Unity material can be applied to needle (Recommend: Albedo black ; Metallic 0.5 ; Smoothness 0.7)

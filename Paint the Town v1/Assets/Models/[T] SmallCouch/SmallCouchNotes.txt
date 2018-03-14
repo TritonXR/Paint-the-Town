@@ -1,0 +1,1 @@
+Seat and arm rests are unwrapped and can be textured separately; just apply any texture.
