@@ -28,18 +28,27 @@ public class movementthing : MonoBehaviour {
         Vector2 leftInput = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
         
         Vector3 newMove = Vector3.zero;
+        
+        //forward movement
+        if (rightInput.y > 0.3)
+            newMove += righthand.transform.forward;
+        if (leftInput.y > 0.3)
+            newMove += lefthand.transform.forward;
 
-        if (rightInput.y > 0.3 || leftInput.y > 0.3)
-            newMove += headsetCamera.transform.forward;
+        if (rightInput.y < -0.3)
+            newMove += -righthand.transform.forward;
+        if (leftInput.y < -0.3)
+            newMove += -lefthand.transform.forward;
 
-        if (rightInput.y < -0.3 || leftInput.y < -0.3)
-            newMove += -headsetCamera.transform.forward;
+        if (rightInput.x > 0.3)
+            newMove += righthand.transform.right;
+        if (leftInput.x > 0.3)
+            newMove += lefthand.transform.right;
 
-        if (rightInput.x > 0.3 || leftInput.x > 0.3)
-            newMove += headsetCamera.transform.right;
-
-        if (rightInput.x < -0.3 || leftInput.x < -0.3)
-            newMove += -headsetCamera.transform.right;
+        if (rightInput.x < -0.3)
+            newMove += -righthand.transform.right;
+        if (leftInput.x < -0.3)
+            newMove += -lefthand.transform.right;
 
         newMove.y = 0;
 
