@@ -1,4 +1,4 @@
-![banner](http://github.com/UCSDVR/Paint-the-Town/PTT_logo_longcrop.png)
+![banner](https://github.com/UCSDVR/Paint-the-Town/blob/master/PTT_logo_longcrop.png)
 
 # Paint-the-Town
 
