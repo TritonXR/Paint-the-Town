@@ -2,7 +2,7 @@
 
 # Paint-the-Town
 
-I social VR experience in which players embody a color, engage with their environment through the act of painting, and, in turn, bring the scene to life.
+A social VR experience in which players embody a color, engage with their environment through the act of painting, and, in turn, bring the scene to life.
 
 **Our team**
 
