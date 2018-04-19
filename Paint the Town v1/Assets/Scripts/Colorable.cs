@@ -21,7 +21,7 @@ public class Colorable : MonoBehaviour {
 	void Update () {
         //manipulate scale here
         //but you still have to get the _Transition variable in order to change volume and everything, right?
-        ren.material.SetFloat("_Transition", scale);
+        //ren.material.SetFloat("_Transition", scale);
         //sound.volume
     }
 }
