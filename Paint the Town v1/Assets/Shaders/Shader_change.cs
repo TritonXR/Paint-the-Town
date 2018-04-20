@@ -5,7 +5,9 @@ using System.Collections.Generic;
 
 public class Shader_change : MonoBehaviour {
 
-	public float weaponRange = 50f;                                     // Distance in Unity units over which the player can fire
+    public Transform controllerTransform;
+    public GameObject lefthand;
+    public float weaponRange = 50f;                                     // Distance in Unity units over which the player can fire
 	public Transform gunEnd;                                            // Holds a reference to the gun end object, marking the muzzle location of the gun
 	//increase the color of 
 	private Camera fpsCam;                                              // Holds a reference to the first person camera
@@ -27,10 +29,12 @@ public class Shader_change : MonoBehaviour {
 	}
 
 	void Update () 
-	{	
-		// Check if the player has pressed the fire button and if enough time has elapsed since they last fired
-		if (Input.GetButton ("Fire1")) {
-			color_change ();
+	{
+        // Check if the player has pressed the fire button and if enough time has elapsed since they last fired
+        if ((!OVRInput.Get(OVRInput.Touch.PrimaryIndexTrigger) && !OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && OVRInput.Get(OVRInput.Button.PrimaryHandTrigger)) ||
+            (!OVRInput.Get(OVRInput.Touch.SecondaryIndexTrigger) && !OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger) && OVRInput.Get(OVRInput.Button.SecondaryHandTrigger)))
+        {
+            color_change ();
 		} 
 		else {
 			hitCurr = false;
@@ -41,10 +45,10 @@ public class Shader_change : MonoBehaviour {
 
 		//animation
 
-		if (redPaint && greenPaint && bluePaint) {
+		//if (redPaint && greenPaint && bluePaint) {
 
-			Animator.
-		}
+		//	Animator.
+		//}
 	}
 
 	void color_change(){

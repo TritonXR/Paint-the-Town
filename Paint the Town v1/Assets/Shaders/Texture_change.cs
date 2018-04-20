@@ -11,15 +11,16 @@ public class Texture_change : MonoBehaviour {
 	private Camera fpsCam;                                              // Holds a reference to the first person camera
 	private Vector3 rayOrigin;
 	private int penSize = 5;
-	private Color[] colors;
+	private Color[] color;
 
 	private float posX, posY;
 	private float lastX, lastY;
 	private int textureSize = 2048;
 	private bool hitLast, hitCurr;
 	private int lerpX, lerpY;
+    private bool redPaint, greenPaint, bluePaint;
 
-	void Start () 
+    void Start () 
 	{
 		// Get and store a reference to our Camera by searching this GameObject and its parents
 		fpsCam = GetComponentInParent<Camera>();
@@ -56,23 +57,54 @@ public class Texture_change : MonoBehaviour {
 			// red player
 			if (this.tag == "PlayerRed") {
 
-				// checking the raycast hit a paintable target
-				if (hit.collider.GetComponent<Colorable> () != null) {
-					mat = hit.collider.GetComponent<Renderer> ().material;
+                if (hit.collider.GetComponent<Colorable>() != null)
+                {
+                    mat = hit.collider.GetComponent<Renderer>().material;
+                    redPaint = true;
+                    // create a new texture to paint on
+                    Texture2D redTex = (Texture2D)GameObject.Instantiate(mat.GetTexture("_Red"));
+                    Vector2 pixelUV = hit.textureCoord;
+                    pixelUV.x *= redTex.width;
+                    pixelUV.y *= redTex.height;
 
-					// create a new texture to paint on
-					Texture2D redTex = GameObject.Instantiate (mat.GetTexture ("_Red")) as Texture2D;
+                    int x = (int)(posX * textureSize - (penSize / 2));
+                    int y = (int)(posY * textureSize - (penSize / 2));
 
-					// paint the whole thing red
-					for (int x = 0; x < redTex.width; x++) {
-						for (int y = 0; y < redTex.height; y++) {
-							redTex.SetPixel (x, y, Color.white);
-						}
-					}
-					redTex.Apply ();
-					mat.SetTexture ("_Red", redTex);
-				}
-			}
+                    //new pensize with color red
+                    color = Enumerable.Repeat<Color>(Color.red, penSize * penSize).ToArray<Color>();
+
+                    if (hitLast)
+                    {
+                        //connecting current ray position to last ray position
+                        for (float t = 0.01f; t < 1.00f; t += 0.01f)
+                        {
+
+                            redTex.SetPixels((int)pixelUV.x, (int)pixelUV.y, penSize, penSize, color);
+
+
+                            lerpX = (int)Mathf.Lerp(lastX, (float)pixelUV.x, t);
+                            lerpY = (int)Mathf.Lerp(lastY, (float)pixelUV.y, t);
+                            redTex.SetPixels(lerpX, lerpY, penSize, penSize, color);
+                        }
+
+                    }
+
+                    if (hitCurr)
+                    {
+                        redTex.Apply();
+                    }
+
+                    this.lastX = (float)pixelUV.x;
+                    this.lastY = (float)pixelUV.y;
+
+
+                    mat.SetTexture("_Red", redTex);
+                    if (hitLast == false)
+                    {
+                        hitLast = true;
+                    }
+                }
+            }
 			//green player
 			else if (this.tag == "PlayerGreen") {
 				if (hit.collider.GetComponent<Colorable> () != null) {
