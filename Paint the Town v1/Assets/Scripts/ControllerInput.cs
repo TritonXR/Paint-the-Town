@@ -13,6 +13,7 @@ public class ControllerInput : MonoBehaviour
 {
     public Transform controllerTransform;
     public GameObject lefthand;
+    public GameObject settingsButton;
 
     // Use this for initialization
     void Start()
@@ -63,9 +64,18 @@ public class ControllerInput : MonoBehaviour
                         {
                             //show settings
                             //uiButton.onClick();
-                            hit.collider.GetComponentInParent<MainMenu>().gameObject.SetActive(false);
+                            hit.collider.GetComponentInParent<MainMenu>().gameObject.SetActive(false);//makes stuff disappear
+                            settingsButton.SetActive(true);
+                            //GameObject test = GameObject.Find("SettingsMenu");
+                            //test.SetActive(true);//makes stuff disappear
+                            //hit.collider.GetComponent<MainMenu>().gameObject.SetActive(false);//makes stuff disappear
                         }
 
+                        if (hit.collider.name == "BackButton")
+                        {
+                            hit.collider.GetComponentInParent<MainMenu>().gameObject.SetActive(false);//makes stuff disappear
+                            settingsButton.SetActive(true);
+                        }
                         //Quit the game when user hits quit from the menu
                         if (hit.collider.name == "Quit")
                             Application.Quit();
