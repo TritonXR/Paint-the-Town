@@ -9,7 +9,7 @@ public class RayCastObject : MonoBehaviour {
 
     }
 
-    public virtual void OnRayCastExit(RaycastHit objHit)
+    public virtual void OnRayCastExit()
     {
 
     }

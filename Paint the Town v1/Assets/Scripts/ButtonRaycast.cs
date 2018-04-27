@@ -7,6 +7,7 @@ public class ButtonRaycast : RayCastObject {
 
     Color origColor;
     RaycastHit prevHit;
+    Button uiButton;
 
 	public override void OnRayCast(RaycastHit objHit)
     {
@@ -16,17 +17,16 @@ public class ButtonRaycast : RayCastObject {
     public override void OnRayCastEnter(RaycastHit objHit)
     {
             objHit.collider.GetComponent<UIClick>();
-            Button uiButton = objHit.collider.GetComponent<Button>();
+            uiButton = objHit.collider.GetComponent<Button>();
             ColorBlock cb = uiButton.colors;
             origColor = cb.normalColor;
             cb.normalColor = cb.highlightedColor;
 
     }
 
-    public override void OnRayCastExit(RaycastHit objHit)
+    public override void OnRayCastExit()
     {
-        objHit.collider.GetComponent<UIClick>();
-        Button uiButton = objHit.collider.GetComponent<Button>();
+
         ColorBlock cb = uiButton.colors;
         cb.normalColor = origColor;
     }

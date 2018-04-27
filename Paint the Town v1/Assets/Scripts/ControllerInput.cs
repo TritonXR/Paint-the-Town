@@ -16,6 +16,9 @@ public class ControllerInput : MonoBehaviour
     public GameObject settingsButton;
     public GameObject joinButton;
 
+    RayCastObject prev;
+    RayCastObject curr;
+
     // Use this for initialization
     void Start()
     {
@@ -28,11 +31,14 @@ public class ControllerInput : MonoBehaviour
         //TODO add a line to visualize the raycast
 
         //if (OVRInput.Touch.(OVRInput.Button.PrimaryHandTrigger))
-        if ((!OVRInput.Get(OVRInput.Touch.PrimaryIndexTrigger) && !OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && OVRInput.Get(OVRInput.Button.PrimaryHandTrigger)) ||
+        /*if ((!OVRInput.Get(OVRInput.Touch.PrimaryIndexTrigger) && !OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && OVRInput.Get(OVRInput.Button.PrimaryHandTrigger)) ||
             (!OVRInput.Get(OVRInput.Touch.SecondaryIndexTrigger) && !OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger) && OVRInput.Get(OVRInput.Button.SecondaryHandTrigger)))
-        {
-            //Debug.Log("touched");
+        { */
 
+        if(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger)) { 
+            Debug.Log("press");
+
+            //Change raycast so that ut us outside of the controller check because ti should be active every time
             RaycastHit hit;
             Material mat;
 
@@ -42,15 +48,42 @@ public class ControllerInput : MonoBehaviour
 
                 if (hit.collider.GetComponent<UIClick>() != null)
                 {
-                    Debug.Log("clicked");
+                    curr = hit.collider.GetComponent<ButtonRaycast>();
+                    Debug.Log("POINTING AT BUTTON");
                     //if(hit.collider.name == "Button")
                     //{
                     //do whatever
 
                     Debug.Log(hit.collider.name);
-                    Button uiButton = hit.collider.GetComponent<Button>();
-                    Color r = Color.red;
-                    ColorBlock cb = uiButton.colors;
+                    ButtonRaycast uiButton = hit.collider.GetComponent<ButtonRaycast>();
+                    uiButton.OnRayCastEnter(hit);
+
+                    if (curr != null)
+                    {
+                        if (curr != prev)
+                        {
+                            if (prev != null)
+                            {
+                                prev.OnRayCastExit();
+                            }
+
+                            curr.OnRayCast(hit);
+                            prev = curr;
+
+                        }
+                        else
+                        {
+                            curr.OnRayCast(hit);
+                        }
+                    }
+
+                    else if(prev != null)
+                    {
+                        prev.OnRayCastExit();
+                        prev = null;
+                    }
+                    //Color r = Color.red;
+                    // ColorBlock cb = uiButton.colors;
                     //cb.normalColor = cb.highlightedColor;
                     //cb.highlightedColor = r;
                     //uiButton.colors = cb;
@@ -87,6 +120,11 @@ public class ControllerInput : MonoBehaviour
                     //Quit the game when user hits quit from the menu
                     if (hit.collider.name == "Quit")
                         Application.Quit();
+                }
+                else if(prev != null)
+                {
+                    prev.OnRayCastExit();
+                    prev = null;
                 }
 
                 // red player
