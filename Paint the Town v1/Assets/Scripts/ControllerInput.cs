@@ -14,6 +14,7 @@ public class ControllerInput : MonoBehaviour
     public Transform controllerTransform;
     public GameObject lefthand;
     public GameObject settingsButton;
+    public GameObject joinButton;
 
     // Use this for initialization
     void Start()
@@ -39,47 +40,58 @@ public class ControllerInput : MonoBehaviour
                 Physics.Raycast(lefthand.transform.position, lefthand.transform.forward, out hit))
             {
 
+                if (hit.collider.GetComponent<UIClick>() != null)
+                {
+                    Debug.Log("clicked");
+                    //if(hit.collider.name == "Button")
+                    //{
+                    //do whatever
+
+                    Debug.Log(hit.collider.name);
+                    Button uiButton = hit.collider.GetComponent<Button>();
+                    Color r = Color.red;
+                    ColorBlock cb = uiButton.colors;
+                    //cb.normalColor = cb.highlightedColor;
+                    //cb.highlightedColor = r;
+                    //uiButton.colors = cb;
+
+
+
+                    //the line below changes the current scene to the apartment scene
+                    if (hit.collider.name == "CreateGameButton")
+                        SceneManager.LoadScene("Prototype Scene - PreMaster");
+                    //and so on with if statements
+
+                    if (hit.collider.name == "JoinGameButton")
+                    {
+                        hit.collider.GetComponentInParent<MainMenu>().gameObject.SetActive(false);//makes stuff disappear
+                        settingsButton.SetActive(true);
+                    }
+
+                    if (hit.collider.name == "SettingsButton")
+                    {
+                        //show settings
+                        //uiButton.onClick();
+                        hit.collider.GetComponentInParent<MainMenu>().gameObject.SetActive(false);//makes stuff disappear
+                        settingsButton.SetActive(true);
+                        //GameObject test = GameObject.Find("SettingsMenu");
+                        //test.SetActive(true);//makes stuff disappear
+                        //hit.collider.GetComponent<MainMenu>().gameObject.SetActive(false);//makes stuff disappear
+                    }
+
+                    if (hit.collider.name == "BackButton")
+                    {
+                        hit.collider.GetComponentInParent<MainMenu>().gameObject.SetActive(false);//makes stuff disappear
+                        settingsButton.SetActive(true);
+                    }
+                    //Quit the game when user hits quit from the menu
+                    if (hit.collider.name == "Quit")
+                        Application.Quit();
+                }
+
                 // red player
                 if (this.tag == "PlayerRed")
                 {
-                    if (hit.collider.GetComponent<UIClick>() != null)
-                    {
-                        Debug.Log("clicked");
-                        //if(hit.collider.name == "Button")
-                        //{
-                        //do whatever
-
-                        Debug.Log(hit.collider.name);
-                        Button uiButton = hit.collider.GetComponent<Button>();
-                        Color r = Color.red;
-                        ColorBlock cb = uiButton.colors;
-                        cb.highlightedColor = r;
-                        uiButton.colors = cb;
-
-                        //the line below changes the current scene to the apartment scene
-                        if (hit.collider.name == "CreateGameButton")
-                            SceneManager.LoadScene("Prototype Scene - PreMaster");
-                        //and so on with if statements
-                        if (hit.collider.name == "SettingsButton")
-                        {
-                            //show settings
-                            //uiButton.onClick();
-                            hit.collider.GetComponentInParent<MainMenu>().gameObject.SetActive(false);//makes stuff disappear
-                            settingsButton.SetActive(true);
-                            //GameObject test = GameObject.Find("SettingsMenu");
-                            //test.SetActive(true);//makes stuff disappear
-                            //hit.collider.GetComponent<MainMenu>().gameObject.SetActive(false);//makes stuff disappear
-                        }
-
-                        if (hit.collider.name == "BackButton")
-                        {
-                            hit.collider.GetComponentInParent<MainMenu>().gameObject.SetActive(false);//makes stuff disappear
-                            settingsButton.SetActive(true);
-                        }
-                        //Quit the game when user hits quit from the menu
-                        if (hit.collider.name == "Quit")
-                            Application.Quit();
-                    }
 
                     // checking the raycast hit a paintable target
                     if (hit.collider.GetComponent<Colorable>() != null)
