@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Linq;
 
 //TODO: upon creating rooms/characters, have each InputManager object have this script attached, but each object has a different tag
 //troubleshooting tips: make sure whatever is being colored has the Colorable script attached to it; make sure InputManager is tagged as PlayerRed, PlayerBlue, or PlayerGreen
@@ -18,6 +19,23 @@ public class ControllerInput : MonoBehaviour
 
     RayCastObject prev;
     RayCastObject curr;
+
+
+    // shader stuffs
+    public float weaponRange = 50f;                                     // Distance in Unity units over which the player can fire
+    public Transform gunEnd;                                            // Holds a reference to the gun end object, marking the muzzle location of the gun
+                                                                        //increase the color of 
+    private Camera fpsCam;                                              // Holds a reference to the first person camera
+    private Vector3 rayOrigin;
+    private int penSize = 5;
+    private Color[] color;
+
+    private float posX, posY;
+    private float lastX, lastY;
+    private int textureSize = 2048;
+    private bool hitLast, hitCurr;
+    private int lerpX, lerpY;
+    private bool redPaint, greenPaint, bluePaint;
 
     // Use this for initialization
     void Start()
@@ -135,20 +153,49 @@ public class ControllerInput : MonoBehaviour
                     if (hit.collider.GetComponent<Colorable>() != null)
                     {
                         mat = hit.collider.GetComponent<Renderer>().material;
-
+                        redPaint = true;
                         // create a new texture to paint on
-                        Texture2D redTex = GameObject.Instantiate(mat.GetTexture("_Red")) as Texture2D;
+                        Texture2D redTex = (Texture2D)GameObject.Instantiate(mat.GetTexture("_Red"));
+                        Vector2 pixelUV = hit.textureCoord;
+                        pixelUV.x *= redTex.width;
+                        pixelUV.y *= redTex.height;
 
-                        // paint the whole thing red
-                        for (int x = 0; x < redTex.width; x++)
+                        int x = (int)(posX * textureSize - (penSize / 2));
+                        int y = (int)(posY * textureSize - (penSize / 2));
+
+                        //new pensize with color red
+                        color = Enumerable.Repeat<Color>(Color.red, penSize * penSize).ToArray<Color>();
+
+                        if (hitLast)
                         {
-                            for (int y = 0; y < redTex.height; y++)
+                            //connecting current ray position to last ray position
+                            for (float t = 0.01f; t < 1.00f; t += 0.01f)
                             {
-                                redTex.SetPixel(x, y, Color.white);
+
+                                redTex.SetPixels((int)pixelUV.x, (int)pixelUV.y, penSize, penSize, color);
+
+
+                                lerpX = (int)Mathf.Lerp(lastX, (float)pixelUV.x, t);
+                                lerpY = (int)Mathf.Lerp(lastY, (float)pixelUV.y, t);
+                                redTex.SetPixels(lerpX, lerpY, penSize, penSize, color);
                             }
+
                         }
-                        redTex.Apply();
+
+                        if (hitCurr)
+                        {
+                            redTex.Apply();
+                        }
+
+                        this.lastX = (float)pixelUV.x;
+                        this.lastY = (float)pixelUV.y;
+
+
                         mat.SetTexture("_Red", redTex);
+                        if (hitLast == false)
+                        {
+                            hitLast = true;
+                        }
                     }
                 }
                 //green player
