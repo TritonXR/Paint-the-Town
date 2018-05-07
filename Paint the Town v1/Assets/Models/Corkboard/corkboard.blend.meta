@@ -1,17 +1,26 @@
 fileFormatVersion: 2
-guid: ce7523909ef9e1f4bbe6038c25f02e0f
-timeCreated: 1524598084
+guid: b5082fae1b0ba6a429f6a84702259192
+timeCreated: 1525729685
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Cube
+    100004: Plane
     400000: //RootNode
-    2100000: unnamed
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cylinder
-    6400000: //RootNode
+    400002: Cube
+    400004: Plane
+    2100000: Material_001
+    2100002: Material
+    2300000: Cube
+    2300002: Plane
+    3300000: Cube
+    3300002: Plane
+    4300000: Plane
+    4300002: Cube
+    6400000: Cube
+    6400002: Plane
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
@@ -44,7 +53,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.06
+    globalScale: 0.1
     meshCompression: 0
     addColliders: 1
     importVisibility: 1
