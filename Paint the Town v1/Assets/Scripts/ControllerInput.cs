@@ -10,11 +10,13 @@ using System.Linq;
 //make sure InputManager has ControllerInput.cs attached to it; make sure colored object's material is using the shader Custom/TestingShader
 //to get hand models, just add the LocalAvatar Prefab from Assets/OvrAvatar/Content/Prefabs
 
+
 public class ControllerInput : MonoBehaviour
 {
     public Transform controllerTransform;
     public GameObject lefthand;
-    public GameObject settingsButton;
+    public GameObject settingsMenu;
+    public GameObject mainMenu;
     public GameObject joinButton;
 
     RayCastObject prev;
@@ -53,8 +55,9 @@ public class ControllerInput : MonoBehaviour
             (!OVRInput.Get(OVRInput.Touch.SecondaryIndexTrigger) && !OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger) && OVRInput.Get(OVRInput.Button.SecondaryHandTrigger)))
         { */
 
-        if(OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger)) { 
-            Debug.Log("press");
+        if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
+        {
+            //Debug.Log("press");
 
             //Change raycast so that ut us outside of the controller check because ti should be active every time
             RaycastHit hit;
@@ -67,14 +70,11 @@ public class ControllerInput : MonoBehaviour
                 if (hit.collider.GetComponent<UIClick>() != null)
                 {
                     curr = hit.collider.GetComponent<ButtonRaycast>();
-                    Debug.Log("POINTING AT BUTTON");
-                    //if(hit.collider.name == "Button")
-                    //{
-                    //do whatever
 
-                    Debug.Log(hit.collider.name);
-                    ButtonRaycast uiButton = hit.collider.GetComponent<ButtonRaycast>();
-                    uiButton.OnRayCastEnter(hit);
+                    ///COMMENTED THE BELOW OUT so that going back will work
+                    //Debug.Log(hit.collider.name);
+                    //ButtonRaycast uiButton = hit.collider.GetComponent<ButtonRaycast>();
+                    //uiButton.OnRayCastEnter(hit);
 
                     if (curr != null)
                     {
@@ -82,7 +82,8 @@ public class ControllerInput : MonoBehaviour
                         {
                             if (prev != null)
                             {
-                                prev.OnRayCastExit();
+                                ///COMMENTED THIS OUT
+                                //prev.OnRayCastExit();
                             }
 
                             curr.OnRayCast(hit);
@@ -95,11 +96,13 @@ public class ControllerInput : MonoBehaviour
                         }
                     }
 
-                    else if(prev != null)
+                    else if (prev != null)
                     {
-                        prev.OnRayCastExit();
+                        ///COMMENTED THIS OUT
+                        //prev.OnRayCastExit();
                         prev = null;
                     }
+
                     //Color r = Color.red;
                     // ColorBlock cb = uiButton.colors;
                     //cb.normalColor = cb.highlightedColor;
@@ -116,7 +119,7 @@ public class ControllerInput : MonoBehaviour
                     if (hit.collider.name == "JoinGameButton")
                     {
                         hit.collider.GetComponentInParent<MainMenu>().gameObject.SetActive(false);//makes stuff disappear
-                        settingsButton.SetActive(true);
+                        //settingsButton.SetActive(true);
                     }
 
                     if (hit.collider.name == "SettingsButton")
@@ -124,7 +127,7 @@ public class ControllerInput : MonoBehaviour
                         //show settings
                         //uiButton.onClick();
                         hit.collider.GetComponentInParent<MainMenu>().gameObject.SetActive(false);//makes stuff disappear
-                        settingsButton.SetActive(true);
+                        settingsMenu.SetActive(true);
                         //GameObject test = GameObject.Find("SettingsMenu");
                         //test.SetActive(true);//makes stuff disappear
                         //hit.collider.GetComponent<MainMenu>().gameObject.SetActive(false);//makes stuff disappear
@@ -132,14 +135,16 @@ public class ControllerInput : MonoBehaviour
 
                     if (hit.collider.name == "BackButton")
                     {
-                        hit.collider.GetComponentInParent<MainMenu>().gameObject.SetActive(false);//makes stuff disappear
-                        settingsButton.SetActive(true);
+                        Debug.Log("going back");
+                        hit.collider.GetComponentInParent<SettingsMenu>().gameObject.SetActive(false);//makes stuff disappear
+                        mainMenu.SetActive(true);
+                        //settingsButton.SetActive(true);
                     }
                     //Quit the game when user hits quit from the menu
-                    if (hit.collider.name == "Quit")
+                    if (hit.collider.name == "QuitButton")
                         Application.Quit();
                 }
-                else if(prev != null)
+                else if (prev != null)
                 {
                     prev.OnRayCastExit();
                     prev = null;
@@ -244,9 +249,13 @@ public class ControllerInput : MonoBehaviour
                 }
             }
         }
+
+        //have pause menu toggle here here
+        if (OVRInput.Get(OVRInput.Button.Start) && (SceneManager.GetSceneByName("Prototype Scene - PreMaster") == SceneManager.GetActiveScene()))
+        {
+            Debug.Log("pausing");
+        }
     }
-
-
 }
 
 
