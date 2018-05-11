@@ -67,7 +67,7 @@
 			//set the initial color of the object to white
 			float sumrgb = (daRed.r + daGreen.g + daBlue.b) / 3.0;
 			float4 white = float4(1.0, 1.0, 1.0, 1.0);
-			col = (1 - sumrgb) * white + (sumrgb * float4(daRed.r * col.r, daGreen.g * col.g, daBlue.b * col.b, col.a));
+			col = (1 - sumrgb) * white + (sumrgb * float4(daRed.r * col.r * _Color.r, daGreen.g * col.g * _Color.g, daBlue.b * col.b * _Color.b, col.a));
 			
 			//calculate the normal offset for the texture
 			half h = tex2D(_ParallaxMap, IN.uv_BumpMap).w;
