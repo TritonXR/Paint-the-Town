@@ -18,6 +18,8 @@ public class ControllerInput : MonoBehaviour
     public GameObject settingsMenu;
     public GameObject mainMenu;
     public GameObject joinButton;
+    public GameObject pauseScreen;
+    public GameObject eyeCenter;
 
     RayCastObject prev;
     RayCastObject curr;
@@ -38,11 +40,12 @@ public class ControllerInput : MonoBehaviour
     private bool hitLast, hitCurr;
     private int lerpX, lerpY;
     private bool redPaint, greenPaint, bluePaint;
+    private bool paused;
 
     // Use this for initialization
     void Start()
     {
-
+        paused = false;
     }
 
     // Update is called once per frame
@@ -69,6 +72,8 @@ public class ControllerInput : MonoBehaviour
 
                 if (hit.collider.GetComponent<UIClick>() != null)
                 {
+                    //add sound effect here
+
                     curr = hit.collider.GetComponent<ButtonRaycast>();
 
                     ///COMMENTED THE BELOW OUT so that going back will work
@@ -151,7 +156,7 @@ public class ControllerInput : MonoBehaviour
                 }
 
                 // red player
-                if (this.tag == "PlayerRed")
+                if (this.tag == "PlayerRed" && !paused) //disable painting
                 {
 
                     // checking the raycast hit a paintable target
@@ -204,7 +209,7 @@ public class ControllerInput : MonoBehaviour
                     }
                 }
                 //green player
-                else if (this.tag == "PlayerGreen")
+                else if (this.tag == "PlayerGreen" && !paused) //disable painting
                 {
                     if (hit.collider.GetComponent<Colorable>() != null)
                     {
@@ -226,7 +231,7 @@ public class ControllerInput : MonoBehaviour
                     }
                 }
                 //Blue play
-                else if (this.tag == "PlayerBlue")
+                else if (this.tag == "PlayerBlue" && !paused) //disable painting
                 {
                     if (hit.collider.GetComponent<Colorable>() != null)
                     {
@@ -250,10 +255,47 @@ public class ControllerInput : MonoBehaviour
             }
         }
 
+        // && (SceneManager.GetSceneByName("Prototype Scene - PreMaster") == SceneManager.GetActiveScene())
+
         //have pause menu toggle here here
-        if (OVRInput.Get(OVRInput.Button.Start) && (SceneManager.GetSceneByName("Prototype Scene - PreMaster") == SceneManager.GetActiveScene()))
+        if (OVRInput.GetDown(OVRInput.Button.Start))
         {
             Debug.Log("pausing");
+            if(paused)
+            {
+                //set pause screen to not active
+            }
+            else
+            {
+                Debug.Log("Hi we here");
+                //move PauseScreen to in front of player
+                //pauseScreen.transform = eyeCenter.transform;
+                pauseScreen.transform.parent = eyeCenter.transform;
+
+               // Debug.Log("Parent is" + pauseScreen.transform.parent.name);
+
+                pauseScreen.transform.localPosition = new Vector3(0, 0, 2);
+
+               // Debug.Log("Position is" + pauseScreen.transform.position);
+
+              //  Debug.Break();
+
+             //   Debug.Break();
+
+               // Debug.Log("After Break");
+
+                pauseScreen.transform.parent = null;
+
+                pauseScreen.SetActive(true);
+
+                //Debug.Break();
+               //pauseScreen.GetComponent<RectTransform>().anchoredPosition = new Vector2(eyeCenter.transform.position.x, eyeCenter.transform.position.y);
+               // pauseScreen.GetComponent<RectTransform>().
+
+                //set pause screen to active
+            }
+            paused = !paused;
+            //first, make something appear in front of player's head
         }
     }
 }
