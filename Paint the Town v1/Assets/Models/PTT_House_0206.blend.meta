@@ -38,6 +38,8 @@ ModelImporter:
     100060: Walls
     100062: WindowSeatCushion
     100064: WindowSeatWood
+    100066: BathroomWindowGlass
+    100068: BedroomWindowGlass
     400000: BathroomDoor
     400002: BathroomMoulding
     400004: BathroomWindow
@@ -71,6 +73,8 @@ ModelImporter:
     400060: Walls
     400062: WindowSeatCushion
     400064: WindowSeatWood
+    400066: BathroomWindowGlass
+    400068: BedroomWindowGlass
     2300000: BathroomDoor
     2300002: BathroomMoulding
     2300004: BathroomWindow
@@ -103,6 +107,8 @@ ModelImporter:
     2300058: Walls
     2300060: WindowSeatCushion
     2300062: WindowSeatWood
+    2300064: BathroomWindowGlass
+    2300066: BedroomWindowGlass
     3300000: BathroomDoor
     3300002: BathroomMoulding
     3300004: BathroomWindow
@@ -135,6 +141,8 @@ ModelImporter:
     3300058: Walls
     3300060: WindowSeatCushion
     3300062: WindowSeatWood
+    3300064: BathroomWindowGlass
+    3300066: BedroomWindowGlass
     4300000: DiningWindowsGlass
     4300002: LivingRoomWindowsGlass
     4300004: FireplaceMantle
@@ -167,6 +175,8 @@ ModelImporter:
     4300058: StorageDoor
     4300060: BedroomMoulding
     4300062: BathroomMoulding
+    4300064: BedroomWindowGlass
+    4300066: BathroomWindowGlass
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
