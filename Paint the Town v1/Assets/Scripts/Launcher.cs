@@ -17,9 +17,9 @@ public class Launcher : Photon.PunBehaviour
     /// Typically this is used for the OnConnectedToMaster() callback.
     /// </summary>
     bool isConnecting;
+    public readonly byte InstantiateVrAvatarEventCode = 123;
 
     #endregion
-
 
     #region Private Variables
 
@@ -122,7 +122,59 @@ public class Launcher : Photon.PunBehaviour
         // #Critical: We only load if we are the first player, else we rely on  PhotonNetwork.automaticallySyncScene to sync our instance scene.
         PhotonNetwork.LoadLevel("Prototype Scene - PreMaster");
         Debug.Log("DemoAnimator/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
+
+        int viewId = PhotonNetwork.AllocateSceneViewID();
+
+        PhotonNetwork.RaiseEvent(InstantiateVrAvatarEventCode, viewId, true, new RaiseEventOptions()
+        {
+            CachingOption = EventCaching.AddToRoomCache,
+            Receivers = ReceiverGroup.All
+        });
+
+        Debug.Log("EVENT RAISE FOR VR SPAWN");
+
     }
+
+    private void OnEvent(byte eventcode, object content, int senderid)
+    {
+        Debug.Log("VR SPAWN CODE ACTIVATED \n" + eventcode );
+
+        if (eventcode == InstantiateVrAvatarEventCode)
+        {
+            //Debug.Log("VR SPAWN CODE ACTIVATED");
+            GameObject go = null;
+
+            if (PhotonNetwork.player.ID == senderid)
+            {
+                go = Instantiate(Resources.Load("LocalAvatar")) as GameObject;
+            }
+            else
+            {
+                go = Instantiate(Resources.Load("RemoveAtar")) as GameObject;
+            }
+
+            if (go != null)
+            {
+                PhotonView pView = go.GetComponent<PhotonView>();
+
+                if (pView != null)
+                {
+                    pView.viewID = (int)content;
+                }
+            }
+        }
+    }
+
+    public void OnEnable()
+    {
+        PhotonNetwork.OnEventCall += this.OnEvent;
+    }
+
+    public void OnDisable()
+    {
+        PhotonNetwork.OnEventCall -= this.OnEvent;
+    }
+
 
 
     #endregion

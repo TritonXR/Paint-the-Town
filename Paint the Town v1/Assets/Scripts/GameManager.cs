@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Photon.PunBehaviour {
 
-
     static public GameManager Instance;
     [Tooltip("The prefab to use for representing the player")]
     public GameObject playerPrefab;
@@ -53,8 +52,6 @@ public class GameManager : Photon.PunBehaviour {
         if (PhotonNetwork.isMasterClient)
         {
             Debug.Log("OnPhotonPlayerConnected isMasterClient " + PhotonNetwork.isMasterClient); // called before OnPhotonPlayerDisconnected
-
-
             LoadArena();
         }
     }
@@ -100,6 +97,7 @@ public class GameManager : Photon.PunBehaviour {
         Debug.Log("PhotonNetwork : Loading Level : " + PhotonNetwork.room.PlayerCount);
         PhotonNetwork.LoadLevel("Prototype Scene - PreMaster");
     }
+
 
 
     #endregion
