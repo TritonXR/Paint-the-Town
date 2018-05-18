@@ -33,4 +33,4 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-/Paint the Town v1/Libary/metadata
+/Paint the Town v1/Libary/metadata/*
