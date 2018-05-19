@@ -1,8 +1,8 @@
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
+*/[Ll]ibrary/
+*/[Tt]emp/
+*/[Oo]bj/
+*/[Bb]uild/
+*/[Bb]uilds/
 /Assets/AssetStoreTools*
 
 # Visual Studio 2015 cache directory
@@ -22,10 +22,11 @@ ExportedObj/
 *.booproj
 *.svd
 *.pdb
-*.meta
+*.opendb
 
 # Unity3D generated meta files
 *.pidb.meta
+*.pdb.meta
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt
@@ -34,6 +35,5 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-Paint\ the\ Town\ v1/Library/metadata/*
-Paint\ the\ Town\ v1/Library/ShaderCache/*
-Paint\ the\ Town\ v1/Library/PlayerDataCache/*
+Paint\ the\ Town\ v1/Library/*
+
