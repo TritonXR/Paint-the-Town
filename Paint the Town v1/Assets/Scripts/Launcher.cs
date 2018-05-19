@@ -146,11 +146,11 @@ public class Launcher : Photon.PunBehaviour
 
             if (PhotonNetwork.player.ID == senderid)
             {
-                go = Instantiate(Resources.Load("LocalAvatar")) as GameObject;
+                go = Instantiate(Resources.Load("OVRCameraLocal")) as GameObject;
             }
             else
             {
-                go = Instantiate(Resources.Load("RemoveAtar")) as GameObject;
+                go = Instantiate(Resources.Load("OVRCameraRemote")) as GameObject;
             }
 
             if (go != null)

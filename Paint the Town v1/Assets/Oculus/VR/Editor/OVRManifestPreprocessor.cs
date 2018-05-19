@@ -7,7 +7,7 @@ class OVRManifestPreprocessor
 	[MenuItem("Tools/Oculus/Create store-compatible AndroidManifest.xml", false, 100000)]	
 	public static void GenerateManifestForSubmission() 
 	{
-		string srcFile = Application.dataPath + "/OVR/Editor/AndroidManifest.OVRSubmission.xml";
+		string srcFile = Application.dataPath + "/Oculus/VR/Editor/AndroidManifest.OVRSubmission.xml";
 
 		if (!File.Exists(srcFile))
 		{
