@@ -23,11 +23,13 @@ ModelImporter:
     2300004: toilet_bowl
     2300006: Circle_001
     2300008: toilet_bowl_001
+    2300010: //RootNode
     3300000: back
     3300002: Circle
     3300004: toilet_bowl
     3300006: Circle_001
     3300008: toilet_bowl_001
+    3300010: //RootNode
     4300000: Circle
     4300002: toilet_bowl
     4300004: back
@@ -38,6 +40,7 @@ ModelImporter:
     6400004: toilet_bowl
     6400006: Circle_001
     6400008: toilet_bowl_001
+    6400010: //RootNode
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
