@@ -120,7 +120,7 @@ public class Launcher : Photon.PunBehaviour
     public override void OnJoinedRoom()
     {
         // #Critical: We only load if we are the first player, else we rely on  PhotonNetwork.automaticallySyncScene to sync our instance scene.
-        PhotonNetwork.LoadLevel("Prototype Scene - PreMaster");
+        //PhotonNetwork.LoadLevel("Prototype Scene - PreMaster");
         Debug.Log("DemoAnimator/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
 
         int viewId = PhotonNetwork.AllocateSceneViewID();
