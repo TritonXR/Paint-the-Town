@@ -153,15 +153,15 @@ public class Launcher : Photon.PunBehaviour
                 go = Instantiate(Resources.Load("OVRCameraRemote")) as GameObject;
             }
 
-            /*if (go != null)
+            if (go != null)
             {
                 PhotonView pView = go.GetComponent<PhotonView>();
 
-                if (pView != null)
+                /*if (pView != null)
                 {
                     pView.viewID = (int)content;
-                }
-            }*/
+                }*/
+            }
         }
     }
 
