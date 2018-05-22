@@ -55,13 +55,16 @@ public class GameManager : Photon.PunBehaviour {
             LoadArena();
         }
 
-        int viewId = PhotonNetwork.AllocateSceneViewID();
-
-        PhotonNetwork.RaiseEvent(123, viewId, true, new RaiseEventOptions()
+        else
         {
-            CachingOption = EventCaching.AddToRoomCache,
-            Receivers = ReceiverGroup.All
-        });
+            int viewId = PhotonNetwork.AllocateSceneViewID();
+
+            PhotonNetwork.RaiseEvent(123, viewId, true, new RaiseEventOptions()
+            {
+                CachingOption = EventCaching.AddToRoomCache,
+                Receivers = ReceiverGroup.All
+            });
+        }
     }
 
 
