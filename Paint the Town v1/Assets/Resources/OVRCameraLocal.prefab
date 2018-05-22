@@ -25,7 +25,6 @@ GameObject:
   - component: {fileID: 114905706841772704}
   - component: {fileID: 114346857993030580}
   - component: {fileID: 114277683070185510}
-  - component: {fileID: 114932545106545502}
   m_Layer: 0
   m_Name: OVRCameraLocal
   m_TagString: PlayerRed
@@ -1141,17 +1140,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   usePerEyeCameras: 0
   useFixedUpdateForTracking: 0
---- !u!114 &114932545106545502
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1019758256976854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d68b7c37b7edba43bba053bceb32cd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114979034730126384
 MonoBehaviour:
   m_ObjectHideFlags: 1
