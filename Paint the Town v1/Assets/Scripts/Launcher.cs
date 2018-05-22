@@ -159,7 +159,7 @@ public class Launcher : Photon.PunBehaviour
 
                 if (pView != null)
                 {
-                    pView.viewID = senderid;
+                    pView.viewID = PhotonNetwork.player.ID;
                 }
             }
         }
