@@ -6,7 +6,7 @@ using System.IO;
 
 public class PhotonAvatarView : MonoBehaviour {
 
-    private PhotonView photonView;
+    public PhotonView photonView;
     private OvrAvatar ovrAvatar;
     private OvrAvatarRemoteDriver remoteDriver;
     private int localSequence;
@@ -115,7 +115,7 @@ public class PhotonAvatarView : MonoBehaviour {
 
     private void Awake()
     {
-        photonView = GetComponent<PhotonView>();
+        //photonView = GetComponent<PhotonView>();
         movement = GetComponent<movementthing>();
         camera = GetComponent<OVRCameraRig>();
 

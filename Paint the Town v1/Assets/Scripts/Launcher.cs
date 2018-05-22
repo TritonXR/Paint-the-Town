@@ -123,7 +123,7 @@ public class Launcher : Photon.PunBehaviour
         PhotonNetwork.LoadLevel("Prototype Scene - PreMaster");
        // Debug.Log("DemoAnimator/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
 
-        int viewId = PhotonNetwork.AllocateSceneViewID();
+        int viewId = PhotonNetwork.AllocateViewID();
 
         PhotonNetwork.RaiseEvent(InstantiateVrAvatarEventCode, viewId, true, new RaiseEventOptions()
         {
@@ -159,7 +159,7 @@ public class Launcher : Photon.PunBehaviour
 
                 if (pView != null)
                 {
-                    pView.viewID = PhotonNetwork.player.ID;
+                    pView.viewID = (int)content;
                 }
             }
         }
