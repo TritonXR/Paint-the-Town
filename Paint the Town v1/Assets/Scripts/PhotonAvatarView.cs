@@ -97,7 +97,7 @@ public class PhotonAvatarView : MonoBehaviour {
         if (photonView.isMine)
         {
             ovrAvatar = GetComponent<OvrAvatar>();
-            camera.enabled = true;
+            
             packetData = new List<byte[]>();
 
         }
