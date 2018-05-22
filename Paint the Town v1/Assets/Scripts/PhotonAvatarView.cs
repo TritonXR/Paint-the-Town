@@ -89,7 +89,7 @@ public class PhotonAvatarView : MonoBehaviour {
         }
     }
 
-    void Start () {
+    /*void Start () {
         photonView = GetComponent<PhotonView>();
         movement = GetComponent<movementthing>();
         camera = GetComponent<OVRCameraRig>();
@@ -111,10 +111,39 @@ public class PhotonAvatarView : MonoBehaviour {
             ovrAvatar.RecordPackets = true;
             ovrAvatar.PacketRecorded += OnLocalAvatarPacketRecorded;
         }
+    }*/
+
+    private void Awake()
+    {
+        photonView = GetComponent<PhotonView>();
+        movement = GetComponent<movementthing>();
+        camera = GetComponent<OVRCameraRig>();
+
+        if (photonView.isMine)
+        {
+            ovrAvatar = GetComponent<OvrAvatar>();
+
+            packetData = new List<byte[]>();
+
+        }
+        else
+        {
+            remoteDriver = GetComponent<OvrAvatarRemoteDriver>();
+
+        }
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    public void OnEnable()
+    {
+        if (photonView.isMine)
+        {
+            ovrAvatar.RecordPackets = true;
+            ovrAvatar.PacketRecorded += OnLocalAvatarPacketRecorded;
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }
