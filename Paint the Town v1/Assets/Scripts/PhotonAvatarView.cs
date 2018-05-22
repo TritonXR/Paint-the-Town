@@ -12,6 +12,7 @@ public class PhotonAvatarView : MonoBehaviour {
     private int localSequence;
     private List<byte[]> packetData;
     private movementthing movement;
+    private OVRCameraRig camera;
 
     // Use this for initialization
 
@@ -91,17 +92,19 @@ public class PhotonAvatarView : MonoBehaviour {
     void Start () {
         photonView = GetComponent<PhotonView>();
         movement = GetComponent<movementthing>();
+        camera = GetComponent<OVRCameraRig>();
+
         if (photonView.isMine)
         {
             ovrAvatar = GetComponent<OvrAvatar>();
-        
+            camera.enabled = true;
             packetData = new List<byte[]>();
 
         }
         else
         {
            remoteDriver = GetComponent<OvrAvatarRemoteDriver>();
-            movement.enabled = false;
+           movement.enabled = false;
         }
         if (photonView.isMine)
         {
