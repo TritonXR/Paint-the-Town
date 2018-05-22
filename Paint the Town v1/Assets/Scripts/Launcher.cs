@@ -101,18 +101,18 @@ public class Launcher : Photon.PunBehaviour
     {
         if(isConnecting)
             PhotonNetwork.JoinRandomRoom();
-        Debug.Log("DemoAnimator/Launcher: OnConnectedToMaster() was called by PUN");
+        //Debug.Log("DemoAnimator/Launcher: OnConnectedToMaster() was called by PUN");
     }
 
 
     public override void OnDisconnectedFromPhoton()
     {
-        Debug.LogWarning("DemoAnimator/Launcher: OnDisconnectedFromPhoton() was called by PUN");
+       // Debug.LogWarning("DemoAnimator/Launcher: OnDisconnectedFromPhoton() was called by PUN");
     }
 
     public override void OnPhotonRandomJoinFailed(object[] codeAndMsg)
     {
-        Debug.Log("DemoAnimator/Launcher:OnPhotonRandomJoinFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom(null, new RoomOptions() {maxPlayers = 4}, null);");
+        //Debug.Log("DemoAnimator/Launcher:OnPhotonRandomJoinFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom(null, new RoomOptions() {maxPlayers = 4}, null);");
         // #Critical: we failed to join a random room, maybe none exists or they are all full. No worries, we create a new room.
         PhotonNetwork.CreateRoom(null, new RoomOptions() { MaxPlayers = MaxPlayersPerRoom }, null);
     }
@@ -121,7 +121,7 @@ public class Launcher : Photon.PunBehaviour
     {
         // #Critical: We only load if we are the first player, else we rely on  PhotonNetwork.automaticallySyncScene to sync our instance scene.
         PhotonNetwork.LoadLevel("Prototype Scene - PreMaster");
-        Debug.Log("DemoAnimator/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
+       // Debug.Log("DemoAnimator/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
 
         int viewId = PhotonNetwork.AllocateSceneViewID();
 
@@ -131,13 +131,13 @@ public class Launcher : Photon.PunBehaviour
             Receivers = ReceiverGroup.All
         });
 
-        Debug.Log("EVENT RAISE FOR VR SPAWN");
+        Debug.Log("spawning from OnJoinedRoom");
 
     }
 
     private void OnEvent(byte eventcode, object content, int senderid)
     {
-        Debug.Log("VR SPAWN CODE ACTIVATED \n" + eventcode );
+        //Debug.Log("VR SPAWN CODE ACTIVATED \n" + eventcode );
 
         if (eventcode == InstantiateVrAvatarEventCode)
         {
