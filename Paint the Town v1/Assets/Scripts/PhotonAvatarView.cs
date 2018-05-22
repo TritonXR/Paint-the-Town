@@ -104,7 +104,7 @@ public class PhotonAvatarView : MonoBehaviour {
         else
         {
            remoteDriver = GetComponent<OvrAvatarRemoteDriver>();
-           movement.enabled = false;
+           
         }
         if (photonView.isMine)
         {
