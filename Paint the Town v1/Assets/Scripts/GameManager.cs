@@ -13,7 +13,7 @@ public class GameManager : Photon.PunBehaviour {
 
     void Start()
     {
-        Instance = this;
+        /*Instance = this;
 
         if (playerPrefab == null)
         {
@@ -33,7 +33,7 @@ public class GameManager : Photon.PunBehaviour {
             {
                 Debug.Log("Ignoring scene load for " + Application.loadedLevelName);
             }
-        }
+        }*/
     }
 
     /// <summary>
