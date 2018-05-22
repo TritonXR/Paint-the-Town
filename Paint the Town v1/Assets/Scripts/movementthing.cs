@@ -13,13 +13,9 @@ public class movementthing : MonoBehaviour {
     public GameObject righthand;
     private LineRenderer lineR;
     private LineRenderer lineL;
-    private PhotonView photonView;
     // Use this for initialization
     void Start()
-    {
-        photonView = GetComponent<PhotonView>();
-        if (photonView.isMine)
-        {
+    { 
             player = this.gameObject;
             speed = 0.5f;
             lineL = lefthand.GetComponent<LineRenderer>();
@@ -27,7 +23,6 @@ public class movementthing : MonoBehaviour {
 
             lineR = righthand.GetComponent<LineRenderer>();
             lineR.SetVertexCount(2);
-        }
     }
 
 
@@ -35,8 +30,6 @@ public class movementthing : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (photonView.isMine)
-        {
             OVRInput.Update();
             test = OVRInput.IsControllerConnected(OVRInput.Controller.RTrackedRemote).ToString();
             Vector2 rightInput = OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick);
@@ -85,8 +78,6 @@ public class movementthing : MonoBehaviour {
                 Vector3 ray = SampleCurve(OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger)), 
                 Physics.Raycast()
             } */
-        }
-
 
     }
 }
