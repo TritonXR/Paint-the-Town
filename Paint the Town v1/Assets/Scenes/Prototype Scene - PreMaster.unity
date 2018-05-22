@@ -2235,7 +2235,7 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 306183857}
-  - {fileID: 306183865}
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 9
   instantiationId: 9
@@ -2262,7 +2262,7 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 306183858}
-  - {fileID: 306183866}
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 8
   instantiationId: 8
@@ -2289,7 +2289,7 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 306183859}
-  - {fileID: 306183867}
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 7
   instantiationId: 7
@@ -2316,32 +2316,12 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 306183880}
-  - {fileID: 306183868}
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 6
   instantiationId: 6
   currentMasterID: -1
   isRuntimeInstantiated: 0
---- !u!23 &306183865 stripped
-MeshRenderer:
-  m_PrefabParentObject: {fileID: 2300006, guid: b2739a8d240ed7348a1c9cdbb9ef196c,
-    type: 3}
-  m_PrefabInternal: {fileID: 306183851}
---- !u!23 &306183866 stripped
-MeshRenderer:
-  m_PrefabParentObject: {fileID: 2300004, guid: b2739a8d240ed7348a1c9cdbb9ef196c,
-    type: 3}
-  m_PrefabInternal: {fileID: 306183851}
---- !u!23 &306183867 stripped
-MeshRenderer:
-  m_PrefabParentObject: {fileID: 2300002, guid: b2739a8d240ed7348a1c9cdbb9ef196c,
-    type: 3}
-  m_PrefabInternal: {fileID: 306183851}
---- !u!23 &306183868 stripped
-MeshRenderer:
-  m_PrefabParentObject: {fileID: 2300000, guid: b2739a8d240ed7348a1c9cdbb9ef196c,
-    type: 3}
-  m_PrefabInternal: {fileID: 306183851}
 --- !u!114 &306183880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10273,17 +10253,12 @@ MonoBehaviour:
   ownershipTransfer: 0
   ObservedComponents:
   - {fileID: 1258832530}
-  - {fileID: 1258832532}
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 5
   instantiationId: 5
   currentMasterID: -1
   isRuntimeInstantiated: 0
---- !u!23 &1258832532 stripped
-MeshRenderer:
-  m_PrefabParentObject: {fileID: 2300000, guid: 29343fb72f8f3a3439c2e975b0a47f09,
-    type: 3}
-  m_PrefabInternal: {fileID: 1258832527}
 --- !u!1001 &1270211081
 Prefab:
   m_ObjectHideFlags: 0
