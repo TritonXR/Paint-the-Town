@@ -157,10 +157,10 @@ public class Launcher : Photon.PunBehaviour
             {
                 PhotonView pView = go.GetComponent<PhotonView>();
 
-                /*if (pView != null)
+                if (pView != null)
                 {
-                    pView.viewID = (int)content;
-                }*/
+                    pView.viewID = senderid;
+                }
             }
         }
     }
