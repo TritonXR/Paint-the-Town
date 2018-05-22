@@ -123,13 +123,13 @@ public class Launcher : Photon.PunBehaviour
         PhotonNetwork.LoadLevel("Prototype Scene - PreMaster");
         Debug.Log("DemoAnimator/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
 
-        /*int viewId = PhotonNetwork.AllocateSceneViewID();
+        int viewId = PhotonNetwork.AllocateSceneViewID();
 
         PhotonNetwork.RaiseEvent(InstantiateVrAvatarEventCode, viewId, true, new RaiseEventOptions()
         {
             CachingOption = EventCaching.AddToRoomCache,
             Receivers = ReceiverGroup.All
-        });*/
+        });
 
         Debug.Log("EVENT RAISE FOR VR SPAWN");
 
