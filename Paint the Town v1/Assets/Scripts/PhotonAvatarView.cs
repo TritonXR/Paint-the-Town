@@ -14,7 +14,7 @@ public class PhotonAvatarView : MonoBehaviour {
 
     // Use this for initialization
 
-    void OnDisable()
+    public void OnDisable()
     {
         if(photonView.isMine)
         {
