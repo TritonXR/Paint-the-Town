@@ -4,24 +4,41 @@ using UnityEngine;
 
 public class Colorable : MonoBehaviour {
 
-    Material mat;
-    Renderer ren;
-    float scale;
-    AudioSource sound;
+	enum state {N, R, G, B, RG, RB, GB, RGB};
+
+	private Animator animator;
+	private Texture texture;
+	private ParticleSystem particle;
+
+	state curState;
 
 	// Use this for initialization
 	void Start () {
-        mat = GetComponent<Material>();
-        ren = GetComponent<Renderer>();
-        scale = 0.0f;
-        sound = GetComponent<AudioSource>();
+		curState = state.N;
+		animator = GetComponent<Animator> ();
+		if (animator != null) {
+			animator.SetBool("Play", false);
+			Debug.Log("disabled");
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        //manipulate scale here
-        //but you still have to get the _Transition variable in order to change volume and everything, right?
-        //ren.material.SetFloat("_Transition", scale);
-        //sound.volume
+/*		if(animator != null)
+			Debug.Log(animator.GetBool ("Play"));
+		if (Input.GetMouseButton (0)) {
+			curState = state.RGB;
+			Debug.Log ("something");
+		}
+		if (curState == state.RGB) {
+			if (animator != null) {
+				animator.SetBool ("Play", true);
+			}
+			Debug.Log ("works");
+		}*/
     }
+
+	void TurnOn(){
+		
+	}
 }
