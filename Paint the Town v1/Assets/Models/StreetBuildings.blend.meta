@@ -4,11 +4,31 @@ ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Build1
+    100004: Build2
+    100006: Build3
+    100008: Build4
     400000: //RootNode
+    400002: Build1
+    400004: Build2
+    400006: Build3
+    400008: Build4
     2100000: unnamed
     2300000: //RootNode
+    2300002: Build1
+    2300004: Build2
+    2300006: Build3
+    2300008: Build4
     3300000: //RootNode
+    3300002: Build1
+    3300004: Build2
+    3300006: Build3
+    3300008: Build4
     4300000: Plane
+    4300002: Build4
+    4300004: Build3
+    4300006: Build2
+    4300008: Build1
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
@@ -30,7 +50,6 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
-    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
