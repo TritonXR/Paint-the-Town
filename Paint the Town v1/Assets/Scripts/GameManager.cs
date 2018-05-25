@@ -55,16 +55,16 @@ public class GameManager : Photon.PunBehaviour {
             LoadArena();
         }
 
-        else
+        /*else
         {
-            int viewId = PhotonNetwork.AllocateSceneViewID();
+            int viewId = PhotonNetwork.AllocateViewID();
 
             PhotonNetwork.RaiseEvent(123, viewId, true, new RaiseEventOptions()
             {
                 CachingOption = EventCaching.AddToRoomCache,
                 Receivers = ReceiverGroup.All
             });
-        }
+        }*/
     }
 
 
@@ -107,7 +107,7 @@ public class GameManager : Photon.PunBehaviour {
         //Debug.Log("PhotonNetwork : Loading Level : " + PhotonNetwork.room.PlayerCount);
         PhotonNetwork.LoadLevel("Prototype Scene - PreMaster");
 
-        int viewId = PhotonNetwork.AllocateSceneViewID();
+        int viewId = PhotonNetwork.AllocateViewID();
 
         PhotonNetwork.RaiseEvent(123, viewId, true, new RaiseEventOptions()
         {
