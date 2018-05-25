@@ -159,9 +159,11 @@ public class ControllerInput : MonoBehaviour
                 if (this.tag == "PlayerRed" && !paused) //disable painting
                 {
 
+                    Colorable datThing = hit.collider.GetComponent<Colorable>();
                     // checking the raycast hit a paintable target
-                    if (hit.collider.GetComponent<Colorable>() != null)
+                    if (datThing != null)
                     {
+                        datThing.ChangeState("Red");
                         mat = hit.collider.GetComponent<Renderer>().material;
                         redPaint = true;
                         // create a new texture to paint on
@@ -211,9 +213,11 @@ public class ControllerInput : MonoBehaviour
                 //green player
                 else if (this.tag == "PlayerGreen" && !paused) //disable painting
                 {
+                    Colorable datThing = hit.collider.GetComponent<Colorable>();
                     // checking the raycast hit a paintable target
-                    if (hit.collider.GetComponent<Colorable>() != null)
+                    if (datThing != null)
                     {
+                        datThing.ChangeState("Green");
                         mat = hit.collider.GetComponent<Renderer>().material;
                         greenPaint = true;
                         // create a new texture to paint on
@@ -263,9 +267,11 @@ public class ControllerInput : MonoBehaviour
                 //Blue play
                 else if (this.tag == "PlayerBlue" && !paused) //disable painting
                 {
+                    Colorable datThing = hit.collider.GetComponent<Colorable>();
                     // checking the raycast hit a paintable target
-                    if (hit.collider.GetComponent<Colorable>() != null)
+                    if (datThing != null)
                     {
+                        datThing.ChangeState("Blue");
                         mat = hit.collider.GetComponent<Renderer>().material;
                         bluePaint = true;
                         // create a new texture to paint on
