@@ -127,56 +127,114 @@ public class ControllerInputTest : MonoBehaviour
 						}
 					}
 				}
-				//green player
-				else if (this.tag == "PlayerGreen" && !paused) //disable painting
-				{
-				Colorable datThing = hit.collider.GetComponent<Colorable> ();
+			//green player
+			else if (this.tag == "PlayerGreen" && !paused) //disable painting
+			{
+				Colorable datThing = hit.collider.GetComponent<Colorable>();
 				// checking the raycast hit a paintable target
 				if (datThing != null)
 				{
-					datThing.ChangeState ("Green");
-						mat = hit.collider.GetComponent<Renderer>().material;
+					datThing.ChangeState("Green");
+					mat = hit.collider.GetComponent<Renderer>().material;
+					greenPaint = true;
+					// create a new texture to paint on
+					Texture2D greenTex = (Texture2D)GameObject.Instantiate(mat.GetTexture("_Green"));
+					Vector2 pixelUV = hit.textureCoord;
+					pixelUV.x *= greenTex.width;
+					pixelUV.y *= greenTex.height;
 
-						// create a new texture to paint on
-						Texture2D tex = GameObject.Instantiate(mat.GetTexture("_Green")) as Texture2D;
+					int x = (int)(posX * textureSize - (penSize / 2));
+					int y = (int)(posY * textureSize - (penSize / 2));
 
-						// paint the whole thing red
-						for (int x = 0; x < tex.width; x++)
+					//new pensize with color red
+					color = Enumerable.Repeat<Color>(Color.green, penSize * penSize).ToArray<Color>();
+
+					if (hitLast)
+					{
+						//connecting current ray position to last ray position
+						for (float t = 0.01f; t < 1.00f; t += 0.01f)
 						{
-							for (int y = 0; y < tex.height; y++)
-							{
-								tex.SetPixel(x, y, Color.white);
-							}
+
+							greenTex.SetPixels((int)pixelUV.x, (int)pixelUV.y, penSize, penSize, color);
+
+
+							lerpX = (int)Mathf.Lerp(lastX, (float)pixelUV.x, t);
+							lerpY = (int)Mathf.Lerp(lastY, (float)pixelUV.y, t);
+							greenTex.SetPixels(lerpX, lerpY, penSize, penSize, color);
 						}
-						tex.Apply();
-						mat.SetTexture("_Green", tex);
+
+					}
+
+					if (hitCurr)
+					{
+						greenTex.Apply();
+					}
+
+					this.lastX = (float)pixelUV.x;
+					this.lastY = (float)pixelUV.y;
+
+
+					mat.SetTexture("_Green", greenTex);
+					if (hitLast == false)
+					{
+						hitLast = true;
 					}
 				}
-				//Blue play
-				else if (this.tag == "PlayerBlue" && !paused) //disable painting
-				{
-				Colorable datThing = hit.collider.GetComponent<Colorable> ();
+			}
+			//Blue play
+			else if (this.tag == "PlayerBlue" && !paused) //disable painting
+			{
+				Colorable datThing = hit.collider.GetComponent<Colorable>();
 				// checking the raycast hit a paintable target
 				if (datThing != null)
 				{
-					datThing.ChangeState ("Blue");
-						mat = hit.collider.GetComponent<Renderer>().material;
+					datThing.ChangeState("Blue");
+					mat = hit.collider.GetComponent<Renderer>().material;
+					bluePaint = true;
+					// create a new texture to paint on
+					Texture2D blueTex = (Texture2D)GameObject.Instantiate(mat.GetTexture("_Blue"));
+					Vector2 pixelUV = hit.textureCoord;
+					pixelUV.x *= blueTex.width;
+					pixelUV.y *= blueTex.height;
 
-						// create a new texture to paint on
-						Texture2D tex = GameObject.Instantiate(mat.GetTexture("_Blue")) as Texture2D;
+					int x = (int)(posX * textureSize - (penSize / 2));
+					int y = (int)(posY * textureSize - (penSize / 2));
 
-						// paint the whole thing red
-						for (int x = 0; x < tex.width; x++)
+					//new pensize with color red
+					color = Enumerable.Repeat<Color>(Color.blue, penSize * penSize).ToArray<Color>();
+
+					if (hitLast)
+					{
+						//connecting current ray position to last ray position
+						for (float t = 0.01f; t < 1.00f; t += 0.01f)
 						{
-							for (int y = 0; y < tex.height; y++)
-							{
-								tex.SetPixel(x, y, Color.white);
-							}
+
+							blueTex.SetPixels((int)pixelUV.x, (int)pixelUV.y, penSize, penSize, color);
+
+
+							lerpX = (int)Mathf.Lerp(lastX, (float)pixelUV.x, t);
+							lerpY = (int)Mathf.Lerp(lastY, (float)pixelUV.y, t);
+							blueTex.SetPixels(lerpX, lerpY, penSize, penSize, color);
 						}
-						tex.Apply();
-						mat.SetTexture("_Blue", tex);
+
+					}
+
+					if (hitCurr)
+					{
+						blueTex.Apply();
+					}
+
+					this.lastX = (float)pixelUV.x;
+					this.lastY = (float)pixelUV.y;
+
+
+					mat.SetTexture("_Blue", blueTex);
+					if (hitLast == false)
+					{
+						hitLast = true;
 					}
 				}
+			}
 
 		}
 
