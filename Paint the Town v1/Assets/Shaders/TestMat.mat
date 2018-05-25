@@ -7,8 +7,8 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: TestMat
-  m_Shader: {fileID: 4800000, guid: 0b85ae7fd781aee4d8779da5d1832204, type: 3}
-  m_ShaderKeywords: _NORMALMAP
+  m_Shader: {fileID: 4800000, guid: d2961a4ebdc27d744b630d5b8c2294d4, type: 3}
+  m_ShaderKeywords: _ALPHATEST_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -18,12 +18,16 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 2800000, guid: 2796867f47c6431479d85584a93279bf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Blue:
         m_Texture: {fileID: 2800000, guid: 069c213394cd12448a8c37f268a1fe1d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 2b8c67388bb304380b131364f84fab46, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -43,7 +47,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Glossiness:
-        m_Texture: {fileID: 2800000, guid: c6826c49652a249c7859c14d905c1210, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Green:
@@ -55,7 +59,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d2277f5aaff8b403095422134f121ce6, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2796867f47c6431479d85584a93279bf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -67,7 +71,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: cc22aef62f7b04e739769c7272d2734e, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Red:
@@ -81,17 +85,17 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.9
+    - _Glossiness: 0
     - _GlossyReflections: 1
-    - _Metallic: 0.758
-    - _Mode: 0
+    - _Metallic: 0
+    - _Mode: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Test: 0
-    - _Transition: 0.01
+    - _Transition: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:

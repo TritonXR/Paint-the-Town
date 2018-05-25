@@ -11,6 +11,7 @@
 		_Metallic ("Metallic", Range(0,1)) = 0.0
 		_Parallax("Height", Range(0.005, 0.08)) = 0.02
 		_ParallaxMap("Heightmap (A)", 2D) = "black" {}
+		_Cutoff("Alpha cutoff", Range(0,1)) = 0.5
 		
 		
 		_Red("Red", 2D) = "black" {}
@@ -19,12 +20,12 @@
 
 	}
 	SubShader {
-		Tags { "RenderType"="Opaque" }
+		Tags { "Queue" = "AlphaTest" "IgnoreProjector" = "True" "RenderType" = "TransparentCutout" }
 		LOD 200
 
 		CGPROGRAM
 		// Physically based Standard lighting model, and enable shadows on all light types
-		#pragma surface surf Standard fullforwardshadows
+		#pragma surface surf Standard fullforwardshadows Lambert alphatest:_Cutoff
 
 		// Use shader model 3.0 target, to get nicer looking lighting
 		#pragma target 3.0
@@ -91,5 +92,5 @@
 		}
 		ENDCG
 	}
-	FallBack "Diffuse"
+	FallBack "Transparent/Cutout/Diffuse"
 }
