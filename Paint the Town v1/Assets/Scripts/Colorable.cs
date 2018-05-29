@@ -20,7 +20,15 @@ public class Colorable : MonoBehaviour {
 		curState = state.N;
 		animator = GetComponent<Animator> ();
 		if (animator != null) {
-			animator.SetBool("Play", false);
+			//set each animation accordingly
+			if (gameObject.name == "gramophone v2") {
+				animator.SetBool ("Play", false);
+			}
+			/*
+			else if(gameObject.name == "") {
+
+			}
+			*/
 			Debug.Log("disabled");
 		}
 		mat = GetComponent<Renderer> ().material;
@@ -30,14 +38,25 @@ public class Colorable : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (curState != state.D) {
+			//if all 3 color are painted
 			if (curState == state.RGB) {
 				GetComponent<Renderer> ().material.SetFloat ("_Transition", Mathf.Lerp (0.01f, 1.0f, t));
 				t += 0.5f * Time.deltaTime;
+				//play the animation accordingly
+				if (gameObject.name = "gramophone v2") {
+					animator.SetBool ("Play", true);
+				}
+/*				else if(){
+
+				}
+				*/
 			}
 			if (mat != null) {
 				if(mat.GetFloat ("_Transition") >= 1.0f)
 					curState = state.D;
 			}
+
+
 		}
 /*		if(animator != null)
 			Debug.Log(animator.GetBool ("Play"));
@@ -55,6 +74,7 @@ public class Colorable : MonoBehaviour {
 
 	public void ChangeState(string states){
 		if (curState == state.D) {
+			return;
 		}
 		else if (states == "Red") {
 			if (curState == state.N)

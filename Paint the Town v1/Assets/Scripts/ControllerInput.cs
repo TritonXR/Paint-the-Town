@@ -125,7 +125,8 @@ public class ControllerInput : MonoBehaviour
                     {
                         hit.collider.GetComponentInParent<MainMenu>().gameObject.SetActive(false);//makes stuff disappear
                         //settingsButton.SetActive(true);
-                    }
+                    
+					}
 
                     if (hit.collider.name == "SettingsButton")
                     {
@@ -210,6 +211,7 @@ public class ControllerInput : MonoBehaviour
                         }
                     }
                 }
+
                 //green player
                 else if (this.tag == "PlayerGreen" && !paused) //disable painting
                 {
