@@ -11,23 +11,18 @@ public class Colorable : MonoBehaviour {
 	private Texture texture;
 	private GameObject particleObj;
 	private ParticleSystem particle;
-    public string objectName;
-    private PhotonView photonView;
+
 	public state curState;
 	Material mat;
 	float t = 0.01f;
 
     void Awake()
     {
-        photonView = new PhotonView();
+        
     }
 
     // Use this for initialization
     void Start () {
-
-
-        objectName = transform.parent.gameObject.GetInstanceID().ToString();
-
         curState = state.N;
 		animator = GetComponent<Animator> ();
 		if (animator != null) {
@@ -53,7 +48,7 @@ public class Colorable : MonoBehaviour {
 			particle.Stop();
 		}
 
-        photonView.ObservedComponents.Add(this.GetComponent<Colorable>());
+  
     }
 
 	
