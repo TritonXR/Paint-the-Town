@@ -53,6 +53,15 @@ public class GameManager : Photon.PunBehaviour {
         {
             //Debug.Log("OnPhotonPlayerConnected isMasterClient " + PhotonNetwork.isMasterClient); // called before OnPhotonPlayerDisconnected
             LoadArena();
+
+            int viewId = PhotonNetwork.AllocateViewID();
+
+            PhotonNetwork.RaiseEvent(123, viewId, true, new RaiseEventOptions()
+            {
+                CachingOption = EventCaching.AddToRoomCache,
+                Receivers = ReceiverGroup.All
+            });
+
         }
 
         /*else
@@ -77,7 +86,7 @@ public class GameManager : Photon.PunBehaviour {
         {
             ///Debug.Log("OnPhotonPlayerDisonnected isMasterClient " + PhotonNetwork.isMasterClient); // called before OnPhotonPlayerDisconnected
 
-            LoadArena();
+            //LoadArena();
         }
     }
 
@@ -107,7 +116,7 @@ public class GameManager : Photon.PunBehaviour {
         //Debug.Log("PhotonNetwork : Loading Level : " + PhotonNetwork.room.PlayerCount);
         PhotonNetwork.LoadLevel("Prototype Scene - PreMaster");
 
-        int viewId = PhotonNetwork.AllocateViewID();
+        /*int viewId = PhotonNetwork.AllocateViewID();
 
         PhotonNetwork.RaiseEvent(123, viewId, true, new RaiseEventOptions()
         {
@@ -115,7 +124,7 @@ public class GameManager : Photon.PunBehaviour {
             Receivers = ReceiverGroup.All
         });
 
-        Debug.Log("spawning from LoadArena");
+        Debug.Log("spawning from LoadArena"); */
     }
 
 
