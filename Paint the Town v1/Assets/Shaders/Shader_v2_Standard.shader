@@ -1,4 +1,4 @@
-﻿Shader "Custom/Shader_v2" {
+﻿Shader "Custom/Shader_v2_Standard" {
 	Properties {
 
 		_Transition("Transition", Range(0.01,1)) = 0.0
@@ -6,8 +6,8 @@
 		_Color ("Color", Color) = (1,1,1,1)
 		_MainTex ("Albedo (RGB)", 2D) = "white" {}
 		_BumpMap("Normal Map", 2D) = "bump" {}
-		_BumpFactor("Normal Intensity", Range(0.1,5.0)) = 1.0
-		_Glossiness ("Reflective Map", 2D) = "bump" {}
+		_Glossiness ("Smoothness", range(0,1)) = 1.0
+		_GlossinessMap ("Smoothness Alpha", 2D) = "white" {}
 		_Metallic ("Metallic", Range(0,1)) = 0.0
 		_Parallax("Height", Range(0.005, 0.08)) = 0.02
 		_ParallaxMap("Heightmap (A)", 2D) = "black" {}
@@ -32,6 +32,7 @@
 		sampler2D _MainTex;
 		sampler2D _BumpMap;
 		sampler2D _ParallaxMap;
+		sampler2D _GlossinessMap;
 		sampler2D _Red;
 		sampler2D _Green;
 		sampler2D _Blue;
@@ -42,12 +43,12 @@
 		half _Glossiness;
 		half _Metallic;
 		half _Transition;
-		float4 _BumpFactor;
 		float4 _normalTransition;
 
 		struct Input {
 			float2 uv_MainTex;
 			float2 uv_BumpMap;
+			float2 uv_GlossinessMap;
 			float3 viewDir;
 		};
 
@@ -74,7 +75,7 @@
 			half h = tex2D(_ParallaxMap, IN.uv_BumpMap).w;
 			float2 offset = ParallaxOffset(h, _Parallax, IN.viewDir);
 			IN.uv_MainTex += offset;
-			IN.uv_BumpMap += offset * _BumpFactor;
+			IN.uv_BumpMap += offset;
 
 			//remaps the transition value into a range to be applied to the normal maps
 			_normalTransition = 0.9 + (_Transition - 0.1) * (1.0 - 0.9) / (1.0 - 0.1);
@@ -86,7 +87,7 @@
 			o.Metallic = _Metallic * _Transition;
 			
 			//set smoothness from gloss map
-			o.Smoothness = _Glossiness * _Transition;
+			o.Smoothness = _Glossiness * IN.uv_GlossinessMap * _Transition;
 			
 			//set alpha from color
 			o.Alpha = col.a;

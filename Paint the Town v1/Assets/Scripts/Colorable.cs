@@ -34,9 +34,11 @@ public class Colorable : MonoBehaviour {
 		}
 		
 		mat = GetComponent<Renderer> ().material;
-		
-		particleObj = this.gameObject.transform.GetChild(0);
-		if (particleObj != null) {
+
+        if (this.transform.childCount > 0) {
+            particleObj = this.gameObject.transform.GetChild(0).gameObject;
+        }
+		if (particleObj != null && particleObj.GetComponent<ParticleSystem>() != null) {
 			particle = particleObj.GetComponent<ParticleSystem>();
 			particle.Stop();
 		}
@@ -51,7 +53,7 @@ public class Colorable : MonoBehaviour {
 				GetComponent<Renderer> ().material.SetFloat ("_Transition", Mathf.Lerp (0.01f, 1.0f, t));
 				t += 0.5f * Time.deltaTime;
 				//play the animation accordingly
-				if (gameObject.name = "gramophone v2") {
+				if (gameObject.name == "gramophone v2") {
 					animator.SetBool ("Play", true);
 				}
 /*				else if(){
