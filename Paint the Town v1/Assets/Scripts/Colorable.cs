@@ -20,7 +20,6 @@ public class Colorable : MonoBehaviour {
     void Awake()
     {
         photonView = new PhotonView();
-        photonView.ObservedComponents.Add(this);
     }
 
     // Use this for initialization
@@ -53,7 +52,9 @@ public class Colorable : MonoBehaviour {
 			particle = particleObj.GetComponent<ParticleSystem>();
 			particle.Stop();
 		}
-	}
+
+        photonView.ObservedComponents.Add(this);
+    }
 
 	
 	// Update is called once per frame
