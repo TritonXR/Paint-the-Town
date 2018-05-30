@@ -176,14 +176,19 @@ public class Launcher : Photon.PunBehaviour
     }
 
     [PunRPC]
-    /*void paintWithVal(Vector2 pixelUV, )
+    void paintWithTex(byte[] tex, string objectID, string color)
     {
+        GameObject dummy = GameObject.Find(objectID);
 
-    }
-    */
-    void paintWithTex(Texture2D tex, Material mat, string color)
-    {
-        mat.SetTexture(color, tex);
+        Material mat = dummy.GetComponent<Material>();
+
+        Texture2D texCopy = (Texture2D)GameObject.Instantiate(mat.GetTexture(color));
+
+        texCopy.LoadRawTextureData(tex);
+
+        texCopy.Apply();
+
+        mat.SetTexture(color, texCopy);
     }
 
 

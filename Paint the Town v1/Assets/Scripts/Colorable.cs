@@ -11,6 +11,7 @@ public class Colorable : MonoBehaviour {
 	private Texture texture;
 	private GameObject particleObj;
 	private ParticleSystem particle;
+    public string objectName;
 
 	public state curState;
 	Material mat;
@@ -18,7 +19,10 @@ public class Colorable : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		curState = state.N;
+
+        objectName = transform.parent.gameObject.GetInstanceID().ToString();
+
+        curState = state.N;
 		animator = GetComponent<Animator> ();
 		if (animator != null) {
 			//set each animation accordingly
@@ -118,4 +122,20 @@ public class Colorable : MonoBehaviour {
 				curState = state.RGB;
 		}
 	}
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.isWriting)
+        {
+            // We own this player: send the others our data
+            stream.SendNext(mat);
+            
+        }
+        else
+        {
+            // Network player, receive data
+            mat = (Material) stream.ReceiveNext();
+            
+        }
+    }
 }

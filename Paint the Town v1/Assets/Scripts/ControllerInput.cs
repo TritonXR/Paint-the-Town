@@ -210,7 +210,7 @@ public class ControllerInput : MonoBehaviour
                         mat.SetTexture("_Red", redTex);
                         
                         //Change rpc calls right here
-                        photonView.RPC("paintWithTex", PhotonTargets.AllBufferedViaServer, redTex, mat, "_Red");
+                        //photonView.RPC("paintWithTex", PhotonTargets.AllBuffered, redTex.GetRawTextureData(), datThing.objectName, "_Red");
 
                         //Need to make if sending over texture doesn't work
                         //photonView.RPC("paintWithVal", PhotonTargets.AllBufferedViaServer, )
@@ -397,6 +397,22 @@ public class ControllerInput : MonoBehaviour
                 this.tag = "PlayerRed";
             }
         }
+    }
+
+    [PunRPC]
+    void paintWithTex(byte[] tex, string objectID, string color)
+    {
+       /* GameObject dummy = GameObject.Find(objectID);
+
+        Material mat2 = dummy.GetComponent<Material>();
+
+        Texture2D texCopy = (Texture2D)GameObject.Instantiate(mat2.GetTexture(color));
+
+        texCopy.LoadRawTextureData(tex);
+
+        texCopy.Apply();
+
+        mat2.SetTexture(color, texCopy); */
     }
 }
 
