@@ -210,7 +210,7 @@ public class ControllerInput : MonoBehaviour
                         mat.SetTexture("_Red", redTex);
                         
                         //Change rpc calls right here
-                        //photonView.RPC("paintWithTex", PhotonTargets.AllBuffered, redTex.GetRawTextureData(), datThing.objectName, "_Red");
+                        photonView.RPC("paintWithTex", PhotonTargets.AllBuffered, redTex.GetRawTextureData(), datThing.objectName, "_Red");
 
                         //Need to make if sending over texture doesn't work
                         //photonView.RPC("paintWithVal", PhotonTargets.AllBufferedViaServer, )
