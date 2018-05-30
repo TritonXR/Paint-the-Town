@@ -53,7 +53,7 @@ public class Colorable : MonoBehaviour {
 			particle.Stop();
 		}
 
-        photonView.ObservedComponents.Add(this);
+        photonView.ObservedComponents.Add(this.GetComponent<Colorable>());
     }
 
 	
