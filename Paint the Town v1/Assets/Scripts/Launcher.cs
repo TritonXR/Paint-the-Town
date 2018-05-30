@@ -175,7 +175,7 @@ public class Launcher : Photon.PunBehaviour
         PhotonNetwork.OnEventCall -= this.OnEvent;
     }
 
-    [PunRPC]
+    /*[PunRPC]
     void paintWithTex(byte[] tex, string objectID, string color)
     {
         GameObject dummy = GameObject.Find(objectID);
@@ -189,7 +189,7 @@ public class Launcher : Photon.PunBehaviour
         texCopy.Apply();
 
         mat.SetTexture(color, texCopy);
-    }
+    }*/
 
 
 

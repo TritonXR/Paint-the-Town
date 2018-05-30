@@ -271,7 +271,7 @@ public class ControllerInput : MonoBehaviour
 
                         mat.SetTexture("_Green", greenTex);
 
-                        photonView.RPC("paintWithTex", PhotonTargets.AllBufferedViaServer, greenTex, mat, "_Green");
+                        //photonView.RPC("paintWithTex", PhotonTargets.AllBufferedViaServer, greenTex, mat, "_Green");
 
                         if (hitLast == false)
                         {
@@ -328,7 +328,7 @@ public class ControllerInput : MonoBehaviour
 
                         mat.SetTexture("_Blue", blueTex);
 
-                        photonView.RPC("paintWithTex", PhotonTargets.AllBufferedViaServer, blueTex, mat, "_Blue");
+                        //photonView.RPC("paintWithTex", PhotonTargets.AllBufferedViaServer, blueTex, mat, "_Blue");
 
                         if (hitLast == false)
                         {
