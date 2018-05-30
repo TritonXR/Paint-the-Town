@@ -175,6 +175,17 @@ public class Launcher : Photon.PunBehaviour
         PhotonNetwork.OnEventCall -= this.OnEvent;
     }
 
+    [PunRPC]
+    /*void paintWithVal(Vector2 pixelUV, )
+    {
+
+    }
+    */
+    void paintWithTex(Texture2D tex, Material mat, string color)
+    {
+        mat.SetTexture(color, tex);
+    }
+
 
 
     #endregion

@@ -42,10 +42,13 @@ public class ControllerInput : MonoBehaviour
     private bool redPaint, greenPaint, bluePaint;
     private bool paused;
 
+    private PhotonView photonView;
+
     // Use this for initialization
     void Start()
     {
         paused = false;
+        photonView = GetComponentInParent<PhotonView>();
     }
 
     // Update is called once per frame
@@ -205,6 +208,13 @@ public class ControllerInput : MonoBehaviour
 
 
                         mat.SetTexture("_Red", redTex);
+                        
+                        //Change rpc calls right here
+                        photonView.RPC("paintWithTex", PhotonTargets.AllBufferedViaServer, redTex, mat, "_Red");
+
+                        //Need to make if sending over texture doesn't work
+                        //photonView.RPC("paintWithVal", PhotonTargets.AllBufferedViaServer, )
+
                         if (hitLast == false)
                         {
                             hitLast = true;
@@ -260,6 +270,9 @@ public class ControllerInput : MonoBehaviour
 
 
                         mat.SetTexture("_Green", greenTex);
+
+                        photonView.RPC("paintWithTex", PhotonTargets.AllBufferedViaServer, greenTex, mat, "_Green");
+
                         if (hitLast == false)
                         {
                             hitLast = true;
@@ -314,6 +327,9 @@ public class ControllerInput : MonoBehaviour
 
 
                         mat.SetTexture("_Blue", blueTex);
+
+                        photonView.RPC("paintWithTex", PhotonTargets.AllBufferedViaServer, blueTex, mat, "_Blue");
+
                         if (hitLast == false)
                         {
                             hitLast = true;
