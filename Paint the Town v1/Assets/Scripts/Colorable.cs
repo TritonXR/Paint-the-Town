@@ -9,6 +9,7 @@ public class Colorable : MonoBehaviour {
 
 	private Animator animator;
 	private Texture texture;
+	private GameObject particleObj;
 	private ParticleSystem particle;
 
 	public state curState;
@@ -31,7 +32,14 @@ public class Colorable : MonoBehaviour {
 			*/
 			Debug.Log("disabled");
 		}
+		
 		mat = GetComponent<Renderer> ().material;
+		
+		particleObj = this.gameObject.transform.GetChild(0);
+		if (particleObj != null) {
+			particle = particleObj.GetComponent<ParticleSystem>();
+			particle.Stop();
+		}
 	}
 
 	
@@ -54,6 +62,9 @@ public class Colorable : MonoBehaviour {
 			if (mat != null) {
 				if(mat.GetFloat ("_Transition") >= 1.0f)
 					curState = state.D;
+			}
+			if (particle != null) {
+				particle.Play();
 			}
 
 
