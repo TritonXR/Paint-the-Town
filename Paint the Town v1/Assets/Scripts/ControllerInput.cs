@@ -42,6 +42,8 @@ public class ControllerInput : MonoBehaviour
     private bool redPaint, greenPaint, bluePaint;
     private bool paused;
 
+    private Material mat;
+    private RaycastHit hit;
     private PhotonView photonView;
 
     // Use this for initialization
@@ -49,6 +51,7 @@ public class ControllerInput : MonoBehaviour
     {
         paused = false;
         photonView = GetComponentInParent<PhotonView>();
+        
     }
 
     // Update is called once per frame
@@ -65,9 +68,7 @@ public class ControllerInput : MonoBehaviour
         {
             //Debug.Log("press");
 
-            //Change raycast so that ut us outside of the controller check because ti should be active every time
-            RaycastHit hit;
-            Material mat;
+            //Change raycast so that ut us outside of the controller check because ti should be active every time         
 
             if (Physics.Raycast(controllerTransform.position, controllerTransform.forward, out hit) ||
                 Physics.Raycast(lefthand.transform.position, lefthand.transform.forward, out hit))
@@ -400,19 +401,53 @@ public class ControllerInput : MonoBehaviour
     }
 
     [PunRPC]
-    void paintWithTex(byte[] tex, string objectID, string color)
+    void paintWithTex(string objectID, string tag)
     {
-       /* GameObject dummy = GameObject.Find(objectID);
+     
+        redPaint = true;
+        // create a new texture to paint on
+        Texture2D redTex = (Texture2D)GameObject.Instantiate(mat.GetTexture("_Red"));
+        Vector2 pixelUV = hit.textureCoord;
+        pixelUV.x *= redTex.width;
+        pixelUV.y *= redTex.height;
 
-        Material mat2 = dummy.GetComponent<Material>();
+        int x = (int)(posX * textureSize - (penSize / 2));
+        int y = (int)(posY * textureSize - (penSize / 2));
 
-        Texture2D texCopy = (Texture2D)GameObject.Instantiate(mat2.GetTexture(color));
+        //new pensize with color red
+        color = Enumerable.Repeat<Color>(Color.red, penSize * penSize).ToArray<Color>();
 
-        texCopy.LoadRawTextureData(tex);
+        if (hitLast)
+        {
+            //connecting current ray position to last ray position
+            for (float t = 0.01f; t < 1.00f; t += 0.01f)
+            {
 
-        texCopy.Apply();
+                redTex.SetPixels((int)pixelUV.x, (int)pixelUV.y, penSize, penSize, color);
 
-        mat2.SetTexture(color, texCopy); */
+
+                lerpX = (int)Mathf.Lerp(lastX, (float)pixelUV.x, t);
+                lerpY = (int)Mathf.Lerp(lastY, (float)pixelUV.y, t);
+                redTex.SetPixels(lerpX, lerpY, penSize, penSize, color);
+            }
+
+        }
+
+        if (hitCurr)
+        {
+            redTex.Apply();
+        }
+
+        this.lastX = (float)pixelUV.x;
+        this.lastY = (float)pixelUV.y;
+
+
+        mat.SetTexture("_Red", redTex);
+
+        if (hitLast == false)
+        {
+            hitLast = true;
+        }
     }
 }
 
