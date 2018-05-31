@@ -41,7 +41,7 @@ public class Colorable : MonoBehaviour {
 
 			}
 			*/
-			Debug.Log("disabled");
+			//Debug.Log("disabled");
 		}
 		
 		mat = GetComponent<Renderer> ().material;
@@ -139,14 +139,23 @@ public class Colorable : MonoBehaviour {
     {
         GameObject thing = PhotonView.Find(photonViewID).gameObject;
 
+        if(thing == null)
+        {
+            Debug.Log("Photon View could not find the game object");
+        }
+
         Material matCopy = thing.GetComponent<Renderer>().material;
 
+        if(matCopy == null)
+        {
+            Debug.Log("material not found from thing we are coloring");
+        }
         // create a new texture to paint on
 
         Texture2D tex = (Texture2D)GameObject.Instantiate(matCopy.GetTexture(tag));
         Vector2 pixelUV = new Vector2(pixelX, pixelY);
-        pixelUV.x *= tex.width;
-        pixelUV.y *= tex.height;
+        /*pixelUV.x *= tex.width;
+        pixelUV.y *= tex.height;*/
 
         /*int x = (int)(posX * textureSize - (penSize / 2));
         int y = (int)(posY * textureSize - (penSize / 2));*/

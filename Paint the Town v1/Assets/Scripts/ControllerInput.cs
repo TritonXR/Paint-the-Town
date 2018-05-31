@@ -414,7 +414,7 @@ public class ControllerInput : MonoBehaviour
     }
 
     //Copy what ever happens during painting
-    [PunRPC]
+    /*[PunRPC]
     void paintWithTex(int photonViewID, string tag, float pixelX, float pixelY,float lastX, float lastY, bool hitLast, bool hitCurr)
     {
         GameObject thing = PhotonView.Find(photonViewID).gameObject;
@@ -429,7 +429,7 @@ public class ControllerInput : MonoBehaviour
         pixelUV.y *= tex.height;
 
         /*int x = (int)(posX * textureSize - (penSize / 2));
-        int y = (int)(posY * textureSize - (penSize / 2));*/
+        int y = (int)(posY * textureSize - (penSize / 2));
 
         //new pensize with color red
         if (tag == "_Red")
@@ -468,7 +468,7 @@ public class ControllerInput : MonoBehaviour
 
         matCopy.SetTexture(tag, tex);
 
-    }
+    }*/
 }
 
 
