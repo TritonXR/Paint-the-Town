@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public enum state {N, R, G, B, RG, RB, GB, RGB, D};
 
@@ -11,8 +12,11 @@ public class Colorable : MonoBehaviour {
 	private Texture texture;
 	private GameObject particleObj;
 	private ParticleSystem particle;
+    private Color[] color;
+    private int penSize = 5;
+    private int lerpX, lerpY;
 
-	public state curState;
+    public state curState;
 	Material mat;
 	float t = 0.01f;
 
@@ -127,5 +131,63 @@ public class Colorable : MonoBehaviour {
 				curState = state.RGB;
 		}
 	}
+
+
+    //Copy what ever happens during painting
+    [PunRPC]
+    void paintWithTex(int photonViewID, string tag, float pixelX, float pixelY, float lastX, float lastY, bool hitLast, bool hitCurr)
+    {
+        GameObject thing = PhotonView.Find(photonViewID).gameObject;
+
+        Material matCopy = thing.GetComponent<Renderer>().material;
+
+        // create a new texture to paint on
+
+        Texture2D tex = (Texture2D)GameObject.Instantiate(matCopy.GetTexture(tag));
+        Vector2 pixelUV = new Vector2(pixelX, pixelY);
+        pixelUV.x *= tex.width;
+        pixelUV.y *= tex.height;
+
+        /*int x = (int)(posX * textureSize - (penSize / 2));
+        int y = (int)(posY * textureSize - (penSize / 2));*/
+
+        //new pensize with color red
+        if (tag == "_Red")
+        {
+            color = Enumerable.Repeat<Color>(Color.red, penSize * penSize).ToArray<Color>();
+        }
+        else if (tag == "_Green")
+        {
+            color = Enumerable.Repeat<Color>(Color.green, penSize * penSize).ToArray<Color>();
+        }
+        else
+        {
+            color = Enumerable.Repeat<Color>(Color.blue, penSize * penSize).ToArray<Color>();
+        }
+
+        if (hitLast)
+        {
+            //connecting current ray position to last ray position
+            for (float t = 0.01f; t < 1.00f; t += 0.01f)
+            {
+
+                tex.SetPixels((int)pixelUV.x, (int)pixelUV.y, penSize, penSize, color);
+
+
+                lerpX = (int)Mathf.Lerp(lastX, (float)pixelUV.x, t);
+                lerpY = (int)Mathf.Lerp(lastY, (float)pixelUV.y, t);
+                tex.SetPixels(lerpX, lerpY, penSize, penSize, color);
+            }
+
+        }
+
+        if (hitCurr)
+        {
+            tex.Apply();
+        }
+
+        matCopy.SetTexture(tag, tex);
+
+    }
 
 }

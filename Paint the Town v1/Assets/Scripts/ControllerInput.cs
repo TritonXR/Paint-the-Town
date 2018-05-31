@@ -428,8 +428,8 @@ public class ControllerInput : MonoBehaviour
         pixelUV.x *= tex.width;
         pixelUV.y *= tex.height;
 
-        int x = (int)(posX * textureSize - (penSize / 2));
-        int y = (int)(posY * textureSize - (penSize / 2));
+        /*int x = (int)(posX * textureSize - (penSize / 2));
+        int y = (int)(posY * textureSize - (penSize / 2));*/
 
         //new pensize with color red
         if (tag == "_Red")
