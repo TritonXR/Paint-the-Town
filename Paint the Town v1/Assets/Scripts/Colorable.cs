@@ -12,22 +12,20 @@ public class Colorable : MonoBehaviour {
 	private GameObject particleObj;
 	private ParticleSystem particle;
 
-    public string objectName;
-
 	public state curState;
 	Material mat;
 	float t = 0.01f;
 
     void Awake()
     {
-        
+        PhotonView photonView = gameObject.AddComponent(typeof(PhotonView)) as PhotonView;
+        photonView.viewID = PhotonNetwork.AllocateViewID();
     }
 
     // Use this for initialization
     void Start () {
 
-
-        objectName = transform.parent.gameObject.GetInstanceID().ToString();
+        
 
         curState = state.N;
 		animator = GetComponent<Animator> ();
@@ -132,19 +130,4 @@ public class Colorable : MonoBehaviour {
 		}
 	}
 
-   /* public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (stream.isWriting)
-        {
-            // We own this player: send the others our data
-            stream.SendNext(mat);
-            
-        }
-        else
-        {
-            // Network player, receive data
-            mat = (Material) stream.ReceiveNext();
-            
-        }
-    }*/
 }

@@ -170,6 +170,9 @@ public class ControllerInput : MonoBehaviour
                     {
                         datThing.ChangeState("Red");
                         mat = hit.collider.GetComponent<Renderer>().material;
+
+                        int photonViewID = hit.collider.GetComponent<PhotonView>().viewID;
+
                         redPaint = true;
                         // create a new texture to paint on
                         Texture2D redTex = (Texture2D)GameObject.Instantiate(mat.GetTexture("_Red"));
@@ -204,17 +207,14 @@ public class ControllerInput : MonoBehaviour
                             redTex.Apply();
                         }
 
+                        //Change rpc calls right here
+                        photonView.RPC("paintWithTex", PhotonTargets.AllBuffered, photonViewID, "_Red", pixelUV.x, pixelUV.y, lastX, lastY, hitLast, hitCurr);
+
                         this.lastX = (float)pixelUV.x;
                         this.lastY = (float)pixelUV.y;
 
 
                         mat.SetTexture("_Red", redTex);
-                        
-                        //Change rpc calls right here
-                        photonView.RPC("paintWithTex", PhotonTargets.AllBuffered, datThing.objectName, "_Red");
-
-                        //Need to make if sending over texture doesn't work
-                        //photonView.RPC("paintWithVal", PhotonTargets.AllBufferedViaServer, )
 
                         if (hitLast == false)
                         {
@@ -232,6 +232,9 @@ public class ControllerInput : MonoBehaviour
                     {
                         datThing.ChangeState("Green");
                         mat = hit.collider.GetComponent<Renderer>().material;
+
+                        int photonViewID = hit.collider.GetComponent<PhotonView>().viewID;
+
                         greenPaint = true;
                         // create a new texture to paint on
                         Texture2D greenTex = (Texture2D)GameObject.Instantiate(mat.GetTexture("_Green"));
@@ -272,7 +275,7 @@ public class ControllerInput : MonoBehaviour
 
                         mat.SetTexture("_Green", greenTex);
 
-                        //photonView.RPC("paintWithTex", PhotonTargets.AllBufferedViaServer, greenTex, mat, "_Green");
+                        //photonView.RPC("paintWithTex", PhotonTargets.AllBuffered,photonViewID, "_Green", pixelUV.x, pixelUV.y, lastX, lastY, hitLast, hitCurr);
 
                         if (hitLast == false)
                         {
@@ -322,6 +325,8 @@ public class ControllerInput : MonoBehaviour
                         {
                             blueTex.Apply();
                         }
+
+
 
                         this.lastX = (float)pixelUV.x;
                         this.lastY = (float)pixelUV.y;
@@ -400,22 +405,37 @@ public class ControllerInput : MonoBehaviour
         }
     }
 
+    //Copy what ever happens during painting
     [PunRPC]
-    void paintWithTex(string objectID, string tag)
+    void paintWithTex(int photonViewID, string tag, float pixelX, float pixelY,float lastX, float lastY, bool hitLast, bool hitCurr)
     {
-     
-        redPaint = true;
+        GameObject thing = PhotonView.Find(photonViewID).gameObject;
+
+        Material matCopy = thing.GetComponent<Renderer>().material;
+
         // create a new texture to paint on
-        Texture2D redTex = (Texture2D)GameObject.Instantiate(mat.GetTexture("_Red"));
-        Vector2 pixelUV = hit.textureCoord;
-        pixelUV.x *= redTex.width;
-        pixelUV.y *= redTex.height;
+        
+        Texture2D tex = (Texture2D)GameObject.Instantiate(matCopy.GetTexture(tag));
+        Vector2 pixelUV = new Vector2(pixelX, pixelY);
+        pixelUV.x *= tex.width;
+        pixelUV.y *= tex.height;
 
         int x = (int)(posX * textureSize - (penSize / 2));
         int y = (int)(posY * textureSize - (penSize / 2));
 
         //new pensize with color red
-        color = Enumerable.Repeat<Color>(Color.red, penSize * penSize).ToArray<Color>();
+        if (tag == "_Red")
+        {
+            color = Enumerable.Repeat<Color>(Color.red, penSize * penSize).ToArray<Color>();
+        }
+        else if(tag == "_Green")
+        {
+            color = Enumerable.Repeat<Color>(Color.green, penSize * penSize).ToArray<Color>();
+        }
+        else
+        {
+            color = Enumerable.Repeat<Color>(Color.blue, penSize * penSize).ToArray<Color>();
+        }
 
         if (hitLast)
         {
@@ -423,31 +443,23 @@ public class ControllerInput : MonoBehaviour
             for (float t = 0.01f; t < 1.00f; t += 0.01f)
             {
 
-                redTex.SetPixels((int)pixelUV.x, (int)pixelUV.y, penSize, penSize, color);
+                tex.SetPixels((int)pixelUV.x, (int)pixelUV.y, penSize, penSize, color);
 
 
                 lerpX = (int)Mathf.Lerp(lastX, (float)pixelUV.x, t);
                 lerpY = (int)Mathf.Lerp(lastY, (float)pixelUV.y, t);
-                redTex.SetPixels(lerpX, lerpY, penSize, penSize, color);
+                tex.SetPixels(lerpX, lerpY, penSize, penSize, color);
             }
 
         }
 
         if (hitCurr)
         {
-            redTex.Apply();
+            tex.Apply();
         }
 
-        this.lastX = (float)pixelUV.x;
-        this.lastY = (float)pixelUV.y;
+        matCopy.SetTexture(tag, tex);
 
-
-        mat.SetTexture("_Red", redTex);
-
-        if (hitLast == false)
-        {
-            hitLast = true;
-        }
     }
 }
 
