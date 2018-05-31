@@ -19,7 +19,7 @@ public class Colorable : MonoBehaviour {
     void Awake()
     {
         PhotonView photonView = gameObject.AddComponent(typeof(PhotonView)) as PhotonView;
-        photonView.viewID = PhotonNetwork.AllocateViewID();
+        photonView.viewID = PhotonNetwork.AllocateSceneViewID();
     }
 
     // Use this for initialization

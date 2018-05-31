@@ -174,7 +174,7 @@ public class ControllerInput : MonoBehaviour
                         //So we transfer ownership and tell server that we own this thing
                         PhotonView photonView = hit.collider.GetComponent<PhotonView>();
                         /*photonView.TransferOwnership(PhotonNetwork.player.ID);
-                        photonView.viewID = PhotonNetwork.AllocateViewID(); */
+                        photonView.viewID = PhotonNetwork.AllocateViewID();*/
 
                         redPaint = true;
                         // create a new texture to paint on
