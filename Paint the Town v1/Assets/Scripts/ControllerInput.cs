@@ -358,21 +358,22 @@ public class ControllerInput : MonoBehaviour
         //have pause menu toggle here here
         if (OVRInput.GetDown(OVRInput.Button.Start))
         {
-            Debug.Log("pausing");
+            Debug.Log("got here");
             if(paused)
             {
+                Debug.Log("unpaused");
                 //set pause screen to not active
             }
             else
             {
-                Debug.Log("Hi we here");
+                Debug.Log("paused");
                 //move PauseScreen to in front of player
                 //pauseScreen.transform = eyeCenter.transform;
-                pauseScreen.transform.parent = eyeCenter.transform;
+                ///pauseScreen.transform.parent = eyeCenter.transform;
 
                // Debug.Log("Parent is" + pauseScreen.transform.parent.name);
 
-                pauseScreen.transform.localPosition = new Vector3(0, 0, 2);
+                ///pauseScreen.transform.localPosition = new Vector3(0, 0, 2);
 
                // Debug.Log("Position is" + pauseScreen.transform.position);
 
@@ -382,9 +383,9 @@ public class ControllerInput : MonoBehaviour
 
                // Debug.Log("After Break");
 
-                pauseScreen.transform.parent = null;
+                ///pauseScreen.transform.parent = null;
 
-                pauseScreen.SetActive(true);
+                ///pauseScreen.SetActive(true);
 
                 //Debug.Break();
                //pauseScreen.GetComponent<RectTransform>().anchoredPosition = new Vector2(eyeCenter.transform.position.x, eyeCenter.transform.position.y);
