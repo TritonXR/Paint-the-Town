@@ -25,7 +25,6 @@ public class Colorable : MonoBehaviour {
     // Use this for initialization
     void Start () {
 
-        
 
         curState = state.N;
 		animator = GetComponent<Animator> ();

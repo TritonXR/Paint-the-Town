@@ -171,7 +171,10 @@ public class ControllerInput : MonoBehaviour
                         datThing.ChangeState("Red");
                         mat = hit.collider.GetComponent<Renderer>().material;
 
-                        int photonViewID = hit.collider.GetComponent<PhotonView>().viewID;
+                        //So we transfer ownership and tell server that we own this thing
+                        PhotonView photonView = hit.collider.GetComponent<PhotonView>();
+                        /*photonView.TransferOwnership(PhotonNetwork.player.ID);
+                        photonView.viewID = PhotonNetwork.AllocateViewID(); */
 
                         redPaint = true;
                         // create a new texture to paint on
@@ -208,7 +211,8 @@ public class ControllerInput : MonoBehaviour
                         }
 
                         //Change rpc calls right here
-                        photonView.RPC("paintWithTex", PhotonTargets.AllBuffered, photonViewID, "_Red", pixelUV.x, pixelUV.y, lastX, lastY, hitLast, hitCurr);
+
+                        photonView.RPC("paintWithTex", PhotonTargets.AllBuffered, photonView.viewID, "_Red", pixelUV.x, pixelUV.y, lastX, lastY, hitLast, hitCurr);
 
                         this.lastX = (float)pixelUV.x;
                         this.lastY = (float)pixelUV.y;
@@ -220,6 +224,8 @@ public class ControllerInput : MonoBehaviour
                         {
                             hitLast = true;
                         }
+
+                        photonView.TransferOwnership(-1);
                     }
                 }
 
