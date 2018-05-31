@@ -170,11 +170,10 @@ public class ControllerInput : MonoBehaviour
                     {
                         datThing.ChangeState("Red");
                         mat = hit.collider.GetComponent<Renderer>().material;
-
-                        //So we transfer ownership and tell server that we own this thing
+                        
+                        //get the viewID of the object so we can identify it through photon
                         PhotonView photonView = hit.collider.GetComponent<PhotonView>();
-                        /*photonView.TransferOwnership(PhotonNetwork.player.ID);
-                        photonView.viewID = PhotonNetwork.AllocateViewID();*/
+                        
 
                         redPaint = true;
                         // create a new texture to paint on
@@ -239,7 +238,8 @@ public class ControllerInput : MonoBehaviour
                         datThing.ChangeState("Green");
                         mat = hit.collider.GetComponent<Renderer>().material;
 
-                        int photonViewID = hit.collider.GetComponent<PhotonView>().viewID;
+                        //get the viewID of the object so we can identify it through photon
+                        PhotonView photonView = hit.collider.GetComponent<PhotonView>();
 
                         greenPaint = true;
                         // create a new texture to paint on
@@ -278,10 +278,9 @@ public class ControllerInput : MonoBehaviour
                         this.lastX = (float)pixelUV.x;
                         this.lastY = (float)pixelUV.y;
 
+                        photonView.RPC("paintWithTex", PhotonTargets.AllBuffered, photonView.viewID, "_Green", pixelUV.x, pixelUV.y, lastX, lastY, hitLast, hitCurr);
 
                         mat.SetTexture("_Green", greenTex);
-
-                        //photonView.RPC("paintWithTex", PhotonTargets.AllBuffered,photonViewID, "_Green", pixelUV.x, pixelUV.y, lastX, lastY, hitLast, hitCurr);
 
                         if (hitLast == false)
                         {
@@ -298,6 +297,10 @@ public class ControllerInput : MonoBehaviour
                     {
                         datThing.ChangeState("Blue");
                         mat = hit.collider.GetComponent<Renderer>().material;
+
+                        //get the viewID of the object so we can identify it through photon
+                        PhotonView photonView = hit.collider.GetComponent<PhotonView>();
+
                         bluePaint = true;
                         // create a new texture to paint on
                         Texture2D blueTex = (Texture2D)GameObject.Instantiate(mat.GetTexture("_Blue"));
@@ -332,7 +335,7 @@ public class ControllerInput : MonoBehaviour
                             blueTex.Apply();
                         }
 
-
+                        photonView.RPC("paintWithTex", PhotonTargets.AllBuffered, photonView.viewID, "_Blue", pixelUV.x, pixelUV.y, lastX, lastY, hitLast, hitCurr);
 
                         this.lastX = (float)pixelUV.x;
                         this.lastY = (float)pixelUV.y;
@@ -340,7 +343,6 @@ public class ControllerInput : MonoBehaviour
 
                         mat.SetTexture("_Blue", blueTex);
 
-                        //photonView.RPC("paintWithTex", PhotonTargets.AllBufferedViaServer, blueTex, mat, "_Blue");
 
                         if (hitLast == false)
                         {
