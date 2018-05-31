@@ -2161,6 +2161,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+      propertyPath: m_TagString
+      value: PlayerRed
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
   m_IsPrefabParent: 0
@@ -3399,6 +3403,30 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: fb928b4b4e8d72448afba350b6c57d7a, type: 3}
   m_PrefabInternal: {fileID: 343828457}
+--- !u!1 &350096428 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 5e9e851c0e142814dac026a256ba2ac0, type: 2}
+  m_PrefabInternal: {fileID: 237307231}
+--- !u!114 &350096434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 350096428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af67c30d1deb67944ae479e33ed41947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controllerTransform: {fileID: 0}
+  lefthand: {fileID: 0}
+  settingsMenu: {fileID: 0}
+  mainMenu: {fileID: 0}
+  joinButton: {fileID: 0}
+  pauseScreen: {fileID: 0}
+  eyeCenter: {fileID: 0}
+  weaponRange: 50
+  gunEnd: {fileID: 0}
 --- !u!1001 &367103644
 Prefab:
   m_ObjectHideFlags: 0
@@ -16669,7 +16697,8 @@ MonoBehaviour:
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 47
   instantiationId: 47

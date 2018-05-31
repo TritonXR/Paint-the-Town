@@ -57,7 +57,8 @@ public class ControllerInputTest : MonoBehaviour
 		/*if ((!OVRInput.Get(OVRInput.Touch.PrimaryIndexTrigger) && !OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && OVRInput.Get(OVRInput.Button.PrimaryHandTrigger)) ||
             (!OVRInput.Get(OVRInput.Touch.SecondaryIndexTrigger) && !OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger) && OVRInput.Get(OVRInput.Button.SecondaryHandTrigger)))
         { */
-
+		
+		hitLast = hitCurr;
 		if (Input.GetMouseButton(0))
 		{
 			//Debug.Log("press");
