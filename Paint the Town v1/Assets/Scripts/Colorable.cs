@@ -164,14 +164,17 @@ public class Colorable : MonoBehaviour {
         if (tag == "_Red")
         {
             color = Enumerable.Repeat<Color>(Color.red, penSize * penSize).ToArray<Color>();
+            ChangeState("Red");
         }
         else if (tag == "_Green")
         {
             color = Enumerable.Repeat<Color>(Color.green, penSize * penSize).ToArray<Color>();
+            ChangeState("Green");
         }
         else
         {
             color = Enumerable.Repeat<Color>(Color.blue, penSize * penSize).ToArray<Color>();
+            ChangeState("Blue");
         }
 
         if (hitLast)
