@@ -9,6 +9,10 @@ public class GameManager : Photon.PunBehaviour {
     [Tooltip("The prefab to use for representing the player")]
     public GameObject playerPrefab;
 
+    private bool red;
+    private bool blue;
+    private bool green;
+
     #region Photon Messages
 
     void Start()
@@ -47,33 +51,11 @@ public class GameManager : Photon.PunBehaviour {
     public override void OnPhotonPlayerConnected(PhotonPlayer other)
     {
         //Debug.Log("OnPhotonPlayerConnected() " + other.NickName); // not seen if you're the player connecting
-
-
         if (PhotonNetwork.isMasterClient)
         {
-            //Debug.Log("OnPhotonPlayerConnected isMasterClient " + PhotonNetwork.isMasterClient); // called before OnPhotonPlayerDisconnected
-            LoadArena();
-
-            int viewId = PhotonNetwork.AllocateViewID();
-
-            PhotonNetwork.RaiseEvent(123, viewId, true, new RaiseEventOptions()
-            {
-                CachingOption = EventCaching.AddToRoomCache,
-                Receivers = ReceiverGroup.All
-            });
-
+            
         }
 
-        /*else
-        {
-            int viewId = PhotonNetwork.AllocateViewID();
-
-            PhotonNetwork.RaiseEvent(123, viewId, true, new RaiseEventOptions()
-            {
-                CachingOption = EventCaching.AddToRoomCache,
-                Receivers = ReceiverGroup.All
-            });
-        }*/
     }
 
 
@@ -84,9 +66,7 @@ public class GameManager : Photon.PunBehaviour {
 
         if (PhotonNetwork.isMasterClient)
         {
-            ///Debug.Log("OnPhotonPlayerDisonnected isMasterClient " + PhotonNetwork.isMasterClient); // called before OnPhotonPlayerDisconnected
-
-            //LoadArena();
+            
         }
     }
 
@@ -109,10 +89,10 @@ public class GameManager : Photon.PunBehaviour {
 
     void LoadArena()
     {
-        if (!PhotonNetwork.isMasterClient)
+        /*if (!PhotonNetwork.isMasterClient)
         {
             Debug.LogError("PhotonNetwork : Trying to Load a level but we are not the master Client");
-        }
+        }*/
         //Debug.Log("PhotonNetwork : Loading Level : " + PhotonNetwork.room.PlayerCount);
         PhotonNetwork.LoadLevel("Prototype Scene - PreMaster");
 

@@ -57,7 +57,7 @@ public class ControllerInputTest : MonoBehaviour
 		/*if ((!OVRInput.Get(OVRInput.Touch.PrimaryIndexTrigger) && !OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) && OVRInput.Get(OVRInput.Button.PrimaryHandTrigger)) ||
             (!OVRInput.Get(OVRInput.Touch.SecondaryIndexTrigger) && !OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger) && OVRInput.Get(OVRInput.Button.SecondaryHandTrigger)))
         { */
-
+		
 		if (Input.GetMouseButton(0))
 		{
 			//Debug.Log("press");
@@ -74,6 +74,9 @@ public class ControllerInputTest : MonoBehaviour
 				// red player
 				if (this.tag == "PlayerRed" && !paused) //disable painting
 				{
+					AudioSource audio = GetComponent<AudioSource>();
+					if(!audio.isPlaying)
+						audio.Play ();
 					Colorable datThing = hit.collider.GetComponent<Colorable> ();
 					// checking the raycast hit a paintable target
 					if (datThing != null)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public enum state {N, R, G, B, RG, RB, GB, RGB, D};
 
@@ -11,8 +12,11 @@ public class Colorable : MonoBehaviour {
 	private Texture texture;
 	private GameObject particleObj;
 	private ParticleSystem particle;
+    private Color[] color;
+    private int penSize = 5;
+    private int lerpX, lerpY;
 
-	public state curState;
+    public state curState;
 	Material mat;
 	float t = 0.01f;
 
@@ -37,7 +41,7 @@ public class Colorable : MonoBehaviour {
 
 			}
 			*/
-			Debug.Log("disabled");
+			//Debug.Log("disabled");
 		}
 		
 		mat = GetComponent<Renderer> ().material;
@@ -56,14 +60,21 @@ public class Colorable : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+
 		if (curState != state.D) {
 			//if all 3 color are painted
 			if (curState == state.RGB) {
 				GetComponent<Renderer> ().material.SetFloat ("_Transition", Mathf.Lerp (0.01f, 1.0f, t));
+				AudioSource audio = GetComponentInParent<AudioSource>();
+				if(!audio.isPlaying)
+					audio.Play ();
 				t += 0.5f * Time.deltaTime;
-				//play the animation accordingly
-				if (gameObject.name == "gramophone v2") {
-					animator.SetBool ("Play", true);
+				if (this.transform.parent.tag != "Room") {
+					Component[] childrenColorable = this.transform.parent.GetComponentsInChildren<Colorable> ();
+					foreach (Colorable child in childrenColorable) {
+						child.curState = state.RGB;
+					}
 				}
 /*				else if(){
 
@@ -127,5 +138,75 @@ public class Colorable : MonoBehaviour {
 				curState = state.RGB;
 		}
 	}
+
+
+    //Copy what ever happens during painting
+    [PunRPC]
+    void paintWithTex(int photonViewID, string tag, float pixelX, float pixelY, float lastX, float lastY, bool hitLast, bool hitCurr)
+    {
+        GameObject thing = PhotonView.Find(photonViewID).gameObject;
+
+        if(thing == null)
+        {
+            Debug.Log("Photon View could not find the game object");
+        }
+
+        Material matCopy = thing.GetComponent<Renderer>().material;
+
+        if(matCopy == null)
+        {
+            Debug.Log("material not found from thing we are coloring");
+        }
+        // create a new texture to paint on
+
+        Texture2D tex = (Texture2D)GameObject.Instantiate(matCopy.GetTexture(tag));
+        Vector2 pixelUV = new Vector2(pixelX, pixelY);
+        /*pixelUV.x *= tex.width;
+        pixelUV.y *= tex.height;*/
+
+        /*int x = (int)(posX * textureSize - (penSize / 2));
+        int y = (int)(posY * textureSize - (penSize / 2));*/
+
+        //new pensize with color red
+        if (tag == "_Red")
+        {
+            color = Enumerable.Repeat<Color>(Color.red, penSize * penSize).ToArray<Color>();
+            ChangeState("Red");
+        }
+        else if (tag == "_Green")
+        {
+            color = Enumerable.Repeat<Color>(Color.green, penSize * penSize).ToArray<Color>();
+            ChangeState("Green");
+        }
+        else
+        {
+            color = Enumerable.Repeat<Color>(Color.blue, penSize * penSize).ToArray<Color>();
+            ChangeState("Blue");
+        }
+
+        if (hitLast)
+        {
+            //connecting current ray position to last ray position
+            for (float t = 0.01f; t < 1.00f; t += 0.01f)
+            {
+
+                tex.SetPixels((int)pixelUV.x, (int)pixelUV.y, penSize, penSize, color);
+
+
+                lerpX = (int)Mathf.Lerp(lastX, (float)pixelUV.x, t);
+                lerpY = (int)Mathf.Lerp(lastY, (float)pixelUV.y, t);
+                tex.SetPixels(lerpX, lerpY, penSize, penSize, color);
+            }
+
+        }
+
+        if (hitCurr)
+        {
+            tex.Apply();
+        }
+
+        matCopy.SetTexture(tag, tex);
+
+    }
 
 }

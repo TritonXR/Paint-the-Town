@@ -23,6 +23,9 @@ public class Launcher : Photon.PunBehaviour
 
     #region Private Variables
 
+    private bool red;
+    private bool blue;
+    private bool green;
 
     /// <summary>
     /// This client's version number. Users are separated from each other by gameversion (which allows you to make breaking changes).
@@ -47,6 +50,7 @@ public class Launcher : Photon.PunBehaviour
         // we don't join the lobby. There is no need to join a lobby to get the list of rooms.
         PhotonNetwork.autoJoinLobby = false;
 
+        //Debug.Log(PhotonNetwork.countOfPlayers);
 
         // #Critical
         // this makes sure we can use PhotonNetwork.LoadLevel() on the master client and all clients in the same room sync their level automatically
@@ -115,14 +119,18 @@ public class Launcher : Photon.PunBehaviour
         //Debug.Log("DemoAnimator/Launcher:OnPhotonRandomJoinFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom(null, new RoomOptions() {maxPlayers = 4}, null);");
         // #Critical: we failed to join a random room, maybe none exists or they are all full. No worries, we create a new room.
         PhotonNetwork.CreateRoom(null, new RoomOptions() { MaxPlayers = MaxPlayersPerRoom }, null);
+        PhotonNetwork.LoadLevel("Prototype Scene - PreMaster");
     }
 
     public override void OnJoinedRoom()
     {
-        // #Critical: We only load if we are the first player, else we rely on  PhotonNetwork.automaticallySyncScene to sync our instance scene.
-        PhotonNetwork.LoadLevel("Prototype Scene - PreMaster");
-       // Debug.Log("DemoAnimator/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
+        // #Critical: We only load if we are the first player, else we rely on  PhotonNetwork.automaticallySyncScene to sync our instance scene
+       
+        //PhotonNetwork.LoadLevel("Prototype Scene - PreMaster");
 
+        // Debug.Log("DemoAnimator/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
+
+                                                                                                     
         int viewId = PhotonNetwork.AllocateViewID();
 
         PhotonNetwork.RaiseEvent(InstantiateVrAvatarEventCode, viewId, true, new RaiseEventOptions()
@@ -131,7 +139,9 @@ public class Launcher : Photon.PunBehaviour
             Receivers = ReceiverGroup.All
         });
 
-        Debug.Log("spawning from OnJoinedRoom");
+
+
+        //Debug.Log("spawning from OnJoinedRoom");
 
     }
 
