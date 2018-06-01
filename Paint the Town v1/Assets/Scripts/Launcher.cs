@@ -23,6 +23,9 @@ public class Launcher : Photon.PunBehaviour
 
     #region Private Variables
 
+    private bool red;
+    private bool blue;
+    private bool green;
 
     /// <summary>
     /// This client's version number. Users are separated from each other by gameversion (which allows you to make breaking changes).
@@ -47,6 +50,7 @@ public class Launcher : Photon.PunBehaviour
         // we don't join the lobby. There is no need to join a lobby to get the list of rooms.
         PhotonNetwork.autoJoinLobby = false;
 
+        //Debug.Log(PhotonNetwork.countOfPlayers);
 
         // #Critical
         // this makes sure we can use PhotonNetwork.LoadLevel() on the master client and all clients in the same room sync their level automatically
@@ -135,7 +139,9 @@ public class Launcher : Photon.PunBehaviour
             Receivers = ReceiverGroup.All
         });
 
-        Debug.Log("spawning from OnJoinedRoom");
+
+
+        //Debug.Log("spawning from OnJoinedRoom");
 
     }
 
@@ -151,6 +157,7 @@ public class Launcher : Photon.PunBehaviour
             if (PhotonNetwork.player.ID == senderid)
             {
                 go = Instantiate(Resources.Load("OVRCameraLocal")) as GameObject;
+                
             }
             else
             {

@@ -51,13 +51,32 @@ public class ControllerInput : MonoBehaviour
     {
         paused = false;
         photonView = GetComponentInParent<PhotonView>();
-        
+        /*
+        foreach(PhotonPlayer person in PhotonNetwork.playerList)
+        {
+            if(PhotonPlayer)
+        }
+        */
+
+        if (PhotonNetwork.countOfPlayers == 1)
+        {
+            this.tag = "PlayerRed";
+        }
+        else if (PhotonNetwork.countOfPlayers == 2)
+        {
+            this.tag = "PlayerBlue";
+        }
+        else
+        {
+            this.tag = "PlayerGreen";
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-		
+        
+
         //TODO add a line to visualize the raycast
 
         //if (OVRInput.Touch.(OVRInput.Button.PrimaryHandTrigger))
@@ -65,7 +84,7 @@ public class ControllerInput : MonoBehaviour
             (!OVRInput.Get(OVRInput.Touch.SecondaryIndexTrigger) && !OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger) && OVRInput.Get(OVRInput.Button.SecondaryHandTrigger)))
         { */
 
-		if (OVRInput.Get (OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get (OVRInput.Button.SecondaryIndexTrigger)) {
+        if (OVRInput.Get (OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get (OVRInput.Button.SecondaryIndexTrigger)) {
 			//Debug.Log("press");
 
 			//Change raycast so that ut us outside of the controller check because ti should be active every time         
