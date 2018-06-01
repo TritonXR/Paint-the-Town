@@ -14,8 +14,10 @@ ModelImporter:
     2100000: unnamed
     2300000: Cylinder
     2300002: Cylinder_001
+    2300004: //RootNode
     3300000: Cylinder
     3300002: Cylinder_001
+    3300004: //RootNode
     4300000: Cylinder_001
     4300002: Cylinder
     7400000: Default Take

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 391c8a97297734a4386df5b01343dd76
-timeCreated: 1527658627
+timeCreated: 1527838809
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName: {}
@@ -57,7 +57,7 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
