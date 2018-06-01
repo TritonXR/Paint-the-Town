@@ -60,14 +60,21 @@ public class Colorable : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+
 		if (curState != state.D) {
 			//if all 3 color are painted
 			if (curState == state.RGB) {
 				GetComponent<Renderer> ().material.SetFloat ("_Transition", Mathf.Lerp (0.01f, 1.0f, t));
+				AudioSource audio = GetComponentInParent<AudioSource>();
+				if(!audio.isPlaying)
+					audio.Play ();
 				t += 0.5f * Time.deltaTime;
-				//play the animation accordingly
-				if (gameObject.name == "gramophone v2") {
-					animator.SetBool ("Play", true);
+				if (this.transform.parent.tag != "Room") {
+					Component[] childrenColorable = this.transform.parent.GetComponentsInChildren<Colorable> ();
+					foreach (Colorable child in childrenColorable) {
+						child.curState = state.RGB;
+					}
 				}
 /*				else if(){
 
