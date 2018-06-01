@@ -115,14 +115,18 @@ public class Launcher : Photon.PunBehaviour
         //Debug.Log("DemoAnimator/Launcher:OnPhotonRandomJoinFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom(null, new RoomOptions() {maxPlayers = 4}, null);");
         // #Critical: we failed to join a random room, maybe none exists or they are all full. No worries, we create a new room.
         PhotonNetwork.CreateRoom(null, new RoomOptions() { MaxPlayers = MaxPlayersPerRoom }, null);
+        PhotonNetwork.LoadLevel("Prototype Scene - PreMaster");
     }
 
     public override void OnJoinedRoom()
     {
-        // #Critical: We only load if we are the first player, else we rely on  PhotonNetwork.automaticallySyncScene to sync our instance scene.
-        PhotonNetwork.LoadLevel("Prototype Scene - PreMaster");
-       // Debug.Log("DemoAnimator/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
+        // #Critical: We only load if we are the first player, else we rely on  PhotonNetwork.automaticallySyncScene to sync our instance scene
+       
+        //PhotonNetwork.LoadLevel("Prototype Scene - PreMaster");
 
+        // Debug.Log("DemoAnimator/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
+
+                                                                                                     
         int viewId = PhotonNetwork.AllocateViewID();
 
         PhotonNetwork.RaiseEvent(InstantiateVrAvatarEventCode, viewId, true, new RaiseEventOptions()
