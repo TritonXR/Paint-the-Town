@@ -157,7 +157,6 @@ public class Launcher : Photon.PunBehaviour
             if (PhotonNetwork.player.ID == senderid)
             {
                 go = Instantiate(Resources.Load("OVRCameraLocal")) as GameObject;
-                
             }
             else
             {
