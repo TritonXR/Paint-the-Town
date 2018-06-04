@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Quit : MonoBehaviour {
 
-	public void ClickQuit()
+    public void ClickQuit()
     {
         Application.Quit();
+        Debug.Log("whatwhatwhat");
     }
 }
