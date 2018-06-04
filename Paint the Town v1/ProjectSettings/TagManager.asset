@@ -9,6 +9,7 @@ TagManager:
   - Button
   - PlayerBlue
   - PlayerGreen
+  - Room
   layers:
   - Default
   - TransparentFX

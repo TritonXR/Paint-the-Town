@@ -10,11 +10,13 @@ public class Colorable : MonoBehaviour {
 
 	private Animator animator;
 	private Texture texture;
-	private GameObject particleObj;
+	private List<GameObject> particleObj;
 	private ParticleSystem particle;
     private Color[] color;
     private int penSize = 5;
     private int lerpX, lerpY;
+    private AudioSource audio;
+    private bool isAudio;
 
     public state curState;
 	Material mat;
@@ -46,13 +48,19 @@ public class Colorable : MonoBehaviour {
 		
 		mat = GetComponent<Renderer> ().material;
 
-        if (this.transform.childCount > 0) {
-            particleObj = this.gameObject.transform.GetChild(0).gameObject;
+        audio = GetComponentInParent<AudioSource>();
+        if (audio!=null)
+        {
+            isAudio = true;
         }
-		if (particleObj != null && particleObj.GetComponent<ParticleSystem>() != null) {
-			particle = particleObj.GetComponent<ParticleSystem>();
-			particle.Stop();
-		}
+
+        for (int i=0; i<transform.GetChildCount(); i++)
+        {
+            if (transform.GetChild(i).GetComponent<ParticleSystem>() != null)
+            {
+                transform.GetChild(i).GetComponent<ParticleSystem>().Stop();
+            }
+        }
 
   
     }
@@ -66,9 +74,10 @@ public class Colorable : MonoBehaviour {
 			//if all 3 color are painted
 			if (curState == state.RGB) {
 				GetComponent<Renderer> ().material.SetFloat ("_Transition", Mathf.Lerp (0.01f, 1.0f, t));
-				AudioSource audio = GetComponentInParent<AudioSource>();
-				if(!audio.isPlaying)
-					audio.Play ();
+                if (isAudio)
+                {
+                    audio.Play();
+                }
 				t += 0.5f * Time.deltaTime;
 				if (this.transform.parent.tag != "Room") {
 					Component[] childrenColorable = this.transform.parent.GetComponentsInChildren<Colorable> ();
@@ -81,16 +90,22 @@ public class Colorable : MonoBehaviour {
 				}
 				*/
 			}
-			if (mat != null) {
+
+            if (mat != null) {
 				if(mat.GetFloat ("_Transition") >= 1.0f)
 					curState = state.D;
 			}
-			if (particle != null) {
-				particle.Play();
-			}
+
+            for (int i = 0; i < transform.GetChildCount(); i++)
+            {
+                if (transform.GetChild(i).GetComponent<ParticleSystem>() != null)
+                {
+                    transform.GetChild(i).GetComponent<ParticleSystem>().Play();
+                }
+            }
 
 
-		}
+        }
 /*		if(animator != null)
 			Debug.Log(animator.GetBool ("Play"));
 		if (Input.GetMouseButton (0)) {
