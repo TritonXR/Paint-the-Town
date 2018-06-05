@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Ceiling_Paint
-  m_Shader: {fileID: 4800000, guid: 0b85ae7fd781aee4d8779da5d1832204, type: 3}
+  m_Shader: {fileID: 4800000, guid: 1d032a100cd39204ab94625eab709ac8, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -23,7 +23,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 3c4fdb1c2b19a59448bb6b0dafd08bda, type: 3}
+        m_Texture: {fileID: 2800000, guid: ef1d7b97390e347b08a04b408ccfc3a5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -43,7 +43,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Glossiness:
-        m_Texture: {fileID: 2800000, guid: 3c4fdb1c2b19a59448bb6b0dafd08bda, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4ec7a3d1b33ed4bbe894be059619fed7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GlossinessMap:
+        m_Texture: {fileID: 2800000, guid: df7b553f4c78b445487e7f21f23c32ef, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Green:
@@ -63,7 +67,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: 5bbf87f2ea0364ccfa4e8ec2b3cd0cca, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4ec7a3d1b33ed4bbe894be059619fed7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Red:
@@ -77,7 +81,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 1
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 0
@@ -86,7 +90,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Transition: 0.327
+    - _Transition: 0.4
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:

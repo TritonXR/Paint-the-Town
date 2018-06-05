@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Floor_Paint
-  m_Shader: {fileID: 4800000, guid: 0b85ae7fd781aee4d8779da5d1832204, type: 3}
+  m_Shader: {fileID: 4800000, guid: 1d032a100cd39204ab94625eab709ac8, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -27,7 +27,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 2b8c67388bb304380b131364f84fab46, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0402da945c94341fa9d775dc877841a2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -47,8 +47,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Glossiness:
-        m_Texture: {fileID: 2800000, guid: 51b2e3d41c192d245aa01244fef06937, type: 3}
+        m_Texture: {fileID: 2800000, guid: c6826c49652a249c7859c14d905c1210, type: 3}
         m_Scale: {x: 0, y: 0}
+        m_Offset: {x: 0, y: 0}
+    - _GlossinessMap:
+        m_Texture: {fileID: 2800000, guid: de0245d59ae50494c993f85f2f7f3537, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Green:
         m_Texture: {fileID: 2800000, guid: 6ecb7b492a1a8194cb1b850549608238, type: 3}
@@ -59,8 +63,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d2277f5aaff8b403095422134f121ce6, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: ab5fce15b2c144cd5a5a146509ad8231, type: 3}
+        m_Scale: {x: 2, y: 2}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -71,7 +75,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: cc22aef62f7b04e739769c7272d2734e, type: 3}
+        m_Texture: {fileID: 2800000, guid: d8970d477887e4c6492f0aabaa538d35, type: 3}
         m_Scale: {x: 0, y: 0}
         m_Offset: {x: 0, y: 0}
     - _Red:
@@ -86,7 +90,7 @@ Material:
     - _DstBlend: 0
     - _Emission: 1
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 1
     - _GlossyReflections: 1
     - _Metallic: 0.784
     - _Mode: 0
@@ -95,7 +99,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Transition: 0.253
+    - _Transition: 0.3
     - _Transp: 0
     - _UVSec: 0
     - _ZWrite: 1

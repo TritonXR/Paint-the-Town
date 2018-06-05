@@ -41,6 +41,23 @@ ModelImporter:
     100066: BathroomWindowGlass
     100068: BedroomWindowGlass
     100070: Bathroom_Floor
+    100072: Floor_001
+    100074: Floor_002
+    100076: Floor_003
+    100078: Floor_004
+    100080: Floor_005
+    100082: Walls_001
+    100084: Walls_002
+    100086: Walls_003
+    100088: Walls_004
+    100090: Walls_005
+    100092: BathroomWalls
+    100094: BedroomWalls
+    100096: DiningWalls
+    100098: HallWalls
+    100100: KitchenWalls
+    100102: LivingRoomWalls
+    100104: BedroomFloor
     400000: BathroomDoor
     400002: BathroomMoulding
     400004: BathroomWindow
@@ -77,6 +94,23 @@ ModelImporter:
     400066: BathroomWindowGlass
     400068: BedroomWindowGlass
     400070: Bathroom_Floor
+    400072: Floor_001
+    400074: Floor_002
+    400076: Floor_003
+    400078: Floor_004
+    400080: Floor_005
+    400082: Walls_001
+    400084: Walls_002
+    400086: Walls_003
+    400088: Walls_004
+    400090: Walls_005
+    400092: BathroomWalls
+    400094: BedroomWalls
+    400096: DiningWalls
+    400098: HallWalls
+    400100: KitchenWalls
+    400102: LivingRoomWalls
+    400104: BedroomFloor
     2300000: BathroomDoor
     2300002: BathroomMoulding
     2300004: BathroomWindow
@@ -112,6 +146,23 @@ ModelImporter:
     2300064: BathroomWindowGlass
     2300066: BedroomWindowGlass
     2300068: Bathroom_Floor
+    2300070: Floor_001
+    2300072: Floor_002
+    2300074: Floor_003
+    2300076: Floor_004
+    2300078: Floor_005
+    2300080: Walls_001
+    2300082: Walls_002
+    2300084: Walls_003
+    2300086: Walls_004
+    2300088: Walls_005
+    2300090: BathroomWalls
+    2300092: BedroomWalls
+    2300094: DiningWalls
+    2300096: HallWalls
+    2300098: KitchenWalls
+    2300100: LivingRoomWalls
+    2300102: BedroomFloor
     3300000: BathroomDoor
     3300002: BathroomMoulding
     3300004: BathroomWindow
@@ -147,6 +198,23 @@ ModelImporter:
     3300064: BathroomWindowGlass
     3300066: BedroomWindowGlass
     3300068: Bathroom_Floor
+    3300070: Floor_001
+    3300072: Floor_002
+    3300074: Floor_003
+    3300076: Floor_004
+    3300078: Floor_005
+    3300080: Walls_001
+    3300082: Walls_002
+    3300084: Walls_003
+    3300086: Walls_004
+    3300088: Walls_005
+    3300090: BathroomWalls
+    3300092: BedroomWalls
+    3300094: DiningWalls
+    3300096: HallWalls
+    3300098: KitchenWalls
+    3300100: LivingRoomWalls
+    3300102: BedroomFloor
     4300000: DiningWindowsGlass
     4300002: LivingRoomWindowsGlass
     4300004: FireplaceMantle
@@ -182,6 +250,23 @@ ModelImporter:
     4300064: BedroomWindowGlass
     4300066: BathroomWindowGlass
     4300068: Bathroom_Floor
+    4300070: Walls_005
+    4300072: Walls_004
+    4300074: Walls_003
+    4300076: Walls_002
+    4300078: Walls_001
+    4300080: Floor_005
+    4300082: Floor_004
+    4300084: Floor_003
+    4300086: Floor_002
+    4300088: Floor_001
+    4300090: HallWalls
+    4300092: BathroomWalls
+    4300094: BedroomWalls
+    4300096: DiningWalls
+    4300098: KitchenWalls
+    4300100: LivingRoomWalls
+    4300102: BedroomFloor
     7400000: Default Take
     9500000: //RootNode
   externalObjects:
