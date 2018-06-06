@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Launcher : Photon.PunBehaviour
 {
@@ -145,6 +146,12 @@ public class Launcher : Photon.PunBehaviour
 
         //Debug.Log("spawning from OnJoinedRoom");
 
+    }
+
+    public void LeaveRoom()
+    {
+        PhotonNetwork.LeaveRoom();
+        SceneManager.LoadScene(0);
     }
 
     private void OnEvent(byte eventcode, object content, int senderid)

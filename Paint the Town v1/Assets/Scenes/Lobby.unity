@@ -7238,7 +7238,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Loglevel: 1
   MaxPlayersPerRoom: 4
-  spawnScript: {fileID: 0}
+  spawnScript: {fileID: 1744137970}
 --- !u!114 &1744137970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7258,6 +7258,17 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
+--- !u!114 &1744137971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1744137967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32b463066bbbc3747984af365cb9a20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1744137972
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -382,6 +382,7 @@ public class ControllerInput : MonoBehaviour
             }
             paused = !paused;
             //first, make something appear in front of player's head
+            
         }
 
         if (OVRInput.GetDown(OVRInput.Button.Two))
