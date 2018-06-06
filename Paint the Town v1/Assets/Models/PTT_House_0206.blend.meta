@@ -177,6 +177,7 @@ ModelImporter:
     2300106: Stove_001_MeshPart1
     2300108: Fridge_MeshPart0
     2300110: Fridge_MeshPart1
+    2300112: Stove_001
     3300000: BathroomDoor
     3300002: BathroomMoulding
     3300004: BathroomWindow
@@ -233,6 +234,7 @@ ModelImporter:
     3300106: Stove_001_MeshPart1
     3300108: Fridge_MeshPart0
     3300110: Fridge_MeshPart1
+    3300112: Stove_001
     4300000: DiningWindowsGlass
     4300002: LivingRoomWindowsGlass
     4300004: FireplaceMantle
@@ -289,6 +291,7 @@ ModelImporter:
     4300106: Stove_001_MeshPart1
     4300108: Fridge_MeshPart0
     4300110: Fridge_MeshPart1
+    4300112: Stove_001
     7400000: Default Take
     9500000: //RootNode
   externalObjects:

@@ -16,6 +16,7 @@ public class Colorable : MonoBehaviour {
     private int penSize = 5;
     private int lerpX, lerpY;
     private AudioSource audio;
+    private float volumeFloat = 1.0f;
     private bool isAudio;
 
     public state curState;
@@ -48,21 +49,13 @@ public class Colorable : MonoBehaviour {
 		
 		mat = GetComponent<Renderer> ().material;
 
-        audio = GetComponentInParent<AudioSource>();
-        if (audio!=null)
+        audio = GetComponent<AudioSource>();
+        if (audio != null)
         {
-            isAudio = true;
+            volumeFloat = audio.volume;
+            audio.volume = 0.0f;
         }
-
-        for (int i=0; i<transform.GetChildCount(); i++)
-        {
-            if (transform.GetChild(i).GetComponent<ParticleSystem>() != null)
-            {
-                transform.GetChild(i).GetComponent<ParticleSystem>().Stop();
-            }
-        }
-
-  
+        
     }
 
 	
@@ -79,31 +72,35 @@ public class Colorable : MonoBehaviour {
                     audio.Play();
                 }
 				t += 0.5f * Time.deltaTime;
-				if (this.transform.parent.tag != "Room") {
+
+                /*if (this.transform.parent.tag != "Room") {
 					Component[] childrenColorable = this.transform.parent.GetComponentsInChildren<Colorable> ();
 					foreach (Colorable child in childrenColorable) {
 						child.curState = state.RGB;
 					}
-				}
-/*				else if(){
+				}*/
+                /*				else if(){
 
-				}
-				*/
-			}
+                                }
+                                */
+                if (audio != null)
+                {
+                    audio.volume = volumeFloat;
+                }
+
+                for (int i = 0; i < transform.GetChildCount(); i++)
+                {
+                    if (transform.GetChild(i).GetComponent<ParticleSystem>() != null)
+                    {
+                        transform.GetChild(i).gameObject.SetActive(true);
+                    }
+                }
+            }
 
             if (mat != null) {
 				if(mat.GetFloat ("_Transition") >= 1.0f)
 					curState = state.D;
 			}
-
-            for (int i = 0; i < transform.GetChildCount(); i++)
-            {
-                if (transform.GetChild(i).GetComponent<ParticleSystem>() != null)
-                {
-                    transform.GetChild(i).GetComponent<ParticleSystem>().Play();
-                }
-            }
-
 
         }
 /*		if(animator != null)
