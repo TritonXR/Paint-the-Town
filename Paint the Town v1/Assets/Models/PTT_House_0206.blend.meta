@@ -58,6 +58,11 @@ ModelImporter:
     100100: KitchenWalls
     100102: LivingRoomWalls
     100104: BedroomFloor
+    100106: Stove_001
+    100108: Stove_001_MeshPart0
+    100110: Stove_001_MeshPart1
+    100112: Fridge_MeshPart0
+    100114: Fridge_MeshPart1
     400000: BathroomDoor
     400002: BathroomMoulding
     400004: BathroomWindow
@@ -111,6 +116,11 @@ ModelImporter:
     400100: KitchenWalls
     400102: LivingRoomWalls
     400104: BedroomFloor
+    400106: Stove_001
+    400108: Stove_001_MeshPart0
+    400110: Stove_001_MeshPart1
+    400112: Fridge_MeshPart0
+    400114: Fridge_MeshPart1
     2300000: BathroomDoor
     2300002: BathroomMoulding
     2300004: BathroomWindow
@@ -163,6 +173,10 @@ ModelImporter:
     2300098: KitchenWalls
     2300100: LivingRoomWalls
     2300102: BedroomFloor
+    2300104: Stove_001_MeshPart0
+    2300106: Stove_001_MeshPart1
+    2300108: Fridge_MeshPart0
+    2300110: Fridge_MeshPart1
     3300000: BathroomDoor
     3300002: BathroomMoulding
     3300004: BathroomWindow
@@ -215,6 +229,10 @@ ModelImporter:
     3300098: KitchenWalls
     3300100: LivingRoomWalls
     3300102: BedroomFloor
+    3300104: Stove_001_MeshPart0
+    3300106: Stove_001_MeshPart1
+    3300108: Fridge_MeshPart0
+    3300110: Fridge_MeshPart1
     4300000: DiningWindowsGlass
     4300002: LivingRoomWindowsGlass
     4300004: FireplaceMantle
@@ -267,6 +285,10 @@ ModelImporter:
     4300098: KitchenWalls
     4300100: LivingRoomWalls
     4300102: BedroomFloor
+    4300104: Stove_001_MeshPart0
+    4300106: Stove_001_MeshPart1
+    4300108: Fridge_MeshPart0
+    4300110: Fridge_MeshPart1
     7400000: Default Take
     9500000: //RootNode
   externalObjects:

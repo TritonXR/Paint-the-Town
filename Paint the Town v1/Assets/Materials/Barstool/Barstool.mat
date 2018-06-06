@@ -47,7 +47,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GlossinessMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 04c9e771a7c9e4d109e6a788e462ae40, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Green:
@@ -87,16 +87,16 @@ Material:
     - _DstBlend: 0
     - _Emission: 1
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 0.51
     - _GlossyReflections: 1
-    - _Metallic: 0.261
+    - _Metallic: 0.2
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Transition: 0.367
+    - _Transition: 0.4
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
