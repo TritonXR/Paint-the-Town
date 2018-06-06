@@ -670,7 +670,6 @@ GameObject:
   - component: {fileID: 4716934288264318}
   - component: {fileID: 114677619439847666}
   - component: {fileID: 114688916226957032}
-  - component: {fileID: 114915678419966770}
   - component: {fileID: 114786776649044272}
   - component: {fileID: 114138644925033230}
   - component: {fileID: 114452104712430240}
@@ -2173,6 +2172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d68b7c37b7edba43bba053bceb32cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  photonView: {fileID: 0}
 --- !u!114 &114786776649044272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2204,22 +2204,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb7a6650b6cb46545967d3b380b7396c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114915678419966770
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1764563430018858}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c838bacc9837ad8408d199e7495c6065, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  test: 
-  speed: 0
-  headsetCamera: {fileID: 0}
-  lefthand: {fileID: 1221206174995462}
-  righthand: {fileID: 1348482613507648}
 --- !u!120 &120618366785510336
 LineRenderer:
   m_ObjectHideFlags: 1
