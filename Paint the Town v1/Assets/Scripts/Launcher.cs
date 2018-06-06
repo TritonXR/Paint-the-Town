@@ -32,6 +32,8 @@ public class Launcher : Photon.PunBehaviour
     /// </summary>
     string _gameVersion = "1";
 
+    public SpawnLocations spawnScript;
+
 
     #endregion
 
@@ -119,7 +121,7 @@ public class Launcher : Photon.PunBehaviour
         //Debug.Log("DemoAnimator/Launcher:OnPhotonRandomJoinFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom(null, new RoomOptions() {maxPlayers = 4}, null);");
         // #Critical: we failed to join a random room, maybe none exists or they are all full. No worries, we create a new room.
         PhotonNetwork.CreateRoom(null, new RoomOptions() { MaxPlayers = MaxPlayersPerRoom }, null);
-        PhotonNetwork.LoadLevel("Prototype Scene - PreMaster");
+        PhotonNetwork.LoadLevel("Lobby");
     }
 
     public override void OnJoinedRoom()
@@ -170,6 +172,22 @@ public class Launcher : Photon.PunBehaviour
                 if (pView != null)
                 {
                     pView.viewID = (int)content;
+                }
+            }
+
+            if(spawnScript != null)
+            {
+                if(PhotonNetwork.playerList[0].ID == senderid)
+                {
+                    go.transform.position = spawnScript.spawnPos[0];
+                }
+                else if (PhotonNetwork.playerList[1].ID == senderid)
+                {
+                    go.transform.position = spawnScript.spawnPos[1];
+                }
+                else 
+                {
+                    go.transform.position = spawnScript.spawnPos[2];
                 }
             }
         }
