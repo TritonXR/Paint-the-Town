@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a3bdb2cd68f901469e7cc149151eb49, type: 3}
-  m_Name: PtT
+  m_Name: Lobby
   m_EditorClassIdentifier: 
   debugViews:
     m_Enabled: 1
@@ -42,8 +42,8 @@ MonoBehaviour:
   ambientOcclusion:
     m_Enabled: 1
     m_Settings:
-      intensity: 0.8
-      radius: 0.3
+      intensity: 0.87
+      radius: 2
       sampleCount: 10
       downsampling: 1
       forceForwardCompatibility: 0
@@ -81,12 +81,12 @@ MonoBehaviour:
     m_Settings:
       shutterAngle: 270
       sampleCount: 10
-      frameBlending: 0.02
+      frameBlending: 0
   eyeAdaptation:
     m_Enabled: 0
     m_Settings:
-      lowPercent: 1
-      highPercent: 99
+      lowPercent: 16.344233
+      highPercent: 43.551697
       minLuminance: 0
       maxLuminance: -2
       keyValue: 0.25
@@ -113,19 +113,19 @@ MonoBehaviour:
     m_Settings:
       tonemapping:
         tonemapper: 1
-        neutralBlackIn: 0.02
-        neutralWhiteIn: 20
-        neutralBlackOut: 0.035
-        neutralWhiteOut: 11
-        neutralWhiteLevel: 5.3
-        neutralWhiteClip: 10
+        neutralBlackIn: -0.002
+        neutralWhiteIn: 1
+        neutralBlackOut: -0.059
+        neutralWhiteOut: 15.3
+        neutralWhiteLevel: 7.9
+        neutralWhiteClip: 1.77
       basic:
         postExposure: 0.5
         temperature: 0
         tint: 0
         hueShift: 0
-        saturation: 1.5
-        contrast: 1
+        saturation: 1.7
+        contrast: 0.8
       channelMixer:
         red: {x: 1, y: 0, z: 0}
         green: {x: 0, y: 1, z: 0}
