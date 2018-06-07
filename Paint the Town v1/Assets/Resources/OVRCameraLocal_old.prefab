@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114346857993030580}
   - component: {fileID: 114277683070185510}
   m_Layer: 0
-  m_Name: OVRCameraLocal
+  m_Name: OVRCameraLocal_old
   m_TagString: PlayerRed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
