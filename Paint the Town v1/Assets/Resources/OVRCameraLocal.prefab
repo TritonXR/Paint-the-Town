@@ -45,7 +45,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1022673940692516
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: 4169083805045164}
   - component: {fileID: 81498699629823164}
   - component: {fileID: 20455070911658568}
+  - component: {fileID: 114828176093351416}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -609,7 +610,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1019758256976854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4473476, y: -0.088694096, z: -1.2563605}
+  m_LocalPosition: {x: 0, y: 1.2, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4184376929967158}
@@ -813,8 +814,8 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 0
-  m_AllowMSAA: 1
+  m_HDR: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -1050,7 +1051,7 @@ MonoBehaviour:
   HandRight: {fileID: 114188268319878066}
   RecordPackets: 0
   UseSDKPackets: 1
-  StartWithControllers: 0
+  StartWithControllers: 1
   FirstPersonLayer:
     layerIndex: 0
   ThirdPersonLayer:
@@ -1149,7 +1150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d68b7c37b7edba43bba053bceb32cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  photonView: {fileID: 0}
+  photonView: {fileID: 114979034730126384}
 --- !u!114 &114205501700093082
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1377,6 +1378,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0e33623ec5372748b5703f61a4df82d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114828176093351416
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1365422766526168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 54e1bea187eb98249af7e75ad4fb4f5e, type: 2}
 --- !u!114 &114905706841772704
 MonoBehaviour:
   m_ObjectHideFlags: 1

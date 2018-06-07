@@ -23,19 +23,19 @@ public class Gramophone_Play : MonoBehaviour {
         if (!childCol)
         {
             colorTally = 0;
-            Debug.Log("we are false");
+            //Debug.Log("we are false");
             foreach (Colorable child in childrenColorable)
             {
                 if (child.curState == state.RGB || child.curState == state.D)
                 {
                     colorTally++;
                 }
-                Debug.Log("tally count is " + colorTally);
+                //Debug.Log("tally count is " + colorTally);
             }
             if (colorTally == childrenColorable.Length)
             {
                 childCol = true;
-                Debug.Log("setting it to true");
+                //Debug.Log("setting it to true");
             }
         } else
         {
