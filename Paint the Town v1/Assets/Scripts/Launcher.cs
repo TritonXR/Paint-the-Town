@@ -188,16 +188,19 @@ public class Launcher : Photon.PunBehaviour
                 {
                     go.transform.position = spawnScript.spawnPos[0];
                     go.transform.Rotate(spawnScript.spawnRots[0]);
+                    go.tag = "PlayerRed";
                 }
                 else if (PhotonNetwork.playerList[1].ID == senderid)
                 {
                     go.transform.position = spawnScript.spawnPos[1];
                     go.transform.Rotate(spawnScript.spawnRots[1]);
+                    go.tag = "PlayerBlue";
                 }
                 else 
                 {
                     go.transform.position = spawnScript.spawnPos[2];
                     go.transform.Rotate(spawnScript.spawnRots[2]);
+                    go.tag = "PlayerGreen";
                 }
             }
         }

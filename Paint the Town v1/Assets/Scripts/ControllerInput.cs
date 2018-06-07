@@ -52,21 +52,6 @@ public class ControllerInput : MonoBehaviour
         paused = false;
         photonView = GetComponentInParent<PhotonView>();
 
-        if (PhotonNetwork.countOfPlayers == 1)
-        {
-            this.tag = "PlayerRed";
-            //this.mat = red material
-        }
-        else if (PhotonNetwork.countOfPlayers == 2)
-        {
-            this.tag = "PlayerBlue";
-            //this.mat = blue material
-        }
-        else
-        {
-            this.tag = "PlayerGreen";
-            //this.mat = green material
-        }
     }
 
     // Update is called once per frame
