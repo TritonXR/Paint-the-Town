@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 public class ArcTeleporter : MonoBehaviour {
 	public enum UpDirection { World, TargetNormal};
@@ -35,10 +36,13 @@ public class ArcTeleporter : MonoBehaviour {
 			return; 
 		}
 
-		bool currentTriggerState = OVRInput.Get (OVRInput.Button.PrimaryIndexTrigger);
+        //bool currentTriggerState = OVRInput.Get (OVRInput.Button.PrimaryIndexTrigger);
+        bool currentTriggerState = Input.GetMouseButtonDown(0);
+        Debug.Log(currentTriggerState);
 
-		// If the trigger was released this frame
-		if (lastTriggerState && !currentTriggerState) {
+        // If the trigger was released this frame
+        if (lastTriggerState && !currentTriggerState) {
+            Debug.Log("trying to move");
 			Vector3 forward = objectToMove.forward;
 			Vector3 up = Vector3.up;
 
