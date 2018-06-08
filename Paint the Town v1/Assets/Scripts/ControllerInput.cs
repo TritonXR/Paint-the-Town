@@ -20,6 +20,7 @@ public class ControllerInput : MonoBehaviour
     public GameObject joinButton;
     public GameObject pauseScreen;
     public GameObject eyeCenter;
+    public Camera centerCamera;
     public Transform cursor;
 
     public LineRenderer rightLine;
@@ -50,6 +51,7 @@ public class ControllerInput : MonoBehaviour
     private PhotonView photonView;
 
     private RaycastHit pointerHit;
+
 
     // Use this for initialization
     void Start()
@@ -348,43 +350,50 @@ public class ControllerInput : MonoBehaviour
         //have pause menu toggle here here
         if (OVRInput.GetDown(OVRInput.Button.Start))
         {
-            Debug.Log("got here");
+            //Debug.Log(paused);
             if(paused)
             {
                 Debug.Log("unpaused");
-                //set pause screen to not active
+                pauseScreen.SetActive(false);
+                paused = false;
             }
             else
             {
-                Debug.Log("paused");
+                paused = true;
+                //Debug.Log("paused");
                 //move PauseScreen to in front of player
-                //pauseScreen.transform = eyeCenter.transform;
-                ///pauseScreen.transform.parent = eyeCenter.transform;
+                pauseScreen.SetActive(true);
+                //pauseScreen.transform.rotation = new Quaternion((float)eyeCenter.transform.rotation.x, 0, (float)eyeCenter.transform.rotation.z, eyeCenter.transform.rotation.w);
 
-               // Debug.Log("Parent is" + pauseScreen.transform.parent.name);
+               // pauseScreen.GetComponent<RectTransform>().position = eyeCenter.transform.localPosition + eyeCenter.transform.forward;
 
-                ///pauseScreen.transform.localPosition = new Vector3(0, 0, 2);
+                Vector3 playerPos = eyeCenter.transform.position;
+                Vector3 playerDirection = eyeCenter.transform.forward;
+                Quaternion playerRotation = eyeCenter.transform.rotation;
 
-               // Debug.Log("Position is" + pauseScreen.transform.position);
+                Vector3 spawnPos = playerPos + playerDirection * 2f;
+                spawnPos.y = 1.3f;
 
-              //  Debug.Break();
+                pauseScreen.GetComponent<RectTransform>().position = spawnPos;
 
-             //   Debug.Break();
+                //pauseScreen.GetComponent<RectTransform>().position
+                /* Vector3 copy = pauseScreen.GetComponent<RectTransform>().position;
+                 copy.y = 1.3f;
+                 //copy.x += 1f;
+                 copy.z += 1f;
 
-               // Debug.Log("After Break");
+                 pauseScreen.GetComponent<RectTransform>().position = copy; */
 
-                ///pauseScreen.transform.parent = null;
+                //pauseScreen.GetComponent<RectTransform>().anchoredPosition = new Vector2(eyeCenter.transform.position.x, eyeCenter.transform.position.y);
+                pauseScreen.GetComponent<RectTransform>().rotation = new Quaternion(0f, eyeCenter.transform.rotation.y, 0f, eyeCenter.transform.rotation.w);
 
-                ///pauseScreen.SetActive(true);
-
-                //Debug.Break();
-               //pauseScreen.GetComponent<RectTransform>().anchoredPosition = new Vector2(eyeCenter.transform.position.x, eyeCenter.transform.position.y);
-               // pauseScreen.GetComponent<RectTransform>().
+                //pauseScreen.GetComponent<RectTransform>().position = new Vector3(eyeCenter.transform.position.x, eyeCenter.transform.position.y, eyeCenter.transform.position.z + 2f);
+                
+               // pauseScreen.GetComponent<RectTransform>().rotation = eyeCenter.transform.rotation;
+                // pauseScreen.GetComponent<RectTransform>().
 
                 //set pause screen to active
             }
-            paused = !paused;
-            //first, make something appear in front of player's head
             
         }
 
