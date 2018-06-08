@@ -27818,6 +27818,9 @@ MonoBehaviour:
   spawnScript: {fileID: 0}
   singlePlayer: {fileID: 0}
   mainMenu: {fileID: 0}
+  logo: {fileID: 0}
+  credits: {fileID: 0}
+  controls: {fileID: 0}
 --- !u!114 &1741873454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33549,6 +33552,9 @@ MonoBehaviour:
   spawnScript: {fileID: 1809547947}
   singlePlayer: {fileID: 0}
   mainMenu: {fileID: 0}
+  logo: {fileID: 0}
+  credits: {fileID: 0}
+  controls: {fileID: 0}
 --- !u!114 &1809547949
 MonoBehaviour:
   m_ObjectHideFlags: 0
