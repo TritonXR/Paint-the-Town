@@ -5,6 +5,9 @@ using UnityEngine;
 public class Gramophone_Play : MonoBehaviour {
 
     public AudioClip[] playlist;
+    public GameObject disk;
+    public GameObject grambase;
+    public GameObject head;
     private AudioSource audio;
     private bool childCol = false;
     private Component[] childrenColorable;
@@ -22,20 +25,11 @@ public class Gramophone_Play : MonoBehaviour {
     {
         if (!childCol)
         {
-            colorTally = 0;
-            //Debug.Log("we are false");
-            foreach (Colorable child in childrenColorable)
-            {
-                if (child.curState == state.RGB || child.curState == state.D)
-                {
-                    colorTally++;
-                }
-                //Debug.Log("tally count is " + colorTally);
-            }
-            if (colorTally == childrenColorable.Length)
+
+            if (disk.GetComponent<Colorable>().curState == state.D && grambase.GetComponent<Colorable>().curState == state.D && head.GetComponent<Colorable>().curState == state.D)
             {
                 childCol = true;
-                //Debug.Log("setting it to true");
+                Debug.Log("setting it to true");
             }
         } else
         {

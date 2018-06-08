@@ -98,8 +98,11 @@ public class Colorable : MonoBehaviour {
             }
 
             if (mat != null) {
-				if(mat.GetFloat ("_Transition") >= 1.0f)
-					curState = state.D;
+                if (mat.HasProperty("_Transition"))
+                {
+                    if (mat.GetFloat("_Transition") >= 1.0f)
+                        curState = state.D;
+                }
 			}
 
         }
