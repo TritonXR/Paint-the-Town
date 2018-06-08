@@ -847,6 +847,7 @@ GameObject:
   - component: {fileID: 45656514}
   - component: {fileID: 45656516}
   - component: {fileID: 45656517}
+  - component: {fileID: 45656518}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -942,12 +943,27 @@ MonoBehaviour:
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 9
   instantiationId: 9
   currentMasterID: -1
   isRuntimeInstantiated: 0
+--- !u!64 &45656518
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 45656512}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300004, guid: 60a2a9b2aebf31c4997454d55d1d5c07, type: 3}
 --- !u!1 &47204057
 GameObject:
   m_ObjectHideFlags: 0
@@ -27857,6 +27873,8 @@ MonoBehaviour:
   logo: {fileID: 0}
   credits: {fileID: 0}
   controls: {fileID: 0}
+  statue: {fileID: 0}
+  statuebase: {fileID: 0}
 --- !u!114 &1741873454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33592,6 +33610,8 @@ MonoBehaviour:
   logo: {fileID: 0}
   credits: {fileID: 0}
   controls: {fileID: 0}
+  statue: {fileID: 0}
+  statuebase: {fileID: 0}
 --- !u!114 &1809547949
 MonoBehaviour:
   m_ObjectHideFlags: 0
