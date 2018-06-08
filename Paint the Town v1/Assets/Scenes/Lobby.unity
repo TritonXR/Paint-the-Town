@@ -5216,7 +5216,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1008975857}
   m_LocalRotation: {x: 0, y: -0.258819, z: 0, w: 0.9659259}
-  m_LocalPosition: {x: 6, y: 1.2, z: -7.5}
+  m_LocalPosition: {x: 6, y: 2, z: -7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6415,6 +6415,10 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1165227191}
+--- !u!1 &1166237162 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100000, guid: 0820635162d85354591d27c4707905f5, type: 3}
+  m_PrefabInternal: {fileID: 1374171346}
 --- !u!1001 &1167640195
 Prefab:
   m_ObjectHideFlags: 0
@@ -7163,7 +7167,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1344016351}
   m_LocalRotation: {x: 0, y: 0.2588191, z: 0, w: 0.9659258}
-  m_LocalPosition: {x: -6, y: 1.2, z: -7.5}
+  m_LocalPosition: {x: -6, y: 2, z: -7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7364,7 +7368,7 @@ Transform:
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: -90, y: 180, z: 0}
 --- !u!114 &1407980918
 MonoBehaviour:
@@ -7698,7 +7702,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1492857296}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.2, z: -12}
+  m_LocalPosition: {x: 0, y: 2, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8533,7 +8537,7 @@ MonoBehaviour:
   mainMenu: {fileID: 696897333}
   logo: {fileID: 1585427007}
   credits: {fileID: 1017808791}
-  controls: {fileID: 0}
+  controls: {fileID: 1166237162}
 --- !u!114 &1744137970
 MonoBehaviour:
   m_ObjectHideFlags: 0
