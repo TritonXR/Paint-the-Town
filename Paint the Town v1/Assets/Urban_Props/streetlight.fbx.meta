@@ -1,11 +1,25 @@
 fileFormatVersion: 2
 guid: 5023aee8353dc294e81639dd7b24832e
-timeCreated: 18446744011573954816
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
     4300000: Mesh
-  externalObjects: {}
+    11100000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: streetlight_glass_phong
+    second: {fileID: 2100000, guid: bc9f534f5c435af49b5088d00acf632d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: streetlight_phong
+    second: {fileID: 2100000, guid: e63feca9321edec419cd1a1bdf1cf07f, type: 2}
   materials:
     importMaterials: 1
     materialName: 2
@@ -24,6 +38,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
