@@ -45,6 +45,7 @@ public class ControllerInput : MonoBehaviour
     private int lerpX, lerpY;
     private bool redPaint, greenPaint, bluePaint;
     private bool paused;
+    private bool pauseExist;
 
     private Material mat;
     private RaycastHit hit;
@@ -59,6 +60,18 @@ public class ControllerInput : MonoBehaviour
         paused = false;
         photonView = GetComponentInParent<PhotonView>();
         rightLine.enabled = true;
+
+        pauseScreen = GameObject.FindWithTag("pause");
+
+        if (pauseScreen != null)
+        {
+            pauseExist = true;
+            pauseScreen.SetActive(false);
+        }
+        else
+        {
+            pauseExist = false;
+        }
     }
 
     // Update is called once per frame
@@ -348,7 +361,7 @@ public class ControllerInput : MonoBehaviour
         // && (SceneManager.GetSceneByName("Prototype Scene - PreMaster") == SceneManager.GetActiveScene())
 
         //have pause menu toggle here here
-        if (OVRInput.GetDown(OVRInput.Button.Start))
+        if (OVRInput.GetDown(OVRInput.Button.Start) && pauseExist)
         {
             //Debug.Log(paused);
             if(paused)
