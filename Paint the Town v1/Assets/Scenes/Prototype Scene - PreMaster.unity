@@ -2488,7 +2488,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 168210975}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.29, y: 1.2, z: -2.46}
+  m_LocalPosition: {x: -0.29, y: 2, z: -2.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -11018,7 +11018,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 640331367}
   m_LocalRotation: {x: -0, y: 0.2750514, z: -0, w: 0.9614296}
-  m_LocalPosition: {x: 0.68, y: 1.2, z: -4.36}
+  m_LocalPosition: {x: 0.68, y: 2, z: -4.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -20146,7 +20146,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1405099540}
   m_LocalRotation: {x: -0, y: -0.85803443, z: -0, w: 0.51359224}
-  m_LocalPosition: {x: 4.85, y: 1.2, z: -0.29}
+  m_LocalPosition: {x: 4.85, y: 2, z: -0.29}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -27818,6 +27818,9 @@ MonoBehaviour:
   spawnScript: {fileID: 0}
   singlePlayer: {fileID: 0}
   mainMenu: {fileID: 0}
+  logo: {fileID: 0}
+  credits: {fileID: 0}
+  controls: {fileID: 0}
 --- !u!114 &1741873454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33549,6 +33552,9 @@ MonoBehaviour:
   spawnScript: {fileID: 1809547947}
   singlePlayer: {fileID: 0}
   mainMenu: {fileID: 0}
+  logo: {fileID: 0}
+  credits: {fileID: 0}
+  controls: {fileID: 0}
 --- !u!114 &1809547949
 MonoBehaviour:
   m_ObjectHideFlags: 0
