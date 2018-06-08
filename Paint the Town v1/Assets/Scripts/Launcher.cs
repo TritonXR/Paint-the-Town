@@ -37,6 +37,9 @@ public class Launcher : Photon.PunBehaviour
 
     public GameObject singlePlayer;
     public GameObject mainMenu;
+    public GameObject logo;
+    public GameObject credits;
+    public GameObject controls;
 
 
     #endregion
@@ -140,6 +143,9 @@ public class Launcher : Photon.PunBehaviour
         //singlePlayer.SetActive(false);
 
         mainMenu.SetActive(false);
+        logo.SetActive(false);
+        credits.SetActive(false);
+        controls.SetActive(false);
         
 
         int viewId = PhotonNetwork.AllocateViewID();
