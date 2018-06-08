@@ -10,6 +10,7 @@ TagManager:
   - PlayerBlue
   - PlayerGreen
   - Room
+  - pause
   layers:
   - Default
   - TransparentFX
