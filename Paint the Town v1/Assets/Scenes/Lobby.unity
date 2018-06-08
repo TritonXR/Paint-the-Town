@@ -2497,6 +2497,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cab13ab8fd59f224a8201acc87426d7b, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &373474814 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1850352949640784, guid: cab13ab8fd59f224a8201acc87426d7b,
+    type: 2}
+  m_PrefabInternal: {fileID: 373474813}
 --- !u!1001 &387593625
 Prefab:
   m_ObjectHideFlags: 0
@@ -8405,6 +8410,8 @@ MonoBehaviour:
   Loglevel: 1
   MaxPlayersPerRoom: 4
   spawnScript: {fileID: 1744137970}
+  singlePlayer: {fileID: 373474814}
+  mainMenu: {fileID: 696897333}
 --- !u!114 &1744137970
 MonoBehaviour:
   m_ObjectHideFlags: 0
