@@ -2474,30 +2474,25 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114079908394613386, guid: cab13ab8fd59f224a8201acc87426d7b,
+    - target: {fileID: 114166830394388126, guid: cab13ab8fd59f224a8201acc87426d7b,
         type: 2}
       propertyPath: viewIdField
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114079908394613386, guid: cab13ab8fd59f224a8201acc87426d7b,
+    - target: {fileID: 114166830394388126, guid: cab13ab8fd59f224a8201acc87426d7b,
         type: 2}
       propertyPath: instantiationId
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114166830394388126, guid: cab13ab8fd59f224a8201acc87426d7b,
+    - target: {fileID: 114079908394613386, guid: cab13ab8fd59f224a8201acc87426d7b,
         type: 2}
       propertyPath: viewIdField
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114166830394388126, guid: cab13ab8fd59f224a8201acc87426d7b,
+    - target: {fileID: 114079908394613386, guid: cab13ab8fd59f224a8201acc87426d7b,
         type: 2}
       propertyPath: instantiationId
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 20654975648873792, guid: cab13ab8fd59f224a8201acc87426d7b,
-        type: 2}
-      propertyPath: m_HDR
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cab13ab8fd59f224a8201acc87426d7b, type: 2}
