@@ -10,7 +10,7 @@ public class SpawnLocations : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		for(int i=0; i < spawns.Length-1; i++)
+		for(int i=0; i < spawns.Length; i++)
         {
             spawnPos[i] = spawns[i].transform.position;
             spawnRots[i] = new Vector3(spawns[i].transform.localRotation.x, spawns[i].transform.localRotation.y, spawns[i].transform.localRotation.z);

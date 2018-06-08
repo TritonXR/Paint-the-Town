@@ -61,7 +61,7 @@ public class ControllerInput : MonoBehaviour
         photonView = GetComponentInParent<PhotonView>();
         rightLine.enabled = true;
 
-        pauseScreen = GameObject.FindWithTag("pause");
+       /* pauseScreen = GameObject.FindWithTag("pause");
 
         if (pauseScreen != null)
         {
@@ -71,7 +71,7 @@ public class ControllerInput : MonoBehaviour
         else
         {
             pauseExist = false;
-        }
+        }*/
     }
 
     // Update is called once per frame
@@ -361,7 +361,7 @@ public class ControllerInput : MonoBehaviour
         // && (SceneManager.GetSceneByName("Prototype Scene - PreMaster") == SceneManager.GetActiveScene())
 
         //have pause menu toggle here here
-        if (OVRInput.GetDown(OVRInput.Button.Start) && pauseExist)
+        if (OVRInput.GetDown(OVRInput.Button.Start))//&& pauseExist
         {
             //Debug.Log(paused);
             if(paused)

@@ -40,6 +40,8 @@ public class Launcher : Photon.PunBehaviour
     public GameObject logo;
     public GameObject credits;
     public GameObject controls;
+    public GameObject statue;
+    public GameObject statuebase;
 
 
     #endregion
@@ -125,6 +127,7 @@ public class Launcher : Photon.PunBehaviour
 
     public override void OnPhotonRandomJoinFailed(object[] codeAndMsg)
     {
+        Debug.Log("making room");
         //Debug.Log("DemoAnimator/Launcher:OnPhotonRandomJoinFailed() was called by PUN. No random room available, so we create one.\nCalling: PhotonNetwork.CreateRoom(null, new RoomOptions() {maxPlayers = 4}, null);");
         // #Critical: we failed to join a random room, maybe none exists or they are all full. No worries, we create a new room.
         PhotonNetwork.CreateRoom(null, new RoomOptions() { MaxPlayers = MaxPlayersPerRoom }, null);
@@ -133,6 +136,7 @@ public class Launcher : Photon.PunBehaviour
 
     public override void OnJoinedRoom()
     {
+        Debug.Log("joined room");
         // #Critical: We only load if we are the first player, else we rely on  PhotonNetwork.automaticallySyncScene to sync our instance scene
 
         //PhotonNetwork.LoadLevel("Prototype Scene - PreMaster");
@@ -146,7 +150,9 @@ public class Launcher : Photon.PunBehaviour
         logo.SetActive(false);
         credits.SetActive(false);
         controls.SetActive(false);
-        
+        statue.GetComponent<Colorable>().gameObject.SetActive(true);
+        statuebase.GetComponent<Colorable>().gameObject.SetActive(true);
+
 
         int viewId = PhotonNetwork.AllocateViewID();
 
@@ -198,6 +204,7 @@ public class Launcher : Photon.PunBehaviour
 
             if(spawnScript != null)
             {
+                Debug.Log("spawn script detected");
                 if(PhotonNetwork.playerList[0].ID == senderid)
                 {
                     go.transform.position = spawnScript.spawnPos[0];
@@ -214,6 +221,31 @@ public class Launcher : Photon.PunBehaviour
                 {
                     go.transform.position = spawnScript.spawnPos[2];
                     go.transform.Rotate(spawnScript.spawnRots[2]);
+                    go.tag = "PlayerGreen";
+                }
+            } else
+            {
+                Debug.Log("no spawn script");
+                Vector3 tempspawn = new Vector3(2.0f, 0, -2.0f);
+                if (PhotonNetwork.playerList[0].ID == senderid)
+                {
+                    Debug.Log("set player 1 to temp");
+                    go.transform.position = tempspawn;
+                    //go.transform.Rotate(spawnScript.spawnRots[0]);
+                    go.tag = "PlayerRed";
+                }
+                else if (PhotonNetwork.playerList[1].ID == senderid)
+                {
+                    Debug.Log("set player 2 to temp");
+                    go.transform.position = tempspawn;
+                    //go.transform.Rotate(spawnScript.spawnRots[1]);
+                    go.tag = "PlayerBlue";
+                }
+                else
+                {
+                    Debug.Log("set player 3 to temp");
+                    go.transform.position = tempspawn;
+                    //go.transform.Rotate(spawnScript.spawnRots[2]);
                     go.tag = "PlayerGreen";
                 }
             }

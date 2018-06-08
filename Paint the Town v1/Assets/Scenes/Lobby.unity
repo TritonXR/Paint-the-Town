@@ -8537,6 +8537,8 @@ MonoBehaviour:
   logo: {fileID: 1585427007}
   credits: {fileID: 1017808791}
   controls: {fileID: 1166237162}
+  statue: {fileID: 1407980914}
+  statuebase: {fileID: 1744137967}
 --- !u!114 &1744137970
 MonoBehaviour:
   m_ObjectHideFlags: 0

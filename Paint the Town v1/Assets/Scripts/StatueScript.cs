@@ -19,6 +19,7 @@ public class StatueScript : MonoBehaviour {
         {
             if (PhotonNetwork.isMasterClient)
             {
+                PhotonNetwork.DestroyAll();
                 PhotonNetwork.LoadLevel("Prototype Scene - PreMaster");
             }
 

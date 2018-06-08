@@ -608,7 +608,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1850352949640784}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: -12}
+  m_LocalPosition: {x: 0, y: 1.8, z: -12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4608222517802140}
@@ -1304,7 +1304,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arcRaycaster: {fileID: 114879533489058712}
   objectToMove: {fileID: 4580133023323564}
-  height: 1.29
+  height: 1.8
   teleportedUpAxis: 0
 --- !u!114 &114594996838739432
 MonoBehaviour:
