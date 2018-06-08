@@ -35,6 +35,9 @@ public class Launcher : Photon.PunBehaviour
 
     public SpawnLocations spawnScript;
 
+    public GameObject singlePlayer;
+    public GameObject mainMenu;
+
 
     #endregion
 
@@ -128,12 +131,17 @@ public class Launcher : Photon.PunBehaviour
     public override void OnJoinedRoom()
     {
         // #Critical: We only load if we are the first player, else we rely on  PhotonNetwork.automaticallySyncScene to sync our instance scene
-       
+
         //PhotonNetwork.LoadLevel("Prototype Scene - PreMaster");
 
         // Debug.Log("DemoAnimator/Launcher: OnJoinedRoom() called by PUN. Now this client is in a room.");
 
-                                                                                                     
+        PhotonNetwork.Destroy(singlePlayer);
+        //singlePlayer.SetActive(false);
+
+        mainMenu.SetActive(false);
+        
+
         int viewId = PhotonNetwork.AllocateViewID();
 
         PhotonNetwork.RaiseEvent(InstantiateVrAvatarEventCode, viewId, true, new RaiseEventOptions()

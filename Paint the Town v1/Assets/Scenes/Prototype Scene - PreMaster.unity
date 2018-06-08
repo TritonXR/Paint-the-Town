@@ -11627,7 +11627,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &711508906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11777,6 +11777,8 @@ MonoBehaviour:
   joinButton: {fileID: 0}
   pauseScreen: {fileID: 237174208}
   eyeCenter: {fileID: 711508905}
+  cursor: {fileID: 0}
+  rightLine: {fileID: 0}
   weaponRange: 50
   gunEnd: {fileID: 0}
 --- !u!114 &711508910
@@ -28876,6 +28878,8 @@ MonoBehaviour:
   Loglevel: 1
   MaxPlayersPerRoom: 4
   spawnScript: {fileID: 0}
+  singlePlayer: {fileID: 0}
+  mainMenu: {fileID: 0}
 --- !u!114 &1741873454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34630,6 +34634,7 @@ GameObject:
   - component: {fileID: 1809547946}
   - component: {fileID: 1809547948}
   - component: {fileID: 1809547947}
+  - component: {fileID: 1809547949}
   m_Layer: 0
   m_Name: Environment
   m_TagString: Untagged
@@ -34690,6 +34695,19 @@ MonoBehaviour:
   Loglevel: 1
   MaxPlayersPerRoom: 4
   spawnScript: {fileID: 1809547947}
+  singlePlayer: {fileID: 0}
+  mainMenu: {fileID: 0}
+--- !u!114 &1809547949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1809547945}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5572530284d69d5478468f1817c78eb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1810879180
 Prefab:
   m_ObjectHideFlags: 0
@@ -35710,6 +35728,30 @@ Prefab:
     - target: {fileID: 100106, guid: 3d369300939814051853ac0c2a635413, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100098, guid: 3d369300939814051853ac0c2a635413, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100100, guid: 3d369300939814051853ac0c2a635413, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100102, guid: 3d369300939814051853ac0c2a635413, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100094, guid: 3d369300939814051853ac0c2a635413, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100096, guid: 3d369300939814051853ac0c2a635413, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 100092, guid: 3d369300939814051853ac0c2a635413, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d369300939814051853ac0c2a635413, type: 3}
