@@ -523,7 +523,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.2
+  m_Intensity: 0.8
   m_Range: 10
   m_SpotAngle: 86
   m_CookieSize: 10
@@ -5353,7 +5353,8 @@ MonoBehaviour:
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 186
   instantiationId: 186
@@ -5969,7 +5970,8 @@ MonoBehaviour:
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 203
   instantiationId: 203
@@ -11528,7 +11530,8 @@ MonoBehaviour:
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 194
   instantiationId: 194
@@ -12273,7 +12276,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 27cc6929230af124eb1bc8878a3c180b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.4482164
+      value: -2.491
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 27cc6929230af124eb1bc8878a3c180b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12281,19 +12284,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 27cc6929230af124eb1bc8878a3c180b, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 27cc6929230af124eb1bc8878a3c180b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.6395451
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 27cc6929230af124eb1bc8878a3c180b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 27cc6929230af124eb1bc8878a3c180b, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.76875365
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 27cc6929230af124eb1bc8878a3c180b, type: 3}
       propertyPath: m_RootOrder
@@ -12305,7 +12308,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 27cc6929230af124eb1bc8878a3c180b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -79.51601
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 2300002, guid: 27cc6929230af124eb1bc8878a3c180b, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -12335,6 +12338,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: fda78485e8b47dd44b290ca1aec8c835, type: 2}
+    - target: {fileID: 400004, guid: 27cc6929230af124eb1bc8878a3c180b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 27cc6929230af124eb1bc8878a3c180b, type: 3}
   m_IsPrefabParent: 0
@@ -13231,7 +13238,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 817042867}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.86, y: -0.49, z: -7.67}
   m_LocalScale: {x: 6.66667, y: 6.6666727, z: 6.6666727}
   m_Children: []
   m_Father: {fileID: 647174921}
@@ -13476,7 +13483,8 @@ MonoBehaviour:
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 214
   instantiationId: 214
@@ -15885,7 +15893,8 @@ MonoBehaviour:
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 215
   instantiationId: 215
@@ -16433,7 +16442,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400004, guid: 27cc6929230af124eb1bc8878a3c180b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.9062862
+      value: 2.82
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 27cc6929230af124eb1bc8878a3c180b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -16441,7 +16450,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 27cc6929230af124eb1bc8878a3c180b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -5.8687773
+      value: -5.872
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 27cc6929230af124eb1bc8878a3c180b, type: 3}
       propertyPath: m_LocalRotation.x
@@ -16477,11 +16486,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 27cc6929230af124eb1bc8878a3c180b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.5
+      value: 5.231041
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 27cc6929230af124eb1bc8878a3c180b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.5000015
+      value: 5.4140253
       objectReference: {fileID: 0}
     - target: {fileID: 2300002, guid: 27cc6929230af124eb1bc8878a3c180b, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -20813,7 +20822,8 @@ MonoBehaviour:
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 184
   instantiationId: 184
@@ -21772,6 +21782,22 @@ Prefab:
       propertyPath: m_StaticEditorFlags
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 895677abd32ccc54c9f2640af8f2fb8d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 88f00585240baa247b2203aa6e54e79e, type: 2}
+    - target: {fileID: 2300002, guid: 895677abd32ccc54c9f2640af8f2fb8d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 88f00585240baa247b2203aa6e54e79e, type: 2}
+    - target: {fileID: 2300004, guid: 895677abd32ccc54c9f2640af8f2fb8d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 88f00585240baa247b2203aa6e54e79e, type: 2}
+    - target: {fileID: 2300006, guid: 895677abd32ccc54c9f2640af8f2fb8d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 88f00585240baa247b2203aa6e54e79e, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 895677abd32ccc54c9f2640af8f2fb8d, type: 3}
   m_IsPrefabParent: 0
@@ -21864,7 +21890,8 @@ MonoBehaviour:
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 209
   instantiationId: 209
@@ -21901,7 +21928,8 @@ MonoBehaviour:
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 210
   instantiationId: 210
@@ -21938,7 +21966,8 @@ MonoBehaviour:
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 211
   instantiationId: 211
@@ -21975,7 +22004,8 @@ MonoBehaviour:
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 212
   instantiationId: 212
@@ -29342,6 +29372,7 @@ GameObject:
   - component: {fileID: 1767547784}
   - component: {fileID: 1767547786}
   - component: {fileID: 1767547785}
+  - component: {fileID: 1767547787}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -29405,6 +29436,18 @@ AudioListener:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1767547783}
   m_Enabled: 1
+--- !u!114 &1767547787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1767547783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: a9528bacaeb0c4042962a4decad060d0, type: 2}
 --- !u!1001 &1780871493
 Prefab:
   m_ObjectHideFlags: 0
@@ -34772,7 +34815,8 @@ MonoBehaviour:
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 143
   instantiationId: 143
@@ -35138,7 +35182,7 @@ Prefab:
     - target: {fileID: 2300100, guid: 3d369300939814051853ac0c2a635413, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a23c27f4fc7934062a3855728a589787, type: 2}
+      objectReference: {fileID: 2100000, guid: cb49d2d276c9e624db4a7a5b8a3d6232, type: 2}
     - target: {fileID: 2300098, guid: 3d369300939814051853ac0c2a635413, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -35158,7 +35202,7 @@ Prefab:
     - target: {fileID: 2300090, guid: 3d369300939814051853ac0c2a635413, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: da1787de9ecc84c5d80846b5a5fc5619, type: 2}
+      objectReference: {fileID: 2100000, guid: a23c27f4fc7934062a3855728a589787, type: 2}
     - target: {fileID: 2300078, guid: 3d369300939814051853ac0c2a635413, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -35286,7 +35330,7 @@ Prefab:
     - target: {fileID: 2300026, guid: 3d369300939814051853ac0c2a635413, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4da8cbdf7a0d48248a85d0bba34cf6ba, type: 2}
+      objectReference: {fileID: 2100000, guid: 88f00585240baa247b2203aa6e54e79e, type: 2}
     - target: {fileID: 2300054, guid: 3d369300939814051853ac0c2a635413, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -35294,7 +35338,7 @@ Prefab:
     - target: {fileID: 2300056, guid: 3d369300939814051853ac0c2a635413, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 4da8cbdf7a0d48248a85d0bba34cf6ba, type: 2}
+      objectReference: {fileID: 2100000, guid: 88f00585240baa247b2203aa6e54e79e, type: 2}
     - target: {fileID: 2300036, guid: 3d369300939814051853ac0c2a635413, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -35663,6 +35707,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 97527c8307f334eccb1ebcb8ee8477c9, type: 2}
+    - target: {fileID: 100106, guid: 3d369300939814051853ac0c2a635413, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3d369300939814051853ac0c2a635413, type: 3}
   m_IsPrefabParent: 0
@@ -37602,7 +37650,8 @@ MonoBehaviour:
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 129
   instantiationId: 129
@@ -37653,7 +37702,8 @@ MonoBehaviour:
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 127
   instantiationId: 127
@@ -37764,7 +37814,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1944993128}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.859998, y: -0.49, z: 7.7}
   m_LocalScale: {x: 6.6666675, y: 6.6666727, z: 6.6666727}
   m_Children: []
   m_Father: {fileID: 342959089}
@@ -38827,7 +38877,8 @@ MonoBehaviour:
   onSerializeTransformOption: 3
   onSerializeRigidBodyOption: 2
   ownershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   ObservedComponentsFoldoutOpen: 1
   viewIdField: 185
   instantiationId: 185
