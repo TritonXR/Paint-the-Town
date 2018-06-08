@@ -36,13 +36,13 @@ public class ArcTeleporter : MonoBehaviour {
 			return; 
 		}
 
-        //bool currentTriggerState = OVRInput.Get (OVRInput.Button.PrimaryIndexTrigger);
-        bool currentTriggerState = Input.GetMouseButtonDown(0);
-        Debug.Log(currentTriggerState);
+        bool currentTriggerState = OVRInput.Get (OVRInput.Button.PrimaryIndexTrigger);
+        //bool currentTriggerState = Input.GetMouseButtonDown(0);
+        //Debug.Log(currentTriggerState);
 
         // If the trigger was released this frame
         if (lastTriggerState && !currentTriggerState) {
-            Debug.Log("trying to move");
+            //Debug.Log("trying to move");
 			Vector3 forward = objectToMove.forward;
 			Vector3 up = Vector3.up;
 
@@ -69,12 +69,12 @@ public class ArcTeleporter : MonoBehaviour {
 	OVRInput.Controller Controller {
 		get {
 			OVRInput.Controller controllers = OVRInput.GetConnectedControllers ();
-			if ((controllers & OVRInput.Controller.LTrackedRemote) == OVRInput.Controller.LTrackedRemote) {
-				return OVRInput.Controller.LTrackedRemote;
+			if ((controllers & OVRInput.Controller.LTouch) == OVRInput.Controller.LTouch) {
+				return OVRInput.Controller.LTouch;
 			}
-			if ((controllers & OVRInput.Controller.RTrackedRemote) == OVRInput.Controller.RTrackedRemote) {
-				return OVRInput.Controller.RTrackedRemote;
-			}
+			/*if ((controllers & OVRInput.Controller.RTouch) == OVRInput.Controller.RTouch) {
+				return OVRInput.Controller.RTouch;
+			}*/
 			return OVRInput.Controller.None;
 		}
 	}
@@ -82,12 +82,12 @@ public class ArcTeleporter : MonoBehaviour {
 	bool HasController {
 		get {
 			OVRInput.Controller controllers = OVRInput.GetConnectedControllers ();
-			if ((controllers & OVRInput.Controller.LTrackedRemote) == OVRInput.Controller.LTrackedRemote) {
+			if ((controllers & OVRInput.Controller.LTouch) == OVRInput.Controller.LTouch) {
 				return true;
 			}
-			if ((controllers & OVRInput.Controller.RTrackedRemote) == OVRInput.Controller.RTrackedRemote) {
+			/*if ((controllers & OVRInput.Controller.RTouch) == OVRInput.Controller.RTouch) {
 				return true;
-			}
+			}*/
 			return false;
 		}
 	}

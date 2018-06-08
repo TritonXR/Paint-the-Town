@@ -20,6 +20,9 @@ public class ControllerInput : MonoBehaviour
     public GameObject joinButton;
     public GameObject pauseScreen;
     public GameObject eyeCenter;
+    public Transform cursor;
+
+    public LineRenderer rightLine;
 
     RayCastObject prev;
     RayCastObject curr;
@@ -46,18 +49,20 @@ public class ControllerInput : MonoBehaviour
     private RaycastHit hit;
     private PhotonView photonView;
 
+    private RaycastHit pointerHit;
+
     // Use this for initialization
     void Start()
     {
         paused = false;
         photonView = GetComponentInParent<PhotonView>();
-
+        rightLine.enabled = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
 
         //TODO add a line to visualize the raycast
 
@@ -66,15 +71,27 @@ public class ControllerInput : MonoBehaviour
             (!OVRInput.Get(OVRInput.Touch.SecondaryIndexTrigger) && !OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger) && OVRInput.Get(OVRInput.Button.SecondaryHandTrigger)))
         { */
 
-        if (OVRInput.Get (OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get (OVRInput.Button.SecondaryIndexTrigger)) {
+        
+        //Debug.DrawLine(controllerTransform.transform.forward, controllerTransform.transform.forward * 3, Color.blue);
+
+        Physics.Raycast(controllerTransform.position, controllerTransform.forward, out pointerHit);
+
+        cursor.position = pointerHit.point;
+        //cursor.rotation = Quaternion.FromToRotation(Vector3.up, pointerHit.normal);
+
+        rightLine.SetPosition(0, controllerTransform.position);
+        rightLine.SetPosition(1, cursor.position); 
+
+        if (OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger)) {
 			//Debug.Log("press");
 
 			//Change raycast so that ut us outside of the controller check because ti should be active every time         
 
-			if (Physics.Raycast (controllerTransform.position, controllerTransform.forward, out hit) ||
-			             Physics.Raycast (lefthand.transform.position, lefthand.transform.forward, out hit)) {
+			if (Physics.Raycast (controllerTransform.position, controllerTransform.forward, out hit) /*||
+			             Physics.Raycast (lefthand.transform.position, lefthand.transform.forward, out hit)*/) {
 				hitCurr = true;
-
+                
+                
 				if (hit.collider.GetComponent<UIClick> () != null) {
 					//add sound effect here
 
@@ -193,6 +210,7 @@ public class ControllerInput : MonoBehaviour
 
 						//Change rpc calls right here
 
+                        
 						photonView.RPC ("paintWithTex", PhotonTargets.AllBuffered, photonView.viewID, "_Red", pixelUV.x, pixelUV.y, lastX, lastY, hitLast, hitCurr);
 
 						this.lastX = (float)pixelUV.x;
@@ -205,7 +223,7 @@ public class ControllerInput : MonoBehaviour
 							hitLast = true;
 						}
 
-						photonView.TransferOwnership (-1);
+						//photonView.TransferOwnership (-1);
 					}
 				}
 

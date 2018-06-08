@@ -11,7 +11,14 @@ public class ButtonRaycast : RayCastObject {
 
 	public override void OnRayCast(RaycastHit objHit)
     {
-
+        if (OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
+        {
+            Button currButton = objHit.collider.GetComponent<Button>();
+            if (currButton  != null)
+            {
+                currButton.onClick.Invoke();  
+            }
+        }
     }
 
     public override void OnRayCastEnter(RaycastHit objHit)
@@ -26,8 +33,10 @@ public class ButtonRaycast : RayCastObject {
 
     public override void OnRayCastExit()
     {
-
-        ColorBlock cb = uiButton.colors;
-        cb.normalColor = origColor;
+        if (uiButton != null)
+        {
+            ColorBlock cb = uiButton.colors;
+            cb.normalColor = origColor;
+        }
     }
 }

@@ -14,10 +14,11 @@ public class StatueScript : MonoBehaviour {
 	void Update () {
         if (statueColorable.curState == state.D)
         {
-            if(PhotonNetwork.isMasterClient)
+            if (PhotonNetwork.isMasterClient)
             {
                 PhotonNetwork.LoadLevel("Prototype Scene - PreMaster");
             }
+
         }
 	}
 }

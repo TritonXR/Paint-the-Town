@@ -12,6 +12,8 @@ public class BezierRaycaster : ArcRaycaster {
 	[Tooltip("How many segments to use for curve, must be at least 3. More segments = better quality")]
 	public int segments = 10;
 
+    private bool wallHit;
+
 	// Where the curve ends
 	public Vector3 End { get; protected set; }
 
@@ -31,6 +33,8 @@ public class BezierRaycaster : ArcRaycaster {
 		if (trackingSpace == null) {
 			Debug.LogError ("Tracking MUST BE set for BezierRaycaster");
 		}
+
+        wallHit = false;
 	}
 
 	void Update () {
@@ -47,15 +51,21 @@ public class BezierRaycaster : ArcRaycaster {
 
 			if (Physics.Linecast(last, sample, out hit, ~excludeLayers)) {
 				float angle = Vector3.Angle(Vector3.up, hit.normal);
-				if (angle < surfaceAngle) {
+				if (angle < surfaceAngle && !(hit.collider.gameObject.layer == 8) && !wallHit) {
 					HitPoint = hit.point;
 					Normal = hit.normal;
 					MakingContact = true;
 				}
+                else
+                {
+                    wallHit = true;
+                }
 			}
 
 			last = sample;
 		}
+
+        wallHit = false;
 
 	}
 

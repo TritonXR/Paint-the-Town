@@ -63,11 +63,11 @@ public class ArcVisualizer : MonoBehaviour {
 	OVRInput.Controller Controller {
 		get {
 			OVRInput.Controller controllers = OVRInput.GetConnectedControllers ();
-			if ((controllers & OVRInput.Controller.LTrackedRemote) == OVRInput.Controller.LTrackedRemote) {
-				return OVRInput.Controller.LTrackedRemote;
+			if ((controllers & OVRInput.Controller.LTouch) == OVRInput.Controller.LTouch) {
+				return OVRInput.Controller.LTouch;
 			}
-			if ((controllers & OVRInput.Controller.RTrackedRemote) == OVRInput.Controller.RTrackedRemote) {
-				return OVRInput.Controller.RTrackedRemote;
+			if ((controllers & OVRInput.Controller.RTouch) == OVRInput.Controller.RTouch) {
+				return OVRInput.Controller.RTouch;
 			}
 			return OVRInput.Controller.None;
 		}
@@ -105,10 +105,10 @@ public class ArcVisualizer : MonoBehaviour {
 	bool HasController {
 		get {
 			OVRInput.Controller controllers = OVRInput.GetConnectedControllers ();
-			if ((controllers & OVRInput.Controller.LTrackedRemote) == OVRInput.Controller.LTrackedRemote) {
+			if ((controllers & OVRInput.Controller.LTouch) == OVRInput.Controller.LTouch) {
 				return true;
 			}
-			if ((controllers & OVRInput.Controller.RTrackedRemote) == OVRInput.Controller.RTrackedRemote) {
+			if ((controllers & OVRInput.Controller.RTouch) == OVRInput.Controller.RTouch) {
 				return true;
 			}
 			return false;
